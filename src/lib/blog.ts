@@ -25,7 +25,7 @@ export function getAllPosts(): BlogPost[] {
         excerpt: data.excerpt || content.slice(0, 150) + '...',
         content,
         date: data.date || new Date().toISOString(),
-        author: data.author || 'Anonymous',
+
         tags: data.tags || [],
         category: data.category || 'Uncategorized',
         readTime: Math.ceil(content.split(' ').length / 200),
@@ -48,7 +48,7 @@ export function getPostBySlug(slug: string): BlogPost | null {
       excerpt: data.excerpt || content.slice(0, 150) + '...',
       content,
       date: data.date || new Date().toISOString(),
-      author: data.author || 'Anonymous',
+
       tags: data.tags || [],
       category: data.category || 'Uncategorized',
       readTime: Math.ceil(content.split(' ').length / 200),

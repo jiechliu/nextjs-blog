@@ -2,7 +2,7 @@
 title: "使用 Next.js 构建现代博客系统完整教程"
 excerpt: "从零开始，使用 Next.js、TypeScript 和 Tailwind CSS 构建一个功能完整的博客系统。包含文章管理、分类标签、响应式设计等核心功能。"
 date: "2024-01-10"
-author: "张开发"
+
 category: "前端开发"
 tags: ["Next.js", "React", "TypeScript", "Tailwind CSS", "博客开发"]
 featured: true

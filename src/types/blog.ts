@@ -4,7 +4,6 @@ export interface BlogPost {
   excerpt: string;
   content: string;
   date: string;
-  author: string;
   tags: string[];
   category: string;
   readTime: number;
@@ -23,13 +22,3 @@ export interface Tag {
   count: number;
 }
 
-export interface Author {
-  name: string;
-  bio: string;
-  avatar?: string;
-  social?: {
-    github?: string;
-    twitter?: string;
-    linkedin?: string;
-  };
-}

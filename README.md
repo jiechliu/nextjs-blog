@@ -61,7 +61,7 @@ yarn start
 title: "文章标题"
 excerpt: "文章摘要"
 date: "2024-01-15"
-author: "作者名称"
+
 category: "分类"
 tags: ["标签1", "标签2"]
 featured: false
@@ -76,7 +76,7 @@ featured: false
 - `title`: 文章标题
 - `excerpt`: 文章摘要（可选，自动截取前150字符）
 - `date`: 发布日期
-- `author`: 作者
+
 - `category`: 分类
 - `tags`: 标签数组
 - `featured`: 是否为精选文章

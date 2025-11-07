@@ -26,8 +26,6 @@ const PostCard: React.FC<PostCardProps> = ({ post, featured = false }) => {
           })}
         </time>
         <span className="mx-2">•</span>
-        <span>{post.author}</span>
-        <span className="mx-2">•</span>
         <span>{post.readTime} 分钟阅读</span>
       </div>
 
@@ -43,15 +41,15 @@ const PostCard: React.FC<PostCardProps> = ({ post, featured = false }) => {
         {post.excerpt}
       </p>
 
-      <div className="flex items-center justify-between">
-        <div className="flex flex-wrap items-center gap-2">
+      <div className="flex items-center justify-between gap-4">
+        <div className="flex flex-wrap items-center gap-2 flex-1 min-w-0">
           <Link
             href={`/categories/${encodeURIComponent(post.category.toLowerCase().replace(/\s+/g, '-'))}`}
-            className="inline-block bg-gray-100 text-gray-700 text-sm px-3 py-1 rounded-full hover:bg-gray-200 transition-colors"
+            className="inline-flex items-center bg-gray-100 text-gray-700 text-sm px-3 py-1 rounded-full hover:bg-gray-200 transition-colors"
           >
             {post.category}
           </Link>
-          {post.tags.slice(0, 3).map((tag) => (
+          {post.tags.slice(0, 2).map((tag) => (
             <Link
               key={tag}
               href={`/tags/${encodeURIComponent(tag.toLowerCase().replace(/\s+/g, '-'))}`}
@@ -60,11 +58,16 @@ const PostCard: React.FC<PostCardProps> = ({ post, featured = false }) => {
               {tag}
             </Link>
           ))}
+          {post.tags.length > 2 && (
+            <span className="inline-flex items-center text-xs text-gray-400 px-2 py-1">
+              +{post.tags.length - 2}
+            </span>
+          )}
         </div>
 
         <Link
           href={`/posts/${post.slug}`}
-          className="text-blue-600 hover:text-blue-700 font-medium text-sm transition-colors"
+          className="text-blue-600 hover:text-blue-700 font-medium text-sm transition-colors whitespace-nowrap flex-shrink-0"
         >
           阅读更多 →
         </Link>

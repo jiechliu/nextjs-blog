@@ -39,7 +39,7 @@ export async function generateMetadata({ params }: PostPageProps) {
       description: post.excerpt,
       type: 'article',
       publishedTime: post.date,
-      authors: [post.author],
+
     },
   };
 }

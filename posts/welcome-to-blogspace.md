@@ -2,7 +2,7 @@
 title: "欢迎来到 BlogSpace - 开启你的技术分享之旅"
 excerpt: "BlogSpace 是一个专注于技术分享的现代博客平台。本文将介绍平台的特色功能和使用方法，助你快速上手。"
 date: "2024-01-15"
-author: "BlogSpace Team"
+
 category: "平台介绍"
 tags: ["BlogSpace", "技术博客", "Next.js", "React"]
 featured: true
