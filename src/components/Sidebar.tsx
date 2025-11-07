@@ -80,7 +80,7 @@ const Sidebar = () => {
       {tags.length > 0 && (
         <div className="card p-6">
           <h3 className="text-lg font-semibold mb-4">热门标签</h3>
-          <div className="flex flex-wrap">
+          <div className="flex flex-wrap gap-2">
             {tags.slice(0, 15).map((tag) => (
               <Link
                 key={tag.slug}
