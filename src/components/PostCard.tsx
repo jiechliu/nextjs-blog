@@ -46,7 +46,7 @@ const PostCard: React.FC<PostCardProps> = ({ post, featured = false }) => {
       <div className="flex items-center justify-between">
         <div className="flex flex-wrap items-center gap-2">
           <Link
-            href={`/categories/${post.category.toLowerCase().replace(/\s+/g, '-')}`}
+            href={`/categories/${encodeURIComponent(post.category.toLowerCase().replace(/\s+/g, '-'))}`}
             className="inline-block bg-gray-100 text-gray-700 text-sm px-3 py-1 rounded-full hover:bg-gray-200 transition-colors"
           >
             {post.category}
@@ -54,7 +54,7 @@ const PostCard: React.FC<PostCardProps> = ({ post, featured = false }) => {
           {post.tags.slice(0, 3).map((tag) => (
             <Link
               key={tag}
-              href={`/tags/${tag.toLowerCase().replace(/\s+/g, '-')}`}
+              href={`/tags/${encodeURIComponent(tag.toLowerCase().replace(/\s+/g, '-'))}`}
               className="tag"
             >
               {tag}

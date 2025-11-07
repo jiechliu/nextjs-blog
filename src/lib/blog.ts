@@ -84,7 +84,7 @@ export function getAllCategories(): Category[] {
 
   return Object.entries(categoryCount).map(([name, count]) => ({
     name,
-    slug: name.toLowerCase().replace(/\s+/g, '-'),
+    slug: encodeURIComponent(name.toLowerCase().replace(/\s+/g, '-')),
     count,
   }));
 }
@@ -101,7 +101,7 @@ export function getAllTags(): Tag[] {
 
   return Object.entries(tagCount).map(([name, count]) => ({
     name,
-    slug: name.toLowerCase().replace(/\s+/g, '-'),
+    slug: encodeURIComponent(name.toLowerCase().replace(/\s+/g, '-')),
     count,
   }));
 }

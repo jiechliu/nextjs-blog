@@ -1,8 +1,13 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
-import ReactMarkdown from 'react-markdown';
 import { getPostBySlug, getAllPosts } from '@/lib/blog';
-import Sidebar from '@/components/Sidebar';
+import JuejinStyleTOC from '@/components/JuejinStyleTOC';
+import RelatedPosts from '@/components/RelatedPosts';
+import StickySidebar from '@/components/StickySidebar';
+import SimpleMobileTOC from '@/components/SimpleMobileTOC';
+import MarkdownRenderer from '@/components/MarkdownRenderer';
+import ReadingProgress from '@/components/ReadingProgress';
+import GiscusComments from '@/components/GiscusComments';
 
 interface PostPageProps {
   params: {
@@ -47,16 +52,20 @@ export default function PostPage({ params }: PostPageProps) {
   }
 
   return (
-    <div className="container-custom py-8">
-      <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
-        {/* Main Content */}
-        <div className="lg:col-span-3">
-          <article className="card p-8">
+    <div className="bg-gray-50 min-h-screen">
+      <ReadingProgress />
+      <SimpleMobileTOC content={post.content} />
+      
+      <div className="container-custom py-8">
+        <div className="grid grid-cols-1 xl:grid-cols-4 gap-8 max-w-7xl mx-auto">
+          {/* Main Content */}
+          <div className="xl:col-span-3">
+            <article className="bg-white rounded-lg shadow-sm border border-gray-200 p-8">
             {/* Article Header */}
             <header className="mb-8">
               <div className="flex items-center text-sm text-gray-500 mb-4">
                 <Link 
-                  href={`/categories/${post.category.toLowerCase().replace(/\s+/g, '-')}`}
+                  href={`/categories/${encodeURIComponent(post.category.toLowerCase().replace(/\s+/g, '-'))}`}
                   className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full hover:bg-blue-200 transition-colors"
                 >
                   {post.category}
@@ -77,17 +86,7 @@ export default function PostPage({ params }: PostPageProps) {
                 {post.title}
               </h1>
 
-              <div className="flex items-center text-gray-600 mb-6">
-                <div className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center mr-3">
-                  <span className="text-white font-semibold">
-                    {post.author[0]}
-                  </span>
-                </div>
-                <div>
-                  <p className="font-medium">{post.author}</p>
-                  <p className="text-sm text-gray-500">作者</p>
-                </div>
-              </div>
+
 
               {/* Tags */}
               {post.tags.length > 0 && (
@@ -95,7 +94,7 @@ export default function PostPage({ params }: PostPageProps) {
                   {post.tags.map((tag) => (
                     <Link
                       key={tag}
-                      href={`/tags/${tag.toLowerCase().replace(/\s+/g, '-')}`}
+                      href={`/tags/${encodeURIComponent(tag.toLowerCase().replace(/\s+/g, '-'))}`}
                       className="tag"
                     >
                       {tag}
@@ -106,9 +105,7 @@ export default function PostPage({ params }: PostPageProps) {
             </header>
 
             {/* Article Content */}
-            <div className="prose prose-lg max-w-none">
-              <ReactMarkdown>{post.content}</ReactMarkdown>
-            </div>
+            <MarkdownRenderer content={post.content} />
 
             {/* Article Footer */}
             <footer className="mt-12 pt-8 border-t border-gray-200">
@@ -134,12 +131,22 @@ export default function PostPage({ params }: PostPageProps) {
                 </Link>
               </div>
             </footer>
-          </article>
-        </div>
+            </article>
 
-        {/* Sidebar */}
-        <div className="lg:col-span-1">
-          <Sidebar />
+            {/* 评论区域 */}
+            <GiscusComments slug={post.slug} />
+          </div>
+
+          {/* Sticky Sidebar - Desktop Only */}
+          <div className="hidden xl:block xl:col-span-1">
+            <StickySidebar>
+              {/* 目录 */}
+              <JuejinStyleTOC content={post.content} maxItems={8} />
+              
+              {/* 相关推荐 */}
+              <RelatedPosts currentPost={post} maxPosts={5} />
+            </StickySidebar>
+          </div>
         </div>
       </div>
     </div>
