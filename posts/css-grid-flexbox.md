@@ -7,8 +7,6 @@ category: "前端开发"
 tags: ["CSS", "Grid", "Flexbox", "布局", "响应式设计"]
 ---
 
-# CSS Grid 与 Flexbox：现代布局技术
-
 CSS Grid 和 Flexbox 是现代 CSS 布局的两大核心技术。理解它们的差异和适用场景，能让你构建更灵活、更强大的网页布局。
 
 ## 🤔 Grid vs Flexbox：何时使用？

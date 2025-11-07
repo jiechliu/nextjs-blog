@@ -8,8 +8,6 @@ tags: ["BlogSpace", "技术博客", "Next.js", "React"]
 featured: true
 ---
 
-# 欢迎来到 BlogSpace
-
 BlogSpace 是一个基于 Next.js 和 TypeScript 构建的现代化技术博客平台。我们致力于为开发者提供一个优雅、高效的内容分享环境。
 
 ## 🚀 平台特色

@@ -7,8 +7,6 @@ category: "后端开发"
 tags: ["TypeScript", "JavaScript", "类型安全", "最佳实践"]
 ---
 
-# TypeScript 最佳实践
-
 TypeScript 为 JavaScript 带来了静态类型检查，让我们能够在编译时发现错误，提升代码的可维护性和可靠性。
 
 ## 🎯 基础类型使用
