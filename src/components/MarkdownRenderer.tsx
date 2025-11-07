@@ -1,6 +1,7 @@
 'use client';
 
 import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { oneDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import { ReactNode, useState } from 'react';
@@ -106,6 +107,7 @@ const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content }) => {
   return (
     <div className="prose prose-lg max-w-none prose-headings:text-gray-900 prose-p:text-gray-700 prose-p:leading-7 prose-strong:text-gray-900 prose-em:text-gray-600">
       <ReactMarkdown
+        remarkPlugins={[remarkGfm]}
         components={{
           h1: ({ children, ...props }) => {
             const text = toString(children);
@@ -206,7 +208,7 @@ const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content }) => {
           // 自定义表格样式
           table: ({ children, ...props }) => (
             <div className="overflow-x-auto my-6 rounded-lg border border-gray-200 shadow-sm">
-              <table className="min-w-full divide-y divide-gray-200" {...props}>
+              <table className="w-full table-auto border-collapse" {...props}>
                 {children}
               </table>
             </div>
@@ -216,13 +218,23 @@ const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content }) => {
               {children}
             </thead>
           ),
+          tbody: ({ children, ...props }) => (
+            <tbody className="bg-white divide-y divide-gray-100" {...props}>
+              {children}
+            </tbody>
+          ),
+          tr: ({ children, ...props }) => (
+            <tr className="hover:bg-gray-50 transition-colors" {...props}>
+              {children}
+            </tr>
+          ),
           th: ({ children, ...props }) => (
-            <th className="px-6 py-4 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider border-b border-gray-200" {...props}>
+            <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700 border-b border-gray-200" {...props}>
               {children}
             </th>
           ),
           td: ({ children, ...props }) => (
-            <td className="px-6 py-4 text-sm text-gray-900 border-b border-gray-100 last:border-b-0" {...props}>
+            <td className="px-4 py-3 text-sm text-gray-900" {...props}>
               {children}
             </td>
           ),
