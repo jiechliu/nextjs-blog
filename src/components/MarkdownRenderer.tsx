@@ -104,6 +104,13 @@ const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content }) => {
       .trim();
   };
 
+  // 不进行预处理，保持原始内容
+  const preprocessContent = (content: string) => {
+    return content;
+  };
+
+  const processedContent = preprocessContent(content);
+
   return (
     <div className="prose prose-lg max-w-none prose-headings:text-gray-900 prose-p:text-gray-700 prose-p:leading-7 prose-strong:text-gray-900 prose-em:text-gray-600">
       <ReactMarkdown
@@ -250,14 +257,14 @@ const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content }) => {
             </ol>
           ),
           li: ({ children, ...props }) => (
-            <li className="flex items-start" {...props}>
-              <span className="inline-block w-1.5 h-1.5 rounded-full bg-blue-500 mt-2 mr-3 flex-shrink-0"></span>
+            <li className="flex items-center" {...props}>
+              <span className="inline-block w-1.5 h-1.5 rounded-full bg-blue-500 mr-3 flex-shrink-0"></span>
               <span className="flex-1">{children}</span>
             </li>
           ),
         }}
       >
-        {content}
+        {processedContent}
       </ReactMarkdown>
     </div>
   );
