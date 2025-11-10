@@ -23,12 +23,12 @@ export async function generateMetadata({ params }: CategoryPageProps) {
   
   if (!category) {
     return {
-      title: '分类未找到 - BlogSpace',
+      title: '分类未找到 - JieCheng.Dev',
     };
   }
 
   return {
-    title: `${category.name} - 分类 - BlogSpace`,
+    title: `${category.name} - 分类 - JieCheng.Dev`,
     description: `浏览 ${category.name} 分类下的所有技术文章`,
   };
 }

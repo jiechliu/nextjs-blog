@@ -3,7 +3,7 @@ import PostCard from '@/components/PostCard';
 import Sidebar from '@/components/Sidebar';
 
 export const metadata = {
-  title: '所有文章 - BlogSpace',
+  title: '所有文章 - JieCheng.Dev',
   description: '浏览所有技术文章和教程',
 };
 

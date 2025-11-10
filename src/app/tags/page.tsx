@@ -3,7 +3,7 @@ import { getAllTags } from '@/lib/blog';
 import Sidebar from '@/components/Sidebar';
 
 export const metadata = {
-  title: '标签云 - BlogSpace',
+  title: '标签云 - JieCheng.Dev',
   description: '按标签浏览技术文章',
 };
 

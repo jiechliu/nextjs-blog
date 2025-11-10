@@ -1,14 +1,14 @@
 ---
-title: "欢迎来到 BlogSpace - 开启你的技术分享之旅"
-excerpt: "BlogSpace 是一个专注于技术分享的现代博客平台。本文将介绍平台的特色功能和使用方法，助你快速上手。"
+title: "欢迎来到 JieCheng.Dev - 开启你的技术分享之旅"
+excerpt: "JieCheng.Dev 是一个专注于技术分享的现代博客平台。本文将介绍平台的特色功能和使用方法，助你快速上手。"
 date: "2024-01-15"
 
 category: "平台介绍"
-tags: ["BlogSpace", "技术博客", "Next.js", "React"]
+tags: ["JieCheng.Dev", "技术博客", "Next.js", "React"]
 featured: true
 ---
 
-BlogSpace 是一个基于 Next.js 和 TypeScript 构建的现代化技术博客平台。我们致力于为开发者提供一个优雅、高效的内容分享环境。
+JieCheng.Dev 是一个基于 Next.js 和 TypeScript 构建的现代化技术博客平台。我们致力于为开发者提供一个优雅、高效的内容分享环境。
 
 ## 🚀 平台特色
 
@@ -88,4 +88,4 @@ src/
 
 ---
 
-感谢你使用 BlogSpace，让我们一起构建更好的技术社区！
+感谢你使用 JieCheng.Dev，让我们一起构建更好的技术社区！

@@ -23,12 +23,12 @@ export async function generateMetadata({ params }: TagPageProps) {
   
   if (!tag) {
     return {
-      title: '标签未找到 - BlogSpace',
+      title: '标签未找到 - JieCheng.Dev',
     };
   }
 
   return {
-    title: `${tag.name} - 标签 - BlogSpace`,
+    title: `${tag.name} - 标签 - JieCheng.Dev`,
     description: `浏览标签为 ${tag.name} 的所有技术文章`,
   };
 }

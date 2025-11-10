@@ -1,8 +1,8 @@
 import Sidebar from '@/components/Sidebar';
 
 export const metadata = {
-  title: '关于我们 - BlogSpace',
-  description: 'BlogSpace 技术博客平台介绍',
+  title: '关于我们 - JieCheng.Dev',
+  description: 'JieCheng.Dev 技术博客平台介绍',
 };
 
 export default function AboutPage() {
@@ -14,7 +14,7 @@ export default function AboutPage() {
           <article className="card p-8">
             <header className="mb-8">
               <h1 className="text-4xl font-bold text-gray-900 mb-4">
-                关于 BlogSpace
+                关于 JieCheng.Dev
               </h1>
               <p className="text-xl text-gray-600">
                 专注于技术分享和学习交流的博客平台
@@ -24,7 +24,7 @@ export default function AboutPage() {
             <div className="prose prose-lg max-w-none">
               <h2>我们的使命</h2>
               <p>
-                BlogSpace 致力于为开发者提供一个高质量的技术分享平台。我们相信知识的力量，
+                JieCheng.Dev 致力于为开发者提供一个高质量的技术分享平台。我们相信知识的力量，
                 通过分享经验、教程和最佳实践，帮助更多的开发者成长和进步。
               </p>
 
@@ -52,9 +52,9 @@ export default function AboutPage() {
                 如果你有任何问题、建议或想要投稿，欢迎通过以下方式联系我们：
               </p>
               <ul>
-                <li>邮箱：hello@blogspace.com</li>
-                <li>微信：BlogSpace2024</li>
-                <li>GitHub：@blogspace</li>
+                <li>邮箱：1801256646ljc@gmail.com</li>
+                <li>微信：JieCheng.Dev2024</li>
+                <li>GitHub：@JieCheng.Dev</li>
               </ul>
 
               <h2>加入我们</h2>

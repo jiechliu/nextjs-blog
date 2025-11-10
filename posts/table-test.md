@@ -1,9 +1,9 @@
 ---
-title: "表格测试"
+title: "表格"
 date: "2024-01-15"
 category: "测试"
 tags: ["Markdown", "表格"]
-excerpt: "测试 Markdown 表格渲染功能"
+excerpt: "Markdown 表格渲染功能"
 readTime: 1
 ---
 

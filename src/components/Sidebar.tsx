@@ -14,7 +14,7 @@ const Sidebar = () => {
           <div className="w-20 h-20 bg-blue-600 rounded-full mx-auto mb-4 flex items-center justify-center">
             <span className="text-white text-2xl font-bold">B</span>
           </div>
-          <h3 className="text-xl font-bold mb-2">BlogSpace</h3>
+          <h3 className="text-xl font-bold mb-2">JieCheng.Dev</h3>
           <p className="text-gray-600 text-sm mb-4">
             专注于分享前端开发、全栈技术和编程实践的技术博客
           </p>

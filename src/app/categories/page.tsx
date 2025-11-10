@@ -3,7 +3,7 @@ import { getAllCategories } from '@/lib/blog';
 import Sidebar from '@/components/Sidebar';
 
 export const metadata = {
-  title: '文章分类 - BlogSpace',
+  title: '文章分类 - JieCheng.Dev',
   description: '按分类浏览技术文章',
 };
 

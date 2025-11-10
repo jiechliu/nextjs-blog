@@ -8,7 +8,7 @@ const Footer = () => {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             {/* About */}
             <div className="col-span-1 md:col-span-2">
-              <h3 className="text-xl font-bold mb-4">BlogSpace</h3>
+              <h3 className="text-xl font-bold mb-4">JieCheng.Dev</h3>
               <p className="text-gray-300 mb-4">
                 一个专注于技术分享和学习交流的博客平台，致力于为开发者提供优质的技术内容和实用教程。
               </p>
@@ -57,8 +57,8 @@ const Footer = () => {
             <div>
               <h4 className="text-lg font-semibold mb-4">联系方式</h4>
               <ul className="space-y-2 text-gray-300">
-                <li>邮箱: hello@blogspace.com</li>
-                <li>微信: BlogSpace2024</li>
+                <li>邮箱: 1801256646ljc@gmail.com</li>
+                <li>微信: JieCheng.Dev2024</li>
               </ul>
             </div>
           </div>
@@ -67,7 +67,7 @@ const Footer = () => {
         <div className="border-t border-gray-800 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-300 text-sm">
-              © 2024 BlogSpace. All rights reserved.
+              © 2024 JieCheng.Dev. All rights reserved.
             </p>
             <p className="text-gray-300 text-sm mt-2 md:mt-0">
               Built with Next.js & TypeScript

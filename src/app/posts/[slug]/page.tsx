@@ -32,7 +32,7 @@ export async function generateMetadata({ params }: PostPageProps) {
   }
 
   return {
-    title: `${post.title} - BlogSpace`,
+    title: `${post.title} - JieCheng.Dev`,
     description: post.excerpt,
     openGraph: {
       title: post.title,

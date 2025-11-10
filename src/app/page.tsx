@@ -12,27 +12,6 @@ export default function HomePage() {
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
         {/* Main Content */}
         <div className="lg:col-span-3">
-          {/* Hero Section */}
-          <section className="mb-12">
-            <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-2xl p-8 md:p-12">
-              <h1 className="text-4xl md:text-5xl font-bold mb-4">
-                欢迎来到 BlogSpace
-              </h1>
-              <p className="text-xl md:text-2xl text-blue-100 mb-6">
-                探索前端技术，分享编程智慧
-              </p>
-              <p className="text-lg text-blue-200 mb-8">
-                这里汇集了最新的技术文章、实用教程和开发经验分享，助你在编程路上更进一步。
-              </p>
-              <a
-                href="#featured"
-                className="inline-block bg-white text-blue-600 font-semibold px-6 py-3 rounded-lg hover:bg-blue-50 transition-colors"
-              >
-                开始阅读
-              </a>
-            </div>
-          </section>
-
           {/* Featured Posts */}
           {featuredPosts.length > 0 && (
             <section id="featured" className="mb-12">

@@ -1,4 +1,4 @@
-# BlogSpace - 现代技术博客平台
+# JieCheng.Dev - 现代技术博客平台
 
 基于 Next.js 14 和 TypeScript 构建的现代化博客平台，专注于技术分享和学习交流。
 
@@ -170,8 +170,8 @@ MIT License - 详见 [LICENSE](LICENSE) 文件。
 
 ## 📞 联系
 
-- 邮箱: hello@blogspace.com
-- 网站: [BlogSpace](https://blogspace.com)
+- 邮箱: 1801256646ljc@gmail.com
+- 网站: [JieCheng.Dev](https://JieCheng.Dev.com)
 
 ---
 

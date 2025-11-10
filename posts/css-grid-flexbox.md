@@ -219,7 +219,7 @@ CSS Grid 和 Flexbox 是现代 CSS 布局的两大核心技术。理解它们的
 <div class="blog-layout">
   <header class="blog-header">
     <nav class="navbar">
-      <div class="nav-brand">BlogSpace</div>
+      <div class="nav-brand">JieCheng.Dev</div>
       <ul class="nav-menu">
         <li><a href="/">首页</a></li>
         <li><a href="/posts">文章</a></li>
@@ -249,7 +249,7 @@ CSS Grid 和 Flexbox 是现代 CSS 布局的两大核心技术。理解它们的
   </main>
   
   <footer class="blog-footer">
-    <p>&copy; 2024 BlogSpace</p>
+    <p>&copy; 2024 JieCheng.Dev</p>
   </footer>
 </div>
 ```
