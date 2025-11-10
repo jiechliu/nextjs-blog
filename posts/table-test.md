@@ -4,7 +4,6 @@ date: "2024-01-15"
 category: "测试"
 tags: ["Markdown", "表格"]
 excerpt: "Markdown 表格渲染功能"
-readTime: 1
 ---
 
 ## 简单表格

@@ -78,8 +78,6 @@ export default function PostPage({ params }: PostPageProps) {
                     day: 'numeric'
                   })}
                 </time>
-                <span className="mx-3">•</span>
-                <span>{post.readTime} 分钟阅读</span>
               </div>
 
               <h1 className="text-4xl font-bold text-gray-900 mb-4">

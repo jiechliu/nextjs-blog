@@ -25,10 +25,8 @@ export function getAllPosts(): BlogPost[] {
         excerpt: data.excerpt || content.slice(0, 150) + '...',
         content,
         date: data.date || new Date().toISOString(),
-
         tags: data.tags || [],
         category: data.category || 'Uncategorized',
-        readTime: Math.ceil(content.split(' ').length / 200),
         featured: data.featured || false,
       } as BlogPost;
     });
@@ -48,10 +46,8 @@ export function getPostBySlug(slug: string): BlogPost | null {
       excerpt: data.excerpt || content.slice(0, 150) + '...',
       content,
       date: data.date || new Date().toISOString(),
-
       tags: data.tags || [],
       category: data.category || 'Uncategorized',
-      readTime: Math.ceil(content.split(' ').length / 200),
       featured: data.featured || false,
     } as BlogPost;
   } catch (error) {

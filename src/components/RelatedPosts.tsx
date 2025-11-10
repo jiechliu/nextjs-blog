@@ -67,8 +67,6 @@ const RelatedPosts: React.FC<RelatedPostsProps> = ({ currentPost, maxPosts = 5 }
                   {post.title}
                 </h4>
                 <div className="mt-1 flex items-center text-xs text-gray-500 space-x-2">
-                  <span>{post.readTime}分钟</span>
-                  <span>•</span>
                   <time dateTime={post.date}>
                     {new Date(post.date).toLocaleDateString('zh-CN', {
                       month: 'numeric',

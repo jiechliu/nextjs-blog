@@ -25,8 +25,6 @@ const PostCard: React.FC<PostCardProps> = ({ post, featured = false }) => {
             day: 'numeric'
           })}
         </time>
-        <span className="mx-2">•</span>
-        <span>{post.readTime} 分钟阅读</span>
       </div>
 
       <Link href={`/posts/${post.slug}`}>
