@@ -1,7 +1,7 @@
 ---
 title: "CSS Grid 与 Flexbox：现代布局技术对比指南"
 excerpt: "深入对比 CSS Grid 和 Flexbox 的特性和使用场景，掌握现代 CSS 布局的核心技术，构建响应式和灵活的网页布局。"
-date: "2024-01-03"
+date: "2025-11-08"
 
 category: "前端开发"
 tags: ["CSS", "Grid", "Flexbox", "布局", "响应式设计"]

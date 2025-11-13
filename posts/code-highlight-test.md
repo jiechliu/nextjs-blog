@@ -1,6 +1,6 @@
 ---
 title: "代码高亮文章"
-date: "2024-01-15"
+date: "2025-11-08"
 category: "技术"
 tags: ["JavaScript", "React", "CSS"]
 excerpt: "博客系统的代码高亮功能，展示各种编程语言的语法高亮效果。"

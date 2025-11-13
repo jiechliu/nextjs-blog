@@ -1,7 +1,7 @@
 ---
 title: "TypeScript 最佳实践：写出更安全的代码"
 excerpt: "掌握 TypeScript 的核心概念和最佳实践，学会使用类型系统来提升代码质量和开发效率。"
-date: "2024-01-05"
+date: "2025-11-08"
 
 category: "后端开发"
 tags: ["TypeScript", "JavaScript", "类型安全", "最佳实践"]
