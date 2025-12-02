@@ -5,7 +5,6 @@ date: "2025-11-08"
 
 category: "前端开发"
 tags: ["Next.js", "React", "TypeScript", "Tailwind CSS", "博客开发"]
-featured: true
 ---
 
 在这个教程中，我们将从零开始构建一个功能完整的博客系统。使用现代前端技术栈，包括 Next.js 14、TypeScript 和 Tailwind CSS。
