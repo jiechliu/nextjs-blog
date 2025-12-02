@@ -4,6 +4,7 @@ excerpt: "详细介绍如何使用Vercel部署前端项目，包括GitHub集成�
 date: "2025-11-13"
 tags: ["Vercel", "部署", "前端", "CI/CD", "域名"]
 category: "部署运维"
+featured: true
 ---
 
 Vercel是一个专为前端框架优化的云平台，提供了极其简单的部署体验。本文将详细介绍如何使用Vercel部署你的前端项目。
