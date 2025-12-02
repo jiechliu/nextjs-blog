@@ -23,7 +23,12 @@ export async function POST(request: Request) {
     });
 
     console.log('AI 响应成功');
-    const text = response.text;
+    const text = response.text || '';
+
+    // 检查是否有有效的回复文本
+    if (!text) {
+      throw new Error('AI 没有返回有效的回复内容');
+    }
 
     // 创建流式响应
     const encoder = new TextEncoder();
