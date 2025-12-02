@@ -34,9 +34,9 @@ const AnimatedBackground = () => {
       pulse: number;
       trail: Array<{x: number, y: number, opacity: number}>;
 
-      constructor() {
-        this.x = Math.random() * canvas.width;
-        this.y = Math.random() * canvas.height;
+      constructor(canvasWidth: number, canvasHeight: number) {
+        this.x = Math.random() * canvasWidth;
+        this.y = Math.random() * canvasHeight;
         this.vx = (Math.random() - 0.5) * 0.8;
         this.vy = (Math.random() - 0.5) * 0.8;
         this.originalSize = Math.random() * 4 + 1;
@@ -53,6 +53,8 @@ const AnimatedBackground = () => {
       }
 
       update() {
+        if (!canvas) return;
+        
         // 添加轨迹点
         this.trail.push({
           x: this.x,
@@ -66,7 +68,7 @@ const AnimatedBackground = () => {
         }
         
         // 更新轨迹透明度
-        this.trail.forEach((point, index) => {
+        this.trail.forEach((point) => {
           point.opacity *= 0.9;
         });
 
@@ -139,8 +141,8 @@ const AnimatedBackground = () => {
       life: number;
       maxLife: number;
 
-      constructor() {
-        this.x = Math.random() * canvas.width;
+      constructor(canvasWidth: number) {
+        this.x = Math.random() * canvasWidth;
         this.y = -50;
         this.vx = (Math.random() - 0.5) * 2;
         this.vy = Math.random() * 3 + 2;
@@ -182,6 +184,7 @@ const AnimatedBackground = () => {
       }
 
       isDead() {
+        if (!canvas) return true;
         return this.life <= 0 || this.y > canvas.height + 50;
       }
     }
@@ -192,7 +195,7 @@ const AnimatedBackground = () => {
     const particleCount = 60;
 
     for (let i = 0; i < particleCount; i++) {
-      particles.push(new Particle());
+      particles.push(new Particle(canvas.width, canvas.height));
     }
 
     // 鼠标位置和光晕效果
@@ -267,11 +270,13 @@ const AnimatedBackground = () => {
 
     // 动画循环
     const animate = () => {
+      if (!ctx || !canvas) return;
+      
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
       // 随机生成流星
       if (Math.random() < 0.003) {
-        meteors.push(new Meteor());
+        meteors.push(new Meteor(canvas.width));
       }
 
       // 更新和绘制流星
