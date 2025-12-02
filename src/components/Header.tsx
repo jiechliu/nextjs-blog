@@ -40,6 +40,9 @@ const Header = () => {
             <Link href="/about" className="nav-link px-4 py-2 rounded-lg hover:bg-white/20 transition-all duration-300">
               👨‍💻 关于
             </Link>
+            <Link href="/ai-chat" className="nav-link px-4 py-2 rounded-lg hover:bg-white/20 transition-all duration-300">
+              🤖 AI助手
+            </Link>
           </nav>
 
           {/* Mobile menu button */}
@@ -95,6 +98,13 @@ const Header = () => {
                 onClick={() => setIsMenuOpen(false)}
               >
                 👨‍💻 关于
+              </Link>
+              <Link 
+                href="/ai-chat" 
+                className="nav-link px-4 py-3 rounded-lg hover:bg-white/20 transition-all duration-300" 
+                onClick={() => setIsMenuOpen(false)}
+              >
+                🤖 AI助手
               </Link>
             </nav>
           </div>
