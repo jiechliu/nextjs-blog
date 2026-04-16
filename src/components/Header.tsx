@@ -1,115 +1,190 @@
 'use client';
 
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { useState } from 'react';
+import { ThemeToggle } from '@/components/ui/ThemeProvider';
+
+const NAV_LINKS = [
+  { href: '/',           label: '首页'  },
+  { href: '/posts',      label: '文章'  },
+  { href: '/categories', label: '分类'  },
+  { href: '/tags',       label: '标签'  },
+  { href: '/about',      label: '关于'  },
+  { href: '/ai-chat',    label: 'AI'    },
+];
 
 const Header = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const pathname = usePathname();
+  const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 backdrop-blur-md bg-white/30 border-b border-white/30 shadow-lg">
+    <header
+      style={{
+        position: 'sticky',
+        top: 0,
+        zIndex: 'var(--z-sticky)' as string,
+        backgroundColor: 'var(--color-bg)',
+        borderBottom: '1px solid var(--color-border-subtle)',
+        transition: `background-color var(--duration-slow) var(--ease-in-out),
+                     border-color var(--duration-slow) var(--ease-in-out)`,
+      }}
+    >
       <div className="container-custom">
-        <div className="flex items-center justify-between h-16">
+        <div
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            height: 56,
+          }}
+        >
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-3 group">
-            <div className="w-10 h-10 relative">
-              <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-blue-400 to-purple-500 group-hover:scale-110 transition-transform duration-300"></div>
-              <div className="absolute inset-1 rounded-md bg-white/20 backdrop-blur-sm flex items-center justify-center">
-                <span className="text-white text-sm font-bold">BC</span>
-              </div>
-            </div>
-            <div className="text-xl font-bold text-gray-800 group-hover:title-gradient transition-all duration-300">
+          <Link
+            href="/"
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: 'var(--space-3)',
+              textDecoration: 'none',
+            }}
+          >
+            {/* Wordmark mark — two stacked squares, referencing "Block" */}
+            <span
+              aria-hidden="true"
+              style={{
+                display: 'grid',
+                gridTemplateColumns: '1fr 1fr',
+                gap: 2,
+                width: 18,
+                height: 18,
+                flexShrink: 0,
+              }}
+            >
+            {[0,1,2,3].map(i => (
+              <span
+                key={i}
+                style={{
+                  backgroundColor: i === 0
+                    ? 'var(--color-accent)'
+                    : i === 3
+                    ? 'var(--color-amber)'
+                    : 'var(--color-border-strong)',
+                  borderRadius: 2,
+                }}
+              />
+            ))}
+            </span>
+            <span
+              style={{
+                fontFamily: 'var(--font-display)',
+                fontWeight: 800,
+                fontSize: 'var(--text-base)',
+                letterSpacing: '-0.04em',
+                color: 'var(--color-text)',
+              }}
+            >
               BlockCoder
-            </div>
+            </span>
           </Link>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-1">
-            <Link href="/" className="nav-link px-4 py-2 rounded-lg hover:bg-white/20 transition-all duration-300">
-              🏠 首页
-            </Link>
-            <Link href="/posts" className="nav-link px-4 py-2 rounded-lg hover:bg-white/20 transition-all duration-300">
-              📚 文章
-            </Link>
-            <Link href="/categories" className="nav-link px-4 py-2 rounded-lg hover:bg-white/20 transition-all duration-300">
-              📁 分类
-            </Link>
-            <Link href="/tags" className="nav-link px-4 py-2 rounded-lg hover:bg-white/20 transition-all duration-300">
-              🏷️ 标签
-            </Link>
-            <Link href="/about" className="nav-link px-4 py-2 rounded-lg hover:bg-white/20 transition-all duration-300">
-              👨‍💻 关于
-            </Link>
-            <Link href="/ai-chat" className="nav-link px-4 py-2 rounded-lg hover:bg-white/20 transition-all duration-300">
-              🤖 AI助手
-            </Link>
+          {/* Desktop nav */}
+          <nav
+            aria-label="主导航"
+            style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-1)' }}
+            className="hidden md:flex"
+          >
+            {NAV_LINKS.map(({ href, label }) => {
+              const isActive =
+                href === '/' ? pathname === '/' : pathname.startsWith(href);
+              return (
+                <Link
+                  key={href}
+                  href={href}
+                  className={`nav-item${isActive ? ' nav-item--active' : ''}`}
+                >
+                  {label}
+                </Link>
+              );
+            })}
           </nav>
 
-          {/* Mobile menu button */}
-          <button
-            className="md:hidden p-2 rounded-lg hover:bg-white/20 transition-all duration-300"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            <svg className="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              {isMenuOpen ? (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              ) : (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              )}
-            </svg>
-          </button>
-        </div>
+          {/* Right actions */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-2)' }}>
+            <ThemeToggle />
 
-        {/* Mobile Navigation */}
-        {isMenuOpen && (
-          <div className="md:hidden py-4 border-t border-white/30 bg-white/20 backdrop-blur-sm rounded-b-lg">
-            <nav className="flex flex-col space-y-2">
-              <Link 
-                href="/" 
-                className="nav-link px-4 py-3 rounded-lg hover:bg-white/20 transition-all duration-300" 
-                onClick={() => setIsMenuOpen(false)}
-              >
-                🏠 首页
-              </Link>
-              <Link 
-                href="/posts" 
-                className="nav-link px-4 py-3 rounded-lg hover:bg-white/20 transition-all duration-300" 
-                onClick={() => setIsMenuOpen(false)}
-              >
-                📚 文章
-              </Link>
-              <Link 
-                href="/categories" 
-                className="nav-link px-4 py-3 rounded-lg hover:bg-white/20 transition-all duration-300" 
-                onClick={() => setIsMenuOpen(false)}
-              >
-                📁 分类
-              </Link>
-              <Link 
-                href="/tags" 
-                className="nav-link px-4 py-3 rounded-lg hover:bg-white/20 transition-all duration-300" 
-                onClick={() => setIsMenuOpen(false)}
-              >
-                🏷️ 标签
-              </Link>
-              <Link 
-                href="/about" 
-                className="nav-link px-4 py-3 rounded-lg hover:bg-white/20 transition-all duration-300" 
-                onClick={() => setIsMenuOpen(false)}
-              >
-                👨‍💻 关于
-              </Link>
-              <Link 
-                href="/ai-chat" 
-                className="nav-link px-4 py-3 rounded-lg hover:bg-white/20 transition-all duration-300" 
-                onClick={() => setIsMenuOpen(false)}
-              >
-                🤖 AI助手
-              </Link>
+            {/* Mobile hamburger */}
+            <button
+              aria-label={menuOpen ? '关闭菜单' : '打开菜单'}
+              aria-expanded={menuOpen}
+              onClick={() => setMenuOpen(v => !v)}
+              className="md:hidden"
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                width: 44,
+                height: 44,
+                borderRadius: 'var(--radius-md)',
+                border: '1px solid var(--color-border)',
+                background: 'transparent',
+                color: 'var(--color-text-secondary)',
+                cursor: 'pointer',
+                flexShrink: 0,
+              }}
+            >
+              {menuOpen ? (
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <line x1="18" y1="6" x2="6" y2="18" />
+                  <line x1="6" y1="6" x2="18" y2="18" />
+                </svg>
+              ) : (
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <line x1="3" y1="6" x2="21" y2="6" />
+                  <line x1="3" y1="12" x2="21" y2="12" />
+                  <line x1="3" y1="18" x2="21" y2="18" />
+                </svg>
+              )}
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Mobile menu */}
+      {menuOpen && (
+        <div
+          style={{
+            borderTop: '1px solid var(--color-border-subtle)',
+            backgroundColor: 'var(--color-bg)',
+            padding: 'var(--space-4) 0 var(--space-6)',
+          }}
+        >
+          <div className="container-custom">
+            <nav
+              aria-label="移动端导航"
+              style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-1)' }}
+            >
+              {NAV_LINKS.map(({ href, label }) => {
+                const isActive =
+                  href === '/' ? pathname === '/' : pathname.startsWith(href);
+                return (
+                  <Link
+                    key={href}
+                    href={href}
+                    onClick={() => setMenuOpen(false)}
+                    className={`nav-item${isActive ? ' nav-item--active' : ''}`}
+                    style={{ fontSize: 'var(--text-base)', padding: 'var(--space-3) var(--space-4)' }}
+                  >
+                    {label}
+                  </Link>
+                );
+              })}
             </nav>
           </div>
-        )}
-      </div>
+        </div>
+      )}
     </header>
   );
 };

@@ -1,92 +1,168 @@
-import Sidebar from '@/components/Sidebar';
-
 export const metadata = {
-  title: '关于我们 - JieCheng.Dev',
-  description: 'JieCheng.Dev 技术博客平台介绍',
+  title: '关于 — BlockCoder',
+  description: '关于 BlockCoder 技术博客',
 };
+
+const STACK = [
+  { name: 'Next.js 14', desc: 'React 全栈框架，App Router' },
+  { name: 'TypeScript', desc: '类型安全的 JavaScript' },
+  { name: 'Tailwind CSS', desc: '原子化 CSS 框架' },
+  { name: 'React Markdown', desc: 'Markdown 渲染' },
+  { name: 'Gray Matter', desc: 'Frontmatter 解析' },
+  { name: 'Lexend + Noto Serif SC', desc: '字体排版' },
+];
+
+const TOPICS = [
+  { label: '前端技术', desc: 'React、Next.js 等现代框架' },
+  { label: '全栈开发', desc: '从前端到后端的完整技术栈' },
+  { label: '实战教程', desc: '真实项目案例和解决方案' },
+  { label: '最佳实践', desc: '代码规范与架构设计' },
+  { label: '工具推荐', desc: '提升开发效率的工具与技巧' },
+];
 
 export default function AboutPage() {
   return (
-    <div className="container-custom py-8">
-      <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
-        {/* Main Content */}
-        <div className="lg:col-span-3">
-          <article className="card p-8">
-            <header className="mb-8">
-              <h1 className="text-4xl font-bold text-gray-900 mb-4">
-                关于 JieCheng.Dev
-              </h1>
-              <p className="text-xl text-gray-600">
-                专注于技术分享和学习交流的博客平台
-              </p>
-            </header>
+    <div className="container-custom" style={{ paddingBlock: 'var(--space-12)' }}>
+      {/* Page header */}
+      <div style={{
+        paddingBottom: 'var(--space-12)',
+        marginBottom: 'var(--space-16)',
+        borderBottom: '2px solid var(--color-accent)',
+      }}>
+        <p className="section-eyebrow" style={{ marginBottom: 'var(--space-4)' }}>作者</p>
+        <h1 style={{
+          fontFamily: 'var(--font-display)',
+          fontSize: 'clamp(2rem, 6vw, 3.5rem)',
+          fontWeight: 800,
+          letterSpacing: '-0.04em',
+          lineHeight: 1.0,
+          color: 'var(--color-text)',
+          marginBottom: 'var(--space-6)',
+        }}>
+          关于 BlockCoder
+        </h1>
+        <p style={{
+          fontFamily: 'var(--font-body)',
+          fontSize: 'var(--text-xl)',
+          lineHeight: 'var(--leading-relaxed)',
+          color: 'var(--color-text-secondary)',
+          maxWidth: '52ch',
+        }}>
+          方块世界的代码师——专注于技术分享和学习交流的个人博客。
+        </p>
+      </div>
 
-            <div className="prose prose-lg max-w-none">
-              <h2>我们的使命</h2>
-              <p>
-                JieCheng.Dev 致力于为开发者提供一个高质量的技术分享平台。我们相信知识的力量，
-                通过分享经验、教程和最佳实践，帮助更多的开发者成长和进步。
-              </p>
+      <div style={{
+        display: 'grid',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+        gap: 'var(--space-16)',
+        maxWidth: '860px',
+      }}>
+        {/* Left column */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-12)' }}>
+          {/* Mission */}
+          <section>
+            <p className="section-eyebrow" style={{ marginBottom: 'var(--space-6)' }}>写作初衷</p>
+            <p style={{
+              fontFamily: 'var(--font-body)',
+              fontSize: 'var(--text-base)',
+              lineHeight: 'var(--leading-relaxed)',
+              color: 'var(--color-text-secondary)',
+              maxWidth: '52ch',
+            }}>
+              用写作强迫自己把模糊的理解变成清晰的表达。每篇文章都是一次重新整理知识的机会——
+              写完后通常比写前更理解那个概念。如果这个过程恰好对别人有用，那就更好了。
+            </p>
+          </section>
 
-              <h2>内容特色</h2>
-              <ul>
-                <li><strong>前端技术</strong>：涵盖 React、Vue、Next.js 等现代前端框架</li>
-                <li><strong>全栈开发</strong>：从前端到后端的完整技术栈分享</li>
-                <li><strong>实战教程</strong>：真实项目案例和解决方案</li>
-                <li><strong>最佳实践</strong>：代码规范、架构设计和性能优化</li>
-                <li><strong>工具推荐</strong>：提升开发效率的工具和技巧</li>
-              </ul>
-
-              <h2>技术栈</h2>
-              <p>本博客使用以下技术构建：</p>
-              <ul>
-                <li><strong>Next.js</strong> - React 全栈框架</li>
-                <li><strong>TypeScript</strong> - 类型安全的 JavaScript</li>
-                <li><strong>Tailwind CSS</strong> - 原子化 CSS 框架</li>
-                <li><strong>React Markdown</strong> - Markdown 渲染</li>
-                <li><strong>Gray Matter</strong> - Frontmatter 解析</li>
-              </ul>
-
-              <h2>联系我们</h2>
-              <p>
-                如果你有任何问题、建议或想要投稿，欢迎通过以下方式联系我们：
-              </p>
-              <ul>
-                <li>邮箱：1801256646ljc@gmail.com</li>
-                <li>微信：JieCheng.Dev2024</li>
-                <li>GitHub：@JieCheng.Dev</li>
-              </ul>
-
-              <h2>加入我们</h2>
-              <p>
-                我们欢迎更多的技术爱好者加入我们的内容创作团队。如果你：
-              </p>
-              <ul>
-                <li>热爱技术分享</li>
-                <li>有丰富的开发经验</li>
-                <li>善于表达和写作</li>
-                <li>愿意帮助他人学习成长</li>
-              </ul>
-              <p>
-                那么请联系我们，让我们一起打造更好的技术社区！
-              </p>
-
-              <div className="bg-blue-50 border border-blue-200 rounded-lg p-6 mt-8">
-                <h3 className="text-lg font-semibold text-blue-800 mb-2">
-                  🚀 持续更新中
-                </h3>
-                <p className="text-blue-700">
-                  我们会持续更新和改进这个平台，添加更多实用功能，
-                  如评论系统、搜索功能、RSS 订阅等。敬请期待！
-                </p>
-              </div>
+          {/* Topics */}
+          <section>
+            <p className="section-eyebrow" style={{ marginBottom: 'var(--space-6)' }}>内容方向</p>
+            <div style={{ display: 'flex', flexDirection: 'column' }}>
+              {TOPICS.map((t, i) => (
+                <div key={t.label} style={{
+                  display: 'grid',
+                  gridTemplateColumns: '1fr 1fr',
+                  gap: 'var(--space-4)',
+                  padding: 'var(--space-4) 0',
+                  borderBottom: i < TOPICS.length - 1 ? '1px solid var(--color-border-subtle)' : 'none',
+                  alignItems: 'baseline',
+                }}>
+                  <span style={{
+                    fontFamily: 'var(--font-display)',
+                    fontSize: 'var(--text-sm)',
+                    fontWeight: 600,
+                    color: 'var(--color-text)',
+                  }}>
+                    {t.label}
+                  </span>
+                  <span style={{
+                    fontFamily: 'var(--font-display)',
+                    fontSize: 'var(--text-xs)',
+                    color: 'var(--color-text-tertiary)',
+                  }}>
+                    {t.desc}
+                  </span>
+                </div>
+              ))}
             </div>
-          </article>
+          </section>
         </div>
 
-        {/* Sidebar */}
-        <div className="lg:col-span-1">
-          <Sidebar />
+        {/* Right column */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-12)' }}>
+          {/* Stack */}
+          <section>
+            <p className="section-eyebrow" style={{ marginBottom: 'var(--space-6)' }}>本站技术栈</p>
+            <div style={{ display: 'flex', flexDirection: 'column' }}>
+              {STACK.map((s, i) => (
+                <div key={s.name} style={{
+                  display: 'grid',
+                  gridTemplateColumns: '1fr 1fr',
+                  gap: 'var(--space-4)',
+                  padding: 'var(--space-4) 0',
+                  borderBottom: i < STACK.length - 1 ? '1px solid var(--color-border-subtle)' : 'none',
+                  alignItems: 'baseline',
+                }}>
+                  <span style={{
+                    fontFamily: 'var(--font-mono)',
+                    fontSize: 'var(--text-sm)',
+                    fontWeight: 600,
+                    color: 'var(--color-accent-text)',
+                  }}>
+                    {s.name}
+                  </span>
+                  <span style={{
+                    fontFamily: 'var(--font-display)',
+                    fontSize: 'var(--text-xs)',
+                    color: 'var(--color-text-tertiary)',
+                  }}>
+                    {s.desc}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* Contact */}
+          <section>
+            <p className="section-eyebrow" style={{ marginBottom: 'var(--space-6)' }}>联系</p>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-3)' }}>
+              <a
+                href="mailto:1801256646ljc@gmail.com"
+                style={{
+                  fontFamily: 'var(--font-display)',
+                  fontSize: 'var(--text-sm)',
+                  color: 'var(--color-accent-text)',
+                  textDecoration: 'none',
+                  transition: 'color var(--duration-fast) var(--ease-out-quart)',
+                }}
+                className="footer-nav-link"
+              >
+                1801256646ljc@gmail.com
+              </a>
+            </div>
+          </section>
         </div>
       </div>
     </div>

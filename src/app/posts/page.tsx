@@ -1,9 +1,9 @@
+import Link from 'next/link';
 import { getAllPosts } from '@/lib/blog';
 import PostCard from '@/components/PostCard';
-import Sidebar from '@/components/Sidebar';
 
 export const metadata = {
-  title: '所有文章 - JieCheng.Dev',
+  title: '所有文章 — BlockCoder',
   description: '浏览所有技术文章和教程',
 };
 
@@ -11,41 +11,61 @@ export default function PostsPage() {
   const posts = getAllPosts();
 
   return (
-    <div className="container-custom py-8">
-      <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
-        {/* Main Content */}
-        <div className="lg:col-span-3">
-          <div className="mb-8">
-            <h1 className="text-4xl font-bold text-gray-900 mb-4">所有文章</h1>
-            <p className="text-gray-600">
-              共 {posts.length} 篇文章，涵盖前端开发、全栈技术和编程实践
-            </p>
-          </div>
-
-          {posts.length > 0 ? (
-            <div className="space-y-8">
-              {posts.map((post) => (
-                <PostCard key={post.slug} post={post} />
-              ))}
-            </div>
-          ) : (
-            <div className="text-center py-12">
-              <div className="text-6xl mb-4">📝</div>
-              <h3 className="text-xl font-semibold text-gray-700 mb-2">
-                还没有文章
-              </h3>
-              <p className="text-gray-500">
-                开始创建你的第一篇博客文章吧！
-              </p>
-            </div>
-          )}
-        </div>
-
-        {/* Sidebar */}
-        <div className="lg:col-span-1">
-          <Sidebar />
-        </div>
+    <div className="container-custom" style={{ paddingBlock: 'var(--space-12)' }}>
+      {/* Page header */}
+      <div style={{
+        paddingBottom: 'var(--space-12)',
+        marginBottom: 'var(--space-12)',
+        borderBottom: '2px solid var(--color-accent)',
+      }}>
+        <p className="section-eyebrow" style={{ marginBottom: 'var(--space-4)' }}>文章归档</p>
+        <h1 style={{
+          fontFamily: 'var(--font-display)',
+          fontSize: 'clamp(2rem, 6vw, 3.5rem)',
+          fontWeight: 800,
+          letterSpacing: '-0.04em',
+          lineHeight: 1.0,
+          color: 'var(--color-text)',
+          marginBottom: 'var(--space-4)',
+        }}>
+          所有文章
+        </h1>
+        <p style={{
+          fontFamily: 'var(--font-body)',
+          fontSize: 'var(--text-base)',
+          color: 'var(--color-text-secondary)',
+        }}>
+          共 {posts.length} 篇，涵盖前端开发、全栈技术和编程实践
+        </p>
       </div>
+
+      {posts.length > 0 ? (
+        <div>
+          {posts.map(post => (
+            <PostCard key={post.slug} post={post} variant="list" />
+          ))}
+        </div>
+      ) : (
+        <div style={{ paddingBlock: 'var(--space-16)', textAlign: 'center' }}>
+          <p style={{
+            fontFamily: 'var(--font-display)',
+            fontSize: 'var(--text-sm)',
+            color: 'var(--color-text-tertiary)',
+          }}>
+            还没有文章。在{' '}
+            <code style={{
+              fontFamily: 'var(--font-mono)',
+              fontSize: '0.9em',
+              backgroundColor: 'var(--color-bg-inset)',
+              padding: '2px 6px',
+              borderRadius: 'var(--radius-sm)',
+            }}>
+              posts/
+            </code>{' '}
+            目录创建你的第一篇 Markdown 文章吧。
+          </p>
+        </div>
+      )}
     </div>
   );
 }

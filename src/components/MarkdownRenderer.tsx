@@ -171,18 +171,21 @@ const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content }) => {
             );
           },
           // 自定义代码块样式
-          code: ({ node, inline, className, children, ...props }: any) => {
+          code: ({ node, className, children, ...props }: any) => {
             const match = /language-(\w+)/.exec(className || '');
             const language = match ? match[1] : '';
             const codeString = String(children).replace(/\n$/, '');
+            // In react-markdown v9, `inline` prop is removed.
+            // Block code always has a newline or language class; inline code does not.
+            const isBlock = codeString.includes('\n') || !!match;
             
-            return !inline ? (
+            return isBlock ? (
               <CodeBlock 
                 language={language} 
                 code={codeString}
               />
             ) : (
-              <code className="bg-gray-100 text-gray-800 px-1.5 py-0.5 rounded text-sm font-mono" {...props}>
+              <code className="inline-code" {...props}>
                 {children}
               </code>
             );

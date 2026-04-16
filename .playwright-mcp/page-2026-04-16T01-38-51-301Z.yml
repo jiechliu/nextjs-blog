@@ -1,0 +1,367 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e4]:
+      - link "BlockCoder" [ref=e5] [cursor=pointer]:
+        - /url: /
+        - generic [ref=e11]: BlockCoder
+      - navigation "主导航" [ref=e12]:
+        - link "首页" [ref=e13] [cursor=pointer]:
+          - /url: /
+        - link "文章" [ref=e14] [cursor=pointer]:
+          - /url: /posts
+        - link "分类" [ref=e15] [cursor=pointer]:
+          - /url: /categories
+        - link "标签" [ref=e16] [cursor=pointer]:
+          - /url: /tags
+        - link "关于" [ref=e17] [cursor=pointer]:
+          - /url: /about
+        - link "AI" [ref=e18] [cursor=pointer]:
+          - /url: /ai-chat
+      - generic [ref=e19]:
+        - 'button "跟随系统 (当前: 浅色)" [ref=e20] [cursor=pointer]':
+          - img [ref=e21]
+        - button "打开菜单" [ref=e27] [cursor=pointer]:
+          - img [ref=e28]
+  - main [ref=e29]:
+    - generic [ref=e30]:
+      - generic [ref=e31]:
+        - heading "BlockCoder" [level=1] [ref=e32]
+        - paragraph [ref=e33]: 记录与分享前端开发、全栈技术和编程实践。 从代码细节到架构思考，方块世界的代码师在此。
+      - generic [ref=e34]:
+        - generic [ref=e35]:
+          - article [ref=e36]:
+            - generic [ref=e37]:
+              - generic [ref=e38]: 精选
+              - link "开发工具" [ref=e39] [cursor=pointer]:
+                - /url: /categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7
+              - generic [ref=e40]: ·
+              - time [ref=e41]: 2025年11月13日
+            - link "NVM 安装教程 - Node.js 版本管理神器" [ref=e42] [cursor=pointer]:
+              - /url: /posts/nvm-installation-guide
+              - heading "NVM 安装教程 - Node.js 版本管理神器" [level=2] [ref=e43]
+            - paragraph [ref=e44]: 详细介绍如何在 Windows、macOS 和 Linux 系统上安装和使用 NVM，轻松管理多个 Node.js 版本。
+            - generic [ref=e45]:
+              - link "阅读全文" [ref=e46] [cursor=pointer]:
+                - /url: /posts/nvm-installation-guide
+                - text: 阅读全文
+                - img [ref=e47]
+              - generic [ref=e49]:
+                - link "#Node.js" [ref=e50] [cursor=pointer]:
+                  - /url: /tags/node.js
+                - link "#NVM" [ref=e51] [cursor=pointer]:
+                  - /url: /tags/nvm
+                - link "#开发环境" [ref=e52] [cursor=pointer]:
+                  - /url: /tags/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83
+          - generic [ref=e53]:
+            - generic [ref=e54]:
+              - paragraph [ref=e55]: 最新文章
+              - link "全部文章" [ref=e56] [cursor=pointer]:
+                - /url: /posts
+                - text: 全部文章
+                - img [ref=e57]
+            - generic [ref=e59]:
+              - article [ref=e60]:
+                - generic [ref=e61]:
+                  - link "部署运维" [ref=e63] [cursor=pointer]:
+                    - /url: /categories/%E9%83%A8%E7%BD%B2%E8%BF%90%E7%BB%B4
+                  - link "Vercel部署完整指南：从零到上线" [ref=e64] [cursor=pointer]:
+                    - /url: /posts/vercel-deployment-guide
+                    - heading "Vercel部署完整指南：从零到上线" [level=3] [ref=e65]
+                - time [ref=e66]: 11/13
+              - article [ref=e67]:
+                - generic [ref=e68]:
+                  - link "前端开发" [ref=e70] [cursor=pointer]:
+                    - /url: /categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91
+                  - link "React Hooks 封装一个列表触底刷新" [ref=e71] [cursor=pointer]:
+                    - /url: /posts/react-hooks-Infinite-scroll
+                    - heading "React Hooks 封装一个列表触底刷新" [level=3] [ref=e72]
+                - time [ref=e73]: 11/10
+              - article [ref=e74]:
+                - generic [ref=e75]:
+                  - link "技术" [ref=e77] [cursor=pointer]:
+                    - /url: /categories/%E6%8A%80%E6%9C%AF
+                  - link "代码高亮文章" [ref=e78] [cursor=pointer]:
+                    - /url: /posts/code-highlight-test
+                    - heading "代码高亮文章" [level=3] [ref=e79]
+                - time [ref=e80]: 11/8
+              - article [ref=e81]:
+                - generic [ref=e82]:
+                  - link "前端开发" [ref=e84] [cursor=pointer]:
+                    - /url: /categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91
+                  - link "CSS Grid 与 Flexbox：现代布局技术对比指南" [ref=e85] [cursor=pointer]:
+                    - /url: /posts/css-grid-flexbox
+                    - heading "CSS Grid 与 Flexbox：现代布局技术对比指南" [level=3] [ref=e86]
+                - time [ref=e87]: 11/8
+              - article [ref=e88]:
+                - generic [ref=e89]:
+                  - link "前端开发" [ref=e91] [cursor=pointer]:
+                    - /url: /categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91
+                  - link "使用 Next.js 构建现代博客系统完整教程" [ref=e92] [cursor=pointer]:
+                    - /url: /posts/nextjs-blog-tutorial
+                    - heading "使用 Next.js 构建现代博客系统完整教程" [level=3] [ref=e93]
+                - time [ref=e94]: 11/8
+              - article [ref=e95]:
+                - generic [ref=e96]:
+                  - link "前端开发" [ref=e98] [cursor=pointer]:
+                    - /url: /categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91
+                  - link "React Hooks 完全指南：从入门到精通" [ref=e99] [cursor=pointer]:
+                    - /url: /posts/react-hooks-guide
+                    - heading "React Hooks 完全指南：从入门到精通" [level=3] [ref=e100]
+                - time [ref=e101]: 11/8
+              - article [ref=e102]:
+                - generic [ref=e103]:
+                  - link "测试" [ref=e105] [cursor=pointer]:
+                    - /url: /categories/%E6%B5%8B%E8%AF%95
+                  - link "表格" [ref=e106] [cursor=pointer]:
+                    - /url: /posts/table-test
+                    - heading "表格" [level=3] [ref=e107]
+                - time [ref=e108]: 11/8
+              - article [ref=e109]:
+                - generic [ref=e110]:
+                  - link "后端开发" [ref=e112] [cursor=pointer]:
+                    - /url: /categories/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91
+                  - link "TypeScript 最佳实践：写出更安全的代码" [ref=e113] [cursor=pointer]:
+                    - /url: /posts/typescript-best-practices
+                    - heading "TypeScript 最佳实践：写出更安全的代码" [level=3] [ref=e114]
+                - time [ref=e115]: 11/8
+            - generic [ref=e116]:
+              - paragraph [ref=e117]: 所有文章
+              - generic [ref=e118]:
+                - article [ref=e119]:
+                  - generic [ref=e120]:
+                    - link "前端开发" [ref=e121] [cursor=pointer]:
+                      - /url: /categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91
+                    - generic [ref=e122]: ·
+                    - time [ref=e123]: 2025年11月10日
+                  - link "React Hooks 封装一个列表触底刷新" [ref=e124] [cursor=pointer]:
+                    - /url: /posts/react-hooks-Infinite-scroll
+                    - heading "React Hooks 封装一个列表触底刷新" [level=3] [ref=e125]
+                  - paragraph [ref=e126]: 封装一个列表触底刷新的 React Hooks，基于传入的container容器div去监听滚动到底部。
+                  - generic [ref=e127]:
+                    - link "#React" [ref=e128] [cursor=pointer]:
+                      - /url: /tags/react
+                    - link "#Hooks" [ref=e129] [cursor=pointer]:
+                      - /url: /tags/hooks
+                    - link "#JavaScript" [ref=e130] [cursor=pointer]:
+                      - /url: /tags/javascript
+                - article [ref=e131]:
+                  - generic [ref=e132]:
+                    - link "技术" [ref=e133] [cursor=pointer]:
+                      - /url: /categories/%E6%8A%80%E6%9C%AF
+                    - generic [ref=e134]: ·
+                    - time [ref=e135]: 2025年11月8日
+                  - link "代码高亮文章" [ref=e136] [cursor=pointer]:
+                    - /url: /posts/code-highlight-test
+                    - heading "代码高亮文章" [level=3] [ref=e137]
+                  - paragraph [ref=e138]: 博客系统的代码高亮功能，展示各种编程语言的语法高亮效果。
+                  - generic [ref=e139]:
+                    - link "#JavaScript" [ref=e140] [cursor=pointer]:
+                      - /url: /tags/javascript
+                    - link "#React" [ref=e141] [cursor=pointer]:
+                      - /url: /tags/react
+                    - link "#CSS" [ref=e142] [cursor=pointer]:
+                      - /url: /tags/css
+                - article [ref=e143]:
+                  - generic [ref=e144]:
+                    - link "前端开发" [ref=e145] [cursor=pointer]:
+                      - /url: /categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91
+                    - generic [ref=e146]: ·
+                    - time [ref=e147]: 2025年11月8日
+                  - link "CSS Grid 与 Flexbox：现代布局技术对比指南" [ref=e148] [cursor=pointer]:
+                    - /url: /posts/css-grid-flexbox
+                    - heading "CSS Grid 与 Flexbox：现代布局技术对比指南" [level=3] [ref=e149]
+                  - paragraph [ref=e150]: 深入对比 CSS Grid 和 Flexbox 的特性和使用场景，掌握现代 CSS 布局的核心技术，构建响应式和灵活的网页布局。
+                  - generic [ref=e151]:
+                    - link "#CSS" [ref=e152] [cursor=pointer]:
+                      - /url: /tags/css
+                    - link "#Grid" [ref=e153] [cursor=pointer]:
+                      - /url: /tags/grid
+                    - link "#Flexbox" [ref=e154] [cursor=pointer]:
+                      - /url: /tags/flexbox
+                - article [ref=e155]:
+                  - generic [ref=e156]:
+                    - link "前端开发" [ref=e157] [cursor=pointer]:
+                      - /url: /categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91
+                    - generic [ref=e158]: ·
+                    - time [ref=e159]: 2025年11月8日
+                  - link "使用 Next.js 构建现代博客系统完整教程" [ref=e160] [cursor=pointer]:
+                    - /url: /posts/nextjs-blog-tutorial
+                    - heading "使用 Next.js 构建现代博客系统完整教程" [level=3] [ref=e161]
+                  - paragraph [ref=e162]: 从零开始，使用 Next.js、TypeScript 和 Tailwind CSS 构建一个功能完整的博客系统。包含文章管理、分类标签、响应式设计等核心功能。
+                  - generic [ref=e163]:
+                    - link "#Next.js" [ref=e164] [cursor=pointer]:
+                      - /url: /tags/next.js
+                    - link "#React" [ref=e165] [cursor=pointer]:
+                      - /url: /tags/react
+                    - link "#TypeScript" [ref=e166] [cursor=pointer]:
+                      - /url: /tags/typescript
+                - article [ref=e167]:
+                  - generic [ref=e168]:
+                    - link "测试" [ref=e169] [cursor=pointer]:
+                      - /url: /categories/%E6%B5%8B%E8%AF%95
+                    - generic [ref=e170]: ·
+                    - time [ref=e171]: 2025年11月8日
+                  - link "表格" [ref=e172] [cursor=pointer]:
+                    - /url: /posts/table-test
+                    - heading "表格" [level=3] [ref=e173]
+                  - paragraph [ref=e174]: Markdown 表格渲染功能
+                  - generic [ref=e175]:
+                    - link "#Markdown" [ref=e176] [cursor=pointer]:
+                      - /url: /tags/markdown
+                    - link "#表格" [ref=e177] [cursor=pointer]:
+                      - /url: /tags/%E8%A1%A8%E6%A0%BC
+                - article [ref=e178]:
+                  - generic [ref=e179]:
+                    - link "后端开发" [ref=e180] [cursor=pointer]:
+                      - /url: /categories/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91
+                    - generic [ref=e181]: ·
+                    - time [ref=e182]: 2025年11月8日
+                  - link "TypeScript 最佳实践：写出更安全的代码" [ref=e183] [cursor=pointer]:
+                    - /url: /posts/typescript-best-practices
+                    - heading "TypeScript 最佳实践：写出更安全的代码" [level=3] [ref=e184]
+                  - paragraph [ref=e185]: 掌握 TypeScript 的核心概念和最佳实践，学会使用类型系统来提升代码质量和开发效率。
+                  - generic [ref=e186]:
+                    - link "#TypeScript" [ref=e187] [cursor=pointer]:
+                      - /url: /tags/typescript
+                    - link "#JavaScript" [ref=e188] [cursor=pointer]:
+                      - /url: /tags/javascript
+                    - link "#类型安全" [ref=e189] [cursor=pointer]:
+                      - /url: /tags/%E7%B1%BB%E5%9E%8B%E5%AE%89%E5%85%A8
+              - link "查看全部 10 篇文章" [ref=e191] [cursor=pointer]:
+                - /url: /posts
+        - complementary [ref=e193]:
+          - generic [ref=e194]:
+            - generic [ref=e201]:
+              - paragraph [ref=e202]: JieCheng
+              - paragraph [ref=e203]: 方块世界的代码师
+            - paragraph [ref=e204]: 专注于分享前端开发、全栈技术和编程实践。
+          - generic [ref=e205]:
+            - paragraph [ref=e206]: 最新文章
+            - generic [ref=e207]:
+              - generic [ref=e208]:
+                - link "NVM 安装教程 - Node.js 版本管理神器" [ref=e209] [cursor=pointer]:
+                  - /url: /posts/nvm-installation-guide
+                - time [ref=e210]: 2025年11月13日
+              - generic [ref=e211]:
+                - link "Vercel部署完整指南：从零到上线" [ref=e212] [cursor=pointer]:
+                  - /url: /posts/vercel-deployment-guide
+                - time [ref=e213]: 2025年11月13日
+              - generic [ref=e214]:
+                - link "React Hooks 封装一个列表触底刷新" [ref=e215] [cursor=pointer]:
+                  - /url: /posts/react-hooks-Infinite-scroll
+                - time [ref=e216]: 2025年11月10日
+              - generic [ref=e217]:
+                - link "代码高亮文章" [ref=e218] [cursor=pointer]:
+                  - /url: /posts/code-highlight-test
+                - time [ref=e219]: 2025年11月8日
+              - generic [ref=e220]:
+                - link "CSS Grid 与 Flexbox：现代布局技术对比指南" [ref=e221] [cursor=pointer]:
+                  - /url: /posts/css-grid-flexbox
+                - time [ref=e222]: 2025年11月8日
+          - generic [ref=e223]:
+            - paragraph [ref=e224]: 分类
+            - generic [ref=e225]:
+              - link "开发工具 1" [ref=e226] [cursor=pointer]:
+                - /url: /categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7
+                - generic [ref=e227]: 开发工具
+                - generic [ref=e228]: "1"
+              - link "部署运维 1" [ref=e229] [cursor=pointer]:
+                - /url: /categories/%E9%83%A8%E7%BD%B2%E8%BF%90%E7%BB%B4
+                - generic [ref=e230]: 部署运维
+                - generic [ref=e231]: "1"
+              - link "前端开发 4" [ref=e232] [cursor=pointer]:
+                - /url: /categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91
+                - generic [ref=e233]: 前端开发
+                - generic [ref=e234]: "4"
+              - link "技术 1" [ref=e235] [cursor=pointer]:
+                - /url: /categories/%E6%8A%80%E6%9C%AF
+                - generic [ref=e236]: 技术
+                - generic [ref=e237]: "1"
+              - link "测试 1" [ref=e238] [cursor=pointer]:
+                - /url: /categories/%E6%B5%8B%E8%AF%95
+                - generic [ref=e239]: 测试
+                - generic [ref=e240]: "1"
+              - link "后端开发 1" [ref=e241] [cursor=pointer]:
+                - /url: /categories/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91
+                - generic [ref=e242]: 后端开发
+                - generic [ref=e243]: "1"
+              - link "平台介绍 1" [ref=e244] [cursor=pointer]:
+                - /url: /categories/%E5%B9%B3%E5%8F%B0%E4%BB%8B%E7%BB%8D
+                - generic [ref=e245]: 平台介绍
+                - generic [ref=e246]: "1"
+          - generic [ref=e247]:
+            - paragraph [ref=e248]: 标签
+            - generic [ref=e249]:
+              - link "#Node.js" [ref=e250] [cursor=pointer]:
+                - /url: /tags/node.js
+              - link "#NVM" [ref=e251] [cursor=pointer]:
+                - /url: /tags/nvm
+              - link "#开发环境" [ref=e252] [cursor=pointer]:
+                - /url: /tags/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83
+              - link "#版本管理" [ref=e253] [cursor=pointer]:
+                - /url: /tags/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86
+              - link "#Vercel" [ref=e254] [cursor=pointer]:
+                - /url: /tags/vercel
+              - link "#部署" [ref=e255] [cursor=pointer]:
+                - /url: /tags/%E9%83%A8%E7%BD%B2
+              - link "#前端" [ref=e256] [cursor=pointer]:
+                - /url: /tags/%E5%89%8D%E7%AB%AF
+              - link "#CI/CD" [ref=e257] [cursor=pointer]:
+                - /url: /tags/ci%2Fcd
+              - link "#域名" [ref=e258] [cursor=pointer]:
+                - /url: /tags/%E5%9F%9F%E5%90%8D
+              - link "#React" [ref=e259] [cursor=pointer]:
+                - /url: /tags/react
+              - link "#Hooks" [ref=e260] [cursor=pointer]:
+                - /url: /tags/hooks
+              - link "#JavaScript" [ref=e261] [cursor=pointer]:
+                - /url: /tags/javascript
+              - link "#List" [ref=e262] [cursor=pointer]:
+                - /url: /tags/list
+              - link "#CSS" [ref=e263] [cursor=pointer]:
+                - /url: /tags/css
+              - link "#Grid" [ref=e264] [cursor=pointer]:
+                - /url: /tags/grid
+              - link "#Flexbox" [ref=e265] [cursor=pointer]:
+                - /url: /tags/flexbox
+              - link "#布局" [ref=e266] [cursor=pointer]:
+                - /url: /tags/%E5%B8%83%E5%B1%80
+              - link "#响应式设计" [ref=e267] [cursor=pointer]:
+                - /url: /tags/%E5%93%8D%E5%BA%94%E5%BC%8F%E8%AE%BE%E8%AE%A1
+              - link "#Next.js" [ref=e268] [cursor=pointer]:
+                - /url: /tags/next.js
+              - link "#TypeScript" [ref=e269] [cursor=pointer]:
+                - /url: /tags/typescript
+  - contentinfo [ref=e270]:
+    - generic [ref=e271]:
+      - generic [ref=e272]:
+        - generic [ref=e273]:
+          - link "BlockCoder" [ref=e274] [cursor=pointer]:
+            - /url: /
+            - generic [ref=e280]: BlockCoder
+          - paragraph [ref=e281]: 方块世界的代码师。记录与分享前端开发、全栈技术和编程实践的个人博客。
+        - generic [ref=e282]:
+          - paragraph [ref=e283]: 导航
+          - list [ref=e284]:
+            - listitem [ref=e285]:
+              - link "所有文章" [ref=e286] [cursor=pointer]:
+                - /url: /posts
+            - listitem [ref=e287]:
+              - link "文章分类" [ref=e288] [cursor=pointer]:
+                - /url: /categories
+            - listitem [ref=e289]:
+              - link "标签云" [ref=e290] [cursor=pointer]:
+                - /url: /tags
+            - listitem [ref=e291]:
+              - link "关于" [ref=e292] [cursor=pointer]:
+                - /url: /about
+        - generic [ref=e293]:
+          - paragraph [ref=e294]: 联系
+          - list [ref=e295]:
+            - listitem [ref=e296]:
+              - link "1801256646ljc@gmail.com" [ref=e297] [cursor=pointer]:
+                - /url: mailto:1801256646ljc@gmail.com
+      - generic [ref=e298]:
+        - paragraph [ref=e299]: © 2026 BlockCoder. All rights reserved.
+        - paragraph [ref=e300]: Built with Next.js & TypeScript
+  - alert [ref=e301]

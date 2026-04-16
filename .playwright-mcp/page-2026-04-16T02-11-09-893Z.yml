@@ -1,0 +1,160 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e4]:
+      - link "BlockCoder" [ref=e5] [cursor=pointer]:
+        - /url: /
+        - generic [ref=e11]: BlockCoder
+      - navigation "主导航" [ref=e12]:
+        - link "首页" [ref=e13] [cursor=pointer]:
+          - /url: /
+        - link "文章" [ref=e14] [cursor=pointer]:
+          - /url: /posts
+        - link "分类" [ref=e15] [cursor=pointer]:
+          - /url: /categories
+        - link "标签" [ref=e16] [cursor=pointer]:
+          - /url: /tags
+        - link "关于" [ref=e17] [cursor=pointer]:
+          - /url: /about
+        - link "AI" [ref=e18] [cursor=pointer]:
+          - /url: /ai-chat
+      - generic [ref=e19]:
+        - 'button "跟随系统 (当前: 浅色)" [ref=e20] [cursor=pointer]':
+          - img [ref=e21]
+        - button "打开菜单" [ref=e27] [cursor=pointer]:
+          - img [ref=e28]
+  - main [ref=e29]:
+    - generic [ref=e30]:
+      - generic [ref=e31]:
+        - paragraph [ref=e32]: 内容导航
+        - heading "标签" [level=1] [ref=e33]
+        - paragraph [ref=e34]: 29 个标签，通过标签快速找到感兴趣的技术文章
+      - generic [ref=e35]:
+        - link "#React 5" [ref=e36] [cursor=pointer]:
+          - /url: /tags/react
+          - text: "#React"
+          - generic [ref=e37]: "5"
+        - link "#JavaScript4" [ref=e38] [cursor=pointer]:
+          - /url: /tags/javascript
+        - link "#Hooks 2" [ref=e39] [cursor=pointer]:
+          - /url: /tags/hooks
+          - text: "#Hooks"
+          - generic [ref=e40]: "2"
+        - link "#CSS 2" [ref=e41] [cursor=pointer]:
+          - /url: /tags/css
+          - text: "#CSS"
+          - generic [ref=e42]: "2"
+        - link "#Next.js2" [ref=e43] [cursor=pointer]:
+          - /url: /tags/next.js
+        - link "#TypeScript 2" [ref=e44] [cursor=pointer]:
+          - /url: /tags/typescript
+          - text: "#TypeScript"
+          - generic [ref=e45]: "2"
+        - link "#Node.js 1" [ref=e46] [cursor=pointer]:
+          - /url: /tags/node.js
+          - text: "#Node.js"
+          - generic [ref=e47]: "1"
+        - link "#NVM1" [ref=e48] [cursor=pointer]:
+          - /url: /tags/nvm
+        - link "#开发环境 1" [ref=e49] [cursor=pointer]:
+          - /url: /tags/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83
+          - text: "#开发环境"
+          - generic [ref=e50]: "1"
+        - link "#版本管理 1" [ref=e51] [cursor=pointer]:
+          - /url: /tags/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86
+          - text: "#版本管理"
+          - generic [ref=e52]: "1"
+        - link "#Vercel1" [ref=e53] [cursor=pointer]:
+          - /url: /tags/vercel
+        - link "#部署 1" [ref=e54] [cursor=pointer]:
+          - /url: /tags/%E9%83%A8%E7%BD%B2
+          - text: "#部署"
+          - generic [ref=e55]: "1"
+        - link "#前端 1" [ref=e56] [cursor=pointer]:
+          - /url: /tags/%E5%89%8D%E7%AB%AF
+          - text: "#前端"
+          - generic [ref=e57]: "1"
+        - link "#CI/CD1" [ref=e58] [cursor=pointer]:
+          - /url: /tags/ci%2Fcd
+        - link "#域名 1" [ref=e59] [cursor=pointer]:
+          - /url: /tags/%E5%9F%9F%E5%90%8D
+          - text: "#域名"
+          - generic [ref=e60]: "1"
+        - link "#List 1" [ref=e61] [cursor=pointer]:
+          - /url: /tags/list
+          - text: "#List"
+          - generic [ref=e62]: "1"
+        - link "#Grid1" [ref=e63] [cursor=pointer]:
+          - /url: /tags/grid
+        - link "#Flexbox 1" [ref=e64] [cursor=pointer]:
+          - /url: /tags/flexbox
+          - text: "#Flexbox"
+          - generic [ref=e65]: "1"
+        - link "#布局 1" [ref=e66] [cursor=pointer]:
+          - /url: /tags/%E5%B8%83%E5%B1%80
+          - text: "#布局"
+          - generic [ref=e67]: "1"
+        - link "#响应式设计1" [ref=e68] [cursor=pointer]:
+          - /url: /tags/%E5%93%8D%E5%BA%94%E5%BC%8F%E8%AE%BE%E8%AE%A1
+        - link "#Tailwind CSS 1" [ref=e69] [cursor=pointer]:
+          - /url: /tags/tailwind-css
+          - text: "#Tailwind CSS"
+          - generic [ref=e70]: "1"
+        - link "#博客开发 1" [ref=e71] [cursor=pointer]:
+          - /url: /tags/%E5%8D%9A%E5%AE%A2%E5%BC%80%E5%8F%91
+          - text: "#博客开发"
+          - generic [ref=e72]: "1"
+        - link "#前端框架1" [ref=e73] [cursor=pointer]:
+          - /url: /tags/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6
+        - link "#Markdown 1" [ref=e74] [cursor=pointer]:
+          - /url: /tags/markdown
+          - text: "#Markdown"
+          - generic [ref=e75]: "1"
+        - link "#表格 1" [ref=e76] [cursor=pointer]:
+          - /url: /tags/%E8%A1%A8%E6%A0%BC
+          - text: "#表格"
+          - generic [ref=e77]: "1"
+        - link "#类型安全1" [ref=e78] [cursor=pointer]:
+          - /url: /tags/%E7%B1%BB%E5%9E%8B%E5%AE%89%E5%85%A8
+        - link "#最佳实践 1" [ref=e79] [cursor=pointer]:
+          - /url: /tags/%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5
+          - text: "#最佳实践"
+          - generic [ref=e80]: "1"
+        - link "#JieCheng.Dev 1" [ref=e81] [cursor=pointer]:
+          - /url: /tags/jiecheng.dev
+          - text: "#JieCheng.Dev"
+          - generic [ref=e82]: "1"
+        - link "#技术博客1" [ref=e83] [cursor=pointer]:
+          - /url: /tags/%E6%8A%80%E6%9C%AF%E5%8D%9A%E5%AE%A2
+  - contentinfo [ref=e84]:
+    - generic [ref=e85]:
+      - generic [ref=e86]:
+        - generic [ref=e87]:
+          - link "BlockCoder" [ref=e88] [cursor=pointer]:
+            - /url: /
+            - generic [ref=e94]: BlockCoder
+          - paragraph [ref=e95]: 方块世界的代码师。记录与分享前端开发、全栈技术和编程实践的个人博客。
+        - generic [ref=e96]:
+          - paragraph [ref=e97]: 导航
+          - list [ref=e98]:
+            - listitem [ref=e99]:
+              - link "所有文章" [ref=e100] [cursor=pointer]:
+                - /url: /posts
+            - listitem [ref=e101]:
+              - link "文章分类" [ref=e102] [cursor=pointer]:
+                - /url: /categories
+            - listitem [ref=e103]:
+              - link "标签云" [ref=e104] [cursor=pointer]:
+                - /url: /tags
+            - listitem [ref=e105]:
+              - link "关于" [ref=e106] [cursor=pointer]:
+                - /url: /about
+        - generic [ref=e107]:
+          - paragraph [ref=e108]: 联系
+          - list [ref=e109]:
+            - listitem [ref=e110]:
+              - link "1801256646ljc@gmail.com" [ref=e111] [cursor=pointer]:
+                - /url: mailto:1801256646ljc@gmail.com
+      - generic [ref=e112]:
+        - paragraph [ref=e113]: © 2026 BlockCoder. All rights reserved.
+        - paragraph [ref=e114]: Built with Next.js & TypeScript
+  - alert [ref=e115]

@@ -1,140 +1,212 @@
+import Link from 'next/link';
 import { getAllPosts, getFeaturedPosts } from '@/lib/blog';
 import PostCard from '@/components/PostCard';
 import Sidebar from '@/components/Sidebar';
-import TypewriterEffect from '@/components/TypewriterEffect';
 
 export default function HomePage() {
   const allPosts = getAllPosts();
   const featuredPosts = getFeaturedPosts();
-  const regularPosts = allPosts.filter(post => !post.featured).slice(0, 6);
+  const heroPosts = featuredPosts.length > 0 ? featuredPosts : allPosts.slice(0, 1);
+  const heroPost = heroPosts[0];
+  const listPosts = allPosts
+    .filter(p => p.slug !== heroPost?.slug)
+    .slice(0, 8);
+  const gridPosts = allPosts
+    .filter(p => !featuredPosts.find(f => f.slug === p.slug))
+    .slice(0, 6);
 
   return (
-    <div className="container-custom py-12">
-      {/* Hero Section */}
-      <div className="text-center mb-16">
-        <h1 className="text-5xl md:text-7xl font-bold mb-6 title-gradient">
-          BlockCoder
-        </h1>
-        
-        <div className="text-xl md:text-2xl text-gray-700 mb-4 max-w-3xl mx-auto leading-relaxed">
-          <TypewriterEffect 
-            texts={[
-              "方块世界的代码师 ✨",
-              "探索技术的无限可能 🚀", 
-              "分享编程的精彩世界 💻",
-              "创造数字时代的奇迹 🌟"
-            ]}
-            speed={80}
-            deleteSpeed={40}
-            pauseTime={2000}
-            className="font-medium"
-          />
+    <div className="container-custom" style={{ paddingBlock: 'var(--space-16)' }}>
+
+      {/* ── Page header ─────────────────────────────────────── */}
+      <div
+        className="page-header"
+        style={{
+          paddingBottom: 'var(--space-16)',
+          marginBottom: 'var(--space-16)',
+          borderBottom: '2px solid var(--color-accent)',
+        }}
+      >
+        {/* Brand mark + title row */}
+        <div
+          className="page-header-title-row"
+          style={{ display: 'flex', alignItems: 'flex-end', gap: 'var(--space-6)', marginBottom: 'var(--space-8)' }}
+        >
+          <span
+            aria-hidden="true"
+            className="page-header-block-mark"
+            style={{
+              display: 'grid',
+              gridTemplateColumns: '1fr 1fr',
+              gap: 5,
+              width: 64,
+              height: 64,
+              flexShrink: 0,
+              marginBottom: 8,
+            }}
+          >
+            {[0,1,2,3].map(i => (
+              <span
+                key={i}
+                style={{
+                  backgroundColor:
+                    i === 0 ? 'var(--color-accent)' :
+                    i === 1 ? 'var(--color-amber)' :
+                    i === 2 ? 'var(--color-green)' :
+                    'var(--color-border-strong)',
+                  borderRadius: 5,
+                }}
+              />
+            ))}
+          </span>
+          <h1
+            style={{
+              fontFamily: 'var(--font-display)',
+              fontSize: 'clamp(3.5rem, 10vw, 7rem)',
+              fontWeight: 800,
+              lineHeight: 0.95,
+              letterSpacing: '-0.05em',
+              color: 'var(--color-text)',
+            }}
+          >
+            BlockCoder
+          </h1>
         </div>
-        
-        <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
-          在这里，每一行代码都是一个故事，每一个项目都是一次冒险
+
+        <p
+          style={{
+            fontFamily: 'var(--font-body)',
+            fontSize: 'var(--text-xl)',
+            lineHeight: 'var(--leading-relaxed)',
+            color: 'var(--color-text-secondary)',
+            maxWidth: '48ch',
+          }}
+        >
+          记录与分享前端开发、全栈技术和编程实践。
+          从代码细节到架构思考，方块世界的代码师在此。
         </p>
-        
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="#featured" className="btn-primary magnetic-hover">
-            🚀 探索精选文章
-          </a>
-          <a href="/posts" className="btn-secondary magnetic-hover">
-            📚 浏览所有文章
-          </a>
-        </div>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
-        {/* Main Content */}
-        <div className="lg:col-span-3">
-          {/* Featured Posts */}
-          {featuredPosts.length > 0 && (
-            <section id="featured" className="mb-16">
-              <div className="flex items-center mb-10">
-                <div className="flex-1 h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent"></div>
-                <h2 className="text-3xl md:text-4xl font-bold mx-6 text-gray-800 title-gradient">
-                  ✨ 精选文章
-                </h2>
-                <div className="flex-1 h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent"></div>
-              </div>
-              
-              <div className="space-y-8">
-                {featuredPosts.map((post, index) => (
-                  <div 
-                    key={post.slug}
-                    className="float-animation"
-                    style={{ animationDelay: `${index * 0.2}s` }}
-                  >
-                    <PostCard post={post} featured={true} />
-                  </div>
-                ))}
-              </div>
-            </section>
+      {/* ── Two-column layout ───────────────────────────────── */}
+      <div
+        style={{
+          display: 'grid',
+          gridTemplateColumns: '1fr',
+          gap: 'var(--space-16)',
+          alignItems: 'start',
+        }}
+        className="lg:grid-cols-[1fr_240px]"
+      >
+        {/* ── Main content ──────────────────────────────────── */}
+        <div>
+
+          {/* Hero post */}
+          {heroPost && (
+            <PostCard post={heroPost} variant="hero" />
           )}
 
-          {/* Latest Posts */}
+          {/* Section: latest posts */}
           <section>
-            <div className="flex items-center justify-between mb-10">
-              <div className="flex items-center">
-                <div className="flex-1 h-px bg-gradient-to-r from-transparent via-gray-300 to-gray-300 mr-6"></div>
-                <h2 className="text-3xl md:text-4xl font-bold text-gray-800 title-gradient">
-                  📰 最新文章
-                </h2>
-              </div>
-              {allPosts.length > 6 && (
-                <a
-                  href="/posts"
-                  className="btn-secondary text-sm group magnetic-hover"
-                >
-                  <span className="flex items-center gap-2">
-                    查看全部 
-                    <span className="transform group-hover:translate-x-1 transition-transform duration-300">→</span>
-                  </span>
-                </a>
+            <div
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+                marginBottom: 'var(--space-6)',
+              }}
+            >
+              <p className="section-eyebrow">
+                最新文章
+              </p>
+              {allPosts.length > 8 && (
+                <Link href="/posts" className="section-more-link">
+                  全部文章
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <line x1="5" y1="12" x2="19" y2="12" />
+                    <polyline points="12 5 19 12 12 19" />
+                  </svg>
+                </Link>
               )}
             </div>
 
-            {regularPosts.length > 0 ? (
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                {regularPosts.map((post, index) => (
-                  <div 
-                    key={post.slug}
-                    className="float-animation"
-                    style={{ animationDelay: `${(index + featuredPosts.length) * 0.1}s` }}
-                  >
-                    <PostCard post={post} />
-                  </div>
+            {listPosts.length > 0 ? (
+              <div>
+                {listPosts.map(post => (
+                  <PostCard key={post.slug} post={post} variant="list" />
                 ))}
               </div>
             ) : (
-              <div className="text-center py-20">
-                <div className="text-8xl mb-6 float-animation">📝</div>
-                <h3 className="text-2xl font-bold text-gray-800 mb-4">
-                  还没有文章
-                </h3>
-                <p className="text-gray-600 text-lg">
-                  开始创建你的第一篇博客文章吧！
+              /* Empty state */
+              <div
+                style={{
+                  padding: 'var(--space-16) 0',
+                  textAlign: 'center',
+                }}
+              >
+                <p
+                  style={{
+                    fontFamily: 'var(--font-display)',
+                    fontSize: 'var(--text-sm)',
+                    color: 'var(--color-text-tertiary)',
+                  }}
+                >
+                  还没有文章。在{' '}
+                  <code
+                    style={{
+                      fontFamily: 'var(--font-mono)',
+                      fontSize: '0.9em',
+                      backgroundColor: 'var(--color-bg-inset)',
+                      padding: '2px 6px',
+                      borderRadius: 'var(--radius-sm)',
+                    }}
+                  >
+                    posts/
+                  </code>{' '}
+                  目录创建你的第一篇 Markdown 文章吧。
                 </p>
               </div>
+            )}
+
+            {/* Grid section — featured / all posts */}
+            {gridPosts.length > 0 && (
+              <section style={{ marginTop: 'var(--space-16)' }}>
+                <p className="section-eyebrow" style={{ marginBottom: 'var(--space-6)' }}>
+                  所有文章
+                </p>
+                <div
+                  className="post-grid"
+                  style={{
+                    display: 'grid',
+                    gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+                    gap: 'var(--space-6)',
+                  }}
+                >
+                  {gridPosts.map(post => (
+                    <PostCard key={post.slug} post={post} variant="grid" />
+                  ))}
+                </div>
+
+                {allPosts.length > 6 && (
+                  <div style={{ marginTop: 'var(--space-8)', textAlign: 'center' }}>
+                    <Link
+                      href="/posts"
+                      className="btn-secondary"
+                      style={{ display: 'inline-flex' }}
+                    >
+                      查看全部 {allPosts.length} 篇文章
+                    </Link>
+                  </div>
+                )}
+              </section>
             )}
           </section>
         </div>
 
-        {/* Sidebar */}
-        <div className="lg:col-span-1">
-          <div className="sticky top-8">
-            <Sidebar />
-          </div>
+        {/* ── Sidebar — hidden on mobile ────────────────────── */}
+        <div className="sidebar-mobile-hidden" style={{ position: 'sticky', top: 72 }}>
+          <Sidebar />
         </div>
-      </div>
-
-      {/* 底部装饰 */}
-      <div className="mt-20 text-center">
-        <div className="w-32 h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent mx-auto mb-8"></div>
-        <p className="text-gray-500 text-sm">
-          持续创作，分享技术之美 ✨
-        </p>
       </div>
     </div>
   );

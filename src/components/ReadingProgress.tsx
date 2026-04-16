@@ -2,45 +2,58 @@
 
 import { useEffect } from 'react';
 
+/**
+ * Thin accent-colored bar at the very top of the viewport.
+ * Tracks scroll progress through the <article> element.
+ */
 const ReadingProgress: React.FC = () => {
   useEffect(() => {
-    const updateProgress = () => {
+    const bar = document.getElementById('reading-progress-bar');
+    if (!bar) return;
+
+    const update = () => {
       const article = document.querySelector('article');
-      const progressBar = document.getElementById('progress-bar');
-      const progressText = document.getElementById('reading-progress');
-      
-      if (!article || !progressBar || !progressText) return;
+      if (!article) return;
 
-      const articleTop = article.offsetTop;
-      const articleHeight = article.offsetHeight;
-      const windowHeight = window.innerHeight;
-      const scrollTop = window.pageYOffset;
-
-      // 计算阅读进度
+      const { top, height } = article.getBoundingClientRect();
+      const windowH = window.innerHeight;
+      // progress: 0 when article top is at bottom of viewport, 1 when article bottom is at top
       const progress = Math.min(
-        Math.max((scrollTop - articleTop + windowHeight) / articleHeight, 0),
+        Math.max((-top + windowH) / (height), 0),
         1
       );
-
-      const percentage = Math.round(progress * 100);
-      
-      progressBar.style.width = `${percentage}%`;
-      progressText.textContent = `${percentage}%`;
+      bar.style.transform = `scaleX(${progress})`;
     };
 
-    window.addEventListener('scroll', updateProgress);
-    window.addEventListener('resize', updateProgress);
-    
-    // 初始调用
-    updateProgress();
+    window.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update, { passive: true });
+    update();
 
     return () => {
-      window.removeEventListener('scroll', updateProgress);
-      window.removeEventListener('resize', updateProgress);
+      window.removeEventListener('scroll', update);
+      window.removeEventListener('resize', update);
     };
   }, []);
 
-  return null;
+  return (
+    <div
+      id="reading-progress-bar"
+      aria-hidden="true"
+      style={{
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        right: 0,
+        height: 3,
+        backgroundColor: 'var(--color-accent)',
+        transformOrigin: 'left',
+        transform: 'scaleX(0)',
+        transition: 'transform 0.1s linear',
+        zIndex: 'var(--z-fixed)' as string,
+        pointerEvents: 'none',
+      }}
+    />
+  );
 };
 
 export default ReadingProgress;

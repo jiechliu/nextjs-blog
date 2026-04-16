@@ -9,100 +9,119 @@ interface RelatedPostsProps {
 
 const RelatedPosts: React.FC<RelatedPostsProps> = ({ currentPost, maxPosts = 5 }) => {
   const allPosts = getAllPosts();
-  
-  // 获取相关文章（同分类或相似标签）
-  const relatedPosts = allPosts
-    .filter(post => post.slug !== currentPost.slug) // 排除当前文章
-    .filter(post => {
-      // 同分类的文章
-      if (post.category === currentPost.category) return true;
-      // 有相同标签的文章
-      return post.tags.some(tag => currentPost.tags.includes(tag));
-    })
+
+  const related = allPosts
+    .filter(p => p.slug !== currentPost.slug)
+    .filter(p =>
+      p.category === currentPost.category ||
+      p.tags.some(t => currentPost.tags.includes(t))
+    )
     .slice(0, maxPosts);
 
-  // 如果相关文章不够，用最新文章补充
-  if (relatedPosts.length < maxPosts) {
-    const additionalPosts = allPosts
-      .filter(post => post.slug !== currentPost.slug)
-      .filter(post => !relatedPosts.some(related => related.slug === post.slug))
-      .slice(0, maxPosts - relatedPosts.length);
-    
-    relatedPosts.push(...additionalPosts);
+  if (related.length < maxPosts) {
+    const extra = allPosts
+      .filter(p => p.slug !== currentPost.slug)
+      .filter(p => !related.find(r => r.slug === p.slug))
+      .slice(0, maxPosts - related.length);
+    related.push(...extra);
   }
 
-  if (relatedPosts.length === 0) {
-    return null;
-  }
+  if (related.length === 0) return null;
 
   return (
-    <div className="bg-white rounded-lg border border-gray-200 overflow-hidden">
-      {/* 头部 */}
-      <div className="px-4 py-3 border-b border-gray-100 bg-gray-50/50">
-        <h3 className="text-sm font-semibold text-gray-800 flex items-center">
-          <svg className="w-4 h-4 mr-2 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-          </svg>
+    <div>
+      {/* Header */}
+      <div style={{
+        display: 'flex',
+        alignItems: 'center',
+        gap: 'var(--space-2)',
+        marginBottom: 'var(--space-4)',
+        paddingBottom: 'var(--space-3)',
+        borderBottom: '1px solid var(--color-border-subtle)',
+      }}>
+        <span style={{
+          display: 'inline-flex',
+          gap: 3,
+          flexShrink: 0,
+        }}>
+          {[0,1,2].map(i => (
+            <span key={i} style={{
+              display: 'block',
+              width: 14,
+              height: 2,
+              borderRadius: 1,
+              backgroundColor: i === 0 ? 'var(--color-amber)'
+                : i === 1 ? 'var(--color-border-strong)'
+                : 'var(--color-border)',
+            }} />
+          ))}
+        </span>
+        <span style={{
+          fontFamily: 'var(--font-display)',
+          fontSize: 'var(--text-xs)',
+          fontWeight: 700,
+          textTransform: 'uppercase' as const,
+          letterSpacing: '0.1em',
+          color: 'var(--color-text-tertiary)',
+        }}>
           相关推荐
-        </h3>
+        </span>
       </div>
 
-      {/* 文章列表 */}
-      <div className="divide-y divide-gray-100">
-        {relatedPosts.map((post, index) => (
+      {/* List */}
+      <div style={{ display: 'flex', flexDirection: 'column' }}>
+        {related.map((post, i) => (
           <Link
             key={post.slug}
             href={`/posts/${post.slug}`}
-            className="block px-4 py-3 hover:bg-gray-50 transition-colors group"
+            className="related-post-link"
           >
-            <div className="flex items-start space-x-3">
-              {/* 序号 */}
-              <div className="flex-shrink-0 w-6 h-6 bg-gray-100 rounded text-xs font-medium text-gray-600 flex items-center justify-center group-hover:bg-blue-100 group-hover:text-blue-600 transition-colors">
-                {index + 1}
-              </div>
-              
-              {/* 文章信息 */}
-              <div className="flex-1 min-w-0">
-                <h4 className="text-sm font-medium text-gray-900 group-hover:text-blue-600 transition-colors line-clamp-2 leading-5">
-                  {post.title}
-                </h4>
-                <div className="mt-1 flex items-center text-xs text-gray-500 space-x-2">
-                  <time dateTime={post.date}>
-                    {new Date(post.date).toLocaleDateString('zh-CN', {
-                      month: 'numeric',
-                      day: 'numeric'
-                    })}
-                  </time>
-                </div>
-                
-                {/* 标签 */}
-                {post.tags.length > 0 && (
-                  <div className="mt-2 flex flex-wrap gap-1">
-                    {post.tags.slice(0, 2).map((tag) => (
-                      <span
-                        key={tag}
-                        className="inline-block px-2 py-0.5 bg-gray-100 text-gray-600 text-xs rounded group-hover:bg-blue-100 group-hover:text-blue-600 transition-colors"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                )}
-              </div>
-            </div>
+            <span style={{
+              fontFamily: 'var(--font-display)',
+              fontSize: 'var(--text-xs)',
+              fontVariantNumeric: 'tabular-nums',
+              color: 'var(--color-text-tertiary)',
+              flexShrink: 0,
+              width: 16,
+            }}>
+              {String(i + 1).padStart(2, '0')}
+            </span>
+            <span style={{
+              fontFamily: 'var(--font-display)',
+              fontSize: 'var(--text-xs)',
+              fontWeight: 500,
+              lineHeight: 1.4,
+              color: 'var(--color-text-secondary)',
+              flex: 1,
+              minWidth: 0,
+              display: '-webkit-box',
+              WebkitLineClamp: 2,
+              WebkitBoxOrient: 'vertical' as const,
+              overflow: 'hidden',
+            }}>
+              {post.title}
+            </span>
           </Link>
         ))}
       </div>
-      
-      {/* 查看更多 */}
-      <div className="px-4 py-3 border-t border-gray-100 bg-gray-50/30">
-        <Link
-          href="/posts"
-          className="block text-center text-sm text-gray-600 hover:text-blue-600 transition-colors"
-        >
-          查看更多文章 →
-        </Link>
-      </div>
+
+      <Link
+        href="/posts"
+        style={{
+          display: 'block',
+          fontFamily: 'var(--font-display)',
+          fontSize: 'var(--text-xs)',
+          color: 'var(--color-text-tertiary)',
+          marginTop: 'var(--space-4)',
+          paddingTop: 'var(--space-3)',
+          borderTop: '1px solid var(--color-border-subtle)',
+          textDecoration: 'none',
+          transition: 'color var(--duration-fast) var(--ease-out-quart)',
+        }}
+        className="related-more-link"
+      >
+        查看全部文章 →
+      </Link>
     </div>
   );
 };

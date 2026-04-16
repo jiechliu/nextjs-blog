@@ -1,543 +1,204 @@
+/* ── Design tokens & base styles ─────────────────────────────── */
+@import '../styles/tokens.css';
+@import '../styles/base.css';
+
+/* ── Tailwind ─────────────────────────────────────────────────── */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* ── Global resets ────────────────────────────────────────────── */
 @layer base {
   html {
     scroll-behavior: smooth;
+    font-kerning: normal;
   }
-  
+
   body {
-    @apply text-gray-900;
-    background: linear-gradient(135deg, #e0e7ff 0%, #f3e8ff 50%, #fce7f3 100%);
-    min-height: 100vh;
-    position: relative;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-body);
+    line-height: var(--leading-relaxed);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
-  
-  body::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: 
-      radial-gradient(circle at 20% 80%, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
-      radial-gradient(circle at 80% 20%, rgba(236, 72, 153, 0.1) 0%, transparent 50%),
-      radial-gradient(circle at 40% 40%, rgba(59, 130, 246, 0.08) 0%, transparent 50%);
-    z-index: -1;
-    animation: backgroundShift 20s ease-in-out infinite;
+
+  /* Headings use display/sans stack */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    line-height: var(--leading-tight);
+    color: var(--color-text);
+    letter-spacing: -0.02em;
   }
-  
-  @keyframes backgroundShift {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.8; }
+
+  /* Code elements use mono stack */
+  code, pre, kbd, samp {
+    font-family: var(--font-mono);
+    font-variant-ligatures: none;
+  }
+
+  /* Links */
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  /* Selection */
+  ::selection {
+    background-color: var(--color-accent-subtle);
+    color: var(--color-text);
+  }
+
+  /* Focus visible */
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+    border-radius: var(--radius-sm);
+  }
+
+  /* Smooth theme transitions */
+  *, *::before, *::after {
+    transition-property: background-color, border-color, color;
+    transition-duration: var(--duration-slow);
+    transition-timing-function: var(--ease-in-out);
+  }
+
+  /* But NOT transform/opacity — those should be fast */
+  button, a, [role="button"] {
+    transition-property: background-color, border-color, color, transform, opacity, box-shadow;
+    transition-duration: var(--duration-fast);
+    transition-timing-function: var(--ease-out-quart);
   }
 }
 
+/* ── Prose styles for article content ────────────────────────── */
 @layer components {
-  .container-custom {
-    @apply max-w-6xl mx-auto px-4 sm:px-6 lg:px-8;
-  }
-  
-  .card {
-    @apply rounded-xl border border-white/40 transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl;
-    background: rgba(255, 255, 255, 0.7);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    box-shadow: 
-      0 8px 32px 0 rgba(31, 38, 135, 0.15),
-      inset 0 1px 0 rgba(255, 255, 255, 0.4);
-    animation: cardSlideIn 0.6s ease-out;
-  }
-  
-  .card:hover {
-    background: rgba(255, 255, 255, 0.8);
-    transform: translateY(-4px) scale(1.02);
-    box-shadow: 
-      0 20px 40px 0 rgba(31, 38, 135, 0.2),
-      inset 0 1px 0 rgba(255, 255, 255, 0.5);
-  }
-  
-  .card-featured {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.1) 100%);
-    border: 2px solid rgba(255, 215, 0, 0.3);
-    position: relative;
-    overflow: hidden;
-  }
-  
-  .card-featured::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-    animation: shimmer 3s infinite;
-  }
-  
-  @keyframes shimmer {
-    0% { left: -100%; }
-    100% { left: 100%; }
-  }
-  
-  @keyframes cardSlideIn {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
-  .btn-primary {
-    @apply px-6 py-3 rounded-xl font-medium transition-all duration-300 transform hover:scale-105;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    box-shadow: 0 4px 15px 0 rgba(102, 126, 234, 0.4);
-  }
-  
-  .btn-primary:hover {
-    box-shadow: 0 8px 25px 0 rgba(102, 126, 234, 0.6);
-    transform: translateY(-2px) scale(1.05);
-  }
-  
-  .btn-secondary {
-    @apply px-6 py-3 rounded-xl font-medium transition-all duration-300 transform hover:scale-105;
-    background: rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(10px);
-    color: #374151;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  }
-  
-  .btn-secondary:hover {
-    background: rgba(255, 255, 255, 0.95);
-    color: #1f2937;
-    transform: translateY(-2px) scale(1.05);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-  }
-  
-  .tag {
-    @apply inline-flex items-center text-sm px-3 py-1 rounded-full transition-all duration-300 hover:scale-110;
-    background: rgba(99, 102, 241, 0.1);
-    color: #6366f1;
-    border: 1px solid rgba(99, 102, 241, 0.2);
-    backdrop-filter: blur(10px);
-  }
-  
-  .tag:hover {
-    background: rgba(99, 102, 241, 0.2);
-    color: #4f46e5;
-    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.2);
-  }
-  
-  .nav-link {
-    @apply transition-all duration-300 relative font-medium;
-    color: rgba(75, 85, 99, 0.8);
-  }
-  
-  .nav-link:hover {
-    color: rgb(55, 65, 81);
-    text-shadow: 0 0 10px rgba(99, 102, 241, 0.3);
-    transform: translateY(-1px);
-  }
-  
-  .nav-link.active {
-    color: rgb(55, 65, 81);
-    font-weight: 600;
-  }
-  
-  .nav-link::after {
-    content: '';
-    position: absolute;
-    bottom: -4px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: linear-gradient(90deg, #667eea, #764ba2);
-    transition: width 0.3s ease;
-  }
-  
-  .nav-link:hover::after,
-  .nav-link.active::after {
-    width: 100%;
-  }
-  
-  .line-clamp-1 {
-    display: -webkit-box;
-    -webkit-line-clamp: 1;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
-  
-  .line-clamp-2 {
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
-  
-  .scrollbar-thin {
-    scrollbar-width: thin;
-  }
-  
-  .scrollbar-thumb-gray-300 {
-    scrollbar-color: #d1d5db transparent;
-  }
-  
-  .scrollbar-hide {
-    /* Firefox */
-    scrollbar-width: none;
-    /* Safari and Chrome */
-    -ms-overflow-style: none;
-  }
-  
-  .scrollbar-hide::-webkit-scrollbar {
-    display: none;
-  }
-  
-  /* 标题动画效果 */
-  .title-gradient {
-    background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #ec4899 100%);
-    background-size: 200% 200%;
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: gradientShift 4s ease-in-out infinite;
-  }
-  
-  @keyframes gradientShift {
-    0%, 100% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-  }
-  
-  /* 浮动动画 */
-  .float-animation {
-    animation: float 6s ease-in-out infinite;
-  }
-  
-  @keyframes float {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
-  }
-  
-  /* 脉冲效果 */
-  .pulse-glow {
-    animation: pulseGlow 2s ease-in-out infinite;
-  }
-  
-  @keyframes pulseGlow {
-    0%, 100% { 
-      box-shadow: 0 0 20px rgba(102, 126, 234, 0.3);
-    }
-    50% { 
-      box-shadow: 0 0 40px rgba(102, 126, 234, 0.6);
-    }
-  }
-  
-  /* 页面加载动画 */
-  .page-enter {
-    animation: pageEnter 0.8s ease-out;
-  }
-  
-  @keyframes pageEnter {
-    from {
-      opacity: 0;
-      transform: translateY(30px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
-  /* 渐变边框 */
-  .gradient-border {
-    position: relative;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 12px;
-  }
-  
-  .gradient-border::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    padding: 2px;
-    background: linear-gradient(135deg, #667eea, #764ba2, #f093fb);
-    border-radius: inherit;
-    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    mask-composite: xor;
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
+  .prose-bc {
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    line-height: var(--leading-relaxed);
+    color: var(--color-text);
+    max-width: 68ch;
   }
 
-  /* 新增特效 */
-  
-  /* 慢速旋转动画 */
-  .animate-spin-slow {
-    animation: spin 3s linear infinite;
+  .prose-bc h1,
+  .prose-bc h2,
+  .prose-bc h3,
+  .prose-bc h4 {
+    font-family: var(--font-display);
+    color: var(--color-text);
+    margin-top: var(--space-12);
+    margin-bottom: var(--space-4);
+    letter-spacing: -0.02em;
   }
-  
-  /* 3D翻转效果 */
-  .flip-card {
-    perspective: 1000px;
+
+  .prose-bc h1 { font-size: var(--text-4xl); }
+  .prose-bc h2 { font-size: var(--text-2xl); font-weight: 600; }
+  .prose-bc h3 { font-size: var(--text-xl); font-weight: 600; }
+  .prose-bc h4 { font-size: var(--text-lg); font-weight: 600; }
+
+  .prose-bc p {
+    margin-bottom: var(--space-6);
+    font-size: var(--text-base);
+    line-height: var(--leading-relaxed);
   }
-  
-  .flip-card-inner {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    transition: transform 0.8s;
-    transform-style: preserve-3d;
+
+  .prose-bc strong {
+    font-weight: 700;
+    color: var(--color-text);
   }
-  
-  .flip-card:hover .flip-card-inner {
-    transform: rotateY(180deg);
+
+  .prose-bc em {
+    font-style: italic;
+    color: var(--color-text-secondary);
   }
-  
-  .flip-card-front, .flip-card-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
+
+  .prose-bc a {
+    color: var(--color-accent-text);
+    text-decoration: underline;
+    text-decoration-color: color-mix(in oklch, var(--color-accent) 40%, transparent);
+    text-underline-offset: 3px;
   }
-  
-  .flip-card-back {
-    transform: rotateY(180deg);
+
+  .prose-bc a:hover {
+    text-decoration-color: var(--color-accent);
   }
-  
-  /* 霓虹灯效果 */
-  .neon-text {
-    color: #fff;
-    text-shadow:
-      0 0 5px #667eea,
-      0 0 10px #667eea,
-      0 0 15px #667eea,
-      0 0 20px #667eea,
-      0 0 35px #667eea,
-      0 0 40px #667eea;
-    animation: neonFlicker 2s infinite alternate;
+
+  .prose-bc ul,
+  .prose-bc ol {
+    padding-left: var(--space-6);
+    margin-bottom: var(--space-6);
   }
-  
-  @keyframes neonFlicker {
-    0%, 100% {
-      text-shadow:
-        0 0 5px #667eea,
-        0 0 10px #667eea,
-        0 0 15px #667eea,
-        0 0 20px #667eea,
-        0 0 35px #667eea,
-        0 0 40px #667eea;
-    }
-    50% {
-      text-shadow:
-        0 0 2px #667eea,
-        0 0 5px #667eea,
-        0 0 8px #667eea,
-        0 0 12px #667eea,
-        0 0 25px #667eea,
-        0 0 30px #667eea;
-    }
+
+  .prose-bc li {
+    margin-bottom: var(--space-2);
+    line-height: var(--leading-relaxed);
   }
-  
-  /* 波浪动画 */
-  .wave-animation {
-    position: relative;
-    overflow: hidden;
+
+  .prose-bc blockquote {
+    margin: var(--space-8) 0;
+    padding: var(--space-6);
+    background-color: var(--color-bg-subtle);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-border);
+    font-style: italic;
+    color: var(--color-text-secondary);
   }
-  
-  .wave-animation::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-    animation: wave 2s infinite;
+
+  /* Override Tailwind prose default blue link and heading colors */
+  .prose :where(a):not(:where([class~=not-prose] *)) {
+    color: var(--color-accent-text);
   }
-  
-  @keyframes wave {
-    0% { left: -100%; }
-    100% { left: 100%; }
+
+  .prose :where(h1, h2, h3, h4, h5, h6):not(:where([class~=not-prose] *)) {
+    color: var(--color-text);
   }
-  
-  /* 粒子动画背景 */
-  .particle-bg {
-    position: relative;
-    overflow: hidden;
-  }
-  
-  .particle-bg::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: 
-      radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
-      radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
-      radial-gradient(circle at 40% 40%, rgba(120, 219, 255, 0.3) 0%, transparent 50%);
-    animation: particleFloat 6s ease-in-out infinite;
-  }
-  
-  @keyframes particleFloat {
-    0%, 100% { transform: translateY(0px) rotate(0deg); }
-    33% { transform: translateY(-10px) rotate(1deg); }
-    66% { transform: translateY(5px) rotate(-1deg); }
-  }
-  
-  /* 彩虹边框 */
-  .rainbow-border {
-    position: relative;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 12px;
-  }
-  
-  .rainbow-border::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    padding: 2px;
-    background: linear-gradient(45deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #9400d3);
-    background-size: 400% 400%;
-    border-radius: inherit;
-    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    mask-composite: xor;
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    animation: rainbowRotate 3s linear infinite;
-  }
-  
-  @keyframes rainbowRotate {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-  }
-  
-  /* 磁场效果 */
-  .magnetic-hover {
-    transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
-  }
-  
-  .magnetic-hover:hover {
-    transform: translateY(-5px) scale(1.02);
-    box-shadow: 
-      0 20px 40px rgba(0, 0, 0, 0.1),
-      0 0 20px rgba(102, 126, 234, 0.3);
-  }
-  
-  /* 液体按钮效果 */
-  .liquid-button {
-    position: relative;
-    overflow: hidden;
-    border-radius: 50px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    transition: all 0.3s ease;
-  }
-  
-  .liquid-button::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-    transition: left 0.5s;
-  }
-  
-  .liquid-button:hover::before {
-    left: 100%;
-  }
-  
-  .liquid-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 20px rgba(102, 126, 234, 0.4);
-  }
-  
-  /* 故障效果 */
-  .glitch-effect {
-    position: relative;
-    color: white;
-    font-weight: bold;
-  }
-  
-  .glitch-effect::before,
-  .glitch-effect::after {
-    content: attr(data-text);
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
-  
-  .glitch-effect::before {
-    animation: glitch-1 0.5s infinite;
-    color: #ff0000;
-    z-index: -1;
-  }
-  
-  .glitch-effect::after {
-    animation: glitch-2 0.5s infinite;
-    color: #00ffff;
-    z-index: -2;
-  }
-  
-  @keyframes glitch-1 {
-    0%, 14%, 15%, 49%, 50%, 99%, 100% {
-      transform: translate(0);
-    }
-    15%, 49% {
-      transform: translate(-2px, 2px);
-    }
-  }
-  
-  @keyframes glitch-2 {
-    0%, 20%, 21%, 62%, 63%, 99%, 100% {
-      transform: translate(0);
-    }
-    21%, 62% {
-      transform: translate(2px, -2px);
-    }
-  }
-  
-  /* 视差滚动效果 */
-  .parallax-element {
-    will-change: transform;
-    transition: transform 0.1s ease-out;
-  }
-  
-  /* 呼吸效果 */
-  .breathing-animation {
-    animation: breathing 4s ease-in-out infinite;
-  }
-  
-  @keyframes breathing {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-  }
-  
-  /* 彩色阴影 */
-  .colorful-shadow {
-    box-shadow: 
-      0 0 20px rgba(102, 126, 234, 0.3),
-      0 0 40px rgba(139, 92, 246, 0.2),
-      0 0 60px rgba(236, 72, 153, 0.1);
-  }
-  
-  /* 动态渐变背景 */
-  .dynamic-gradient {
-    background: linear-gradient(-45deg, #667eea, #764ba2, #f093fb, #4facfe);
-    background-size: 400% 400%;
-    animation: gradientShift 8s ease infinite;
-  }
+}
+
+/* ── Scrollbar ────────────────────────────────────────────────── */
+.scrollbar-thin {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-border) transparent;
+}
+
+.scrollbar-hide {
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* ── Reading progress ────────────────────────────────────────── */
+.reading-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  background-color: var(--color-accent);
+  z-index: 100;
+  transition: width 0.1s linear;
+}
+
+/* ── Line clamp utilities ─────────────────────────────────────── */
+.line-clamp-1 {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }

@@ -1,0 +1,194 @@
+/**
+ * BlockCoder Design Tokens — updated to use CSS font variables from Next.js
+ * Injected as CSS custom properties via var(--font-geist) etc. from layout.tsx
+ */
+
+:root {
+  /* ── Font stacks ───────────────────────────────────────────── */
+  --font-display: var(--font-lexend), 'Lexend', system-ui, sans-serif;
+  --font-body:    var(--font-noto-serif-sc), 'Noto Serif SC', 'Source Han Serif SC', Georgia, serif;
+  --font-mono:    'Cascadia Code', 'Fira Code', 'Consolas', monospace;
+
+  /* ── Spacing scale (4pt base) ─────────────────────────────────── */
+  --space-1:  4px;
+  --space-2:  8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-6:  24px;
+  --space-8:  32px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-24: 96px;
+
+  /* ── Typography scale ────────────────────────────────────────── */
+  --text-xs:   0.75rem;
+  --text-sm:   0.875rem;
+  --text-base: 1rem;
+  --text-lg:   1.125rem;
+  --text-xl:   1.25rem;
+  --text-2xl:  1.5rem;
+  --text-3xl:  1.875rem;
+  --text-4xl:  2.25rem;
+  --text-5xl:  3rem;
+
+  --leading-tight:   1.2;
+  --leading-snug:    1.375;
+  --leading-normal:  1.5;
+  --leading-relaxed: 1.72;
+  --leading-loose:   1.85;
+
+  /* ── Border radius ───────────────────────────────────────────── */
+  --radius-sm:  4px;
+  --radius-md:  8px;
+  --radius-lg:  12px;
+  --radius-xl:  16px;
+  --radius-full: 9999px;
+
+  /* ── Transitions ─────────────────────────────────────────────── */
+  --duration-fast:   140ms;
+  --duration-base:   240ms;
+  --duration-slow:   380ms;
+  --ease-out-quart:  cubic-bezier(0.25, 1, 0.5, 1);
+  --ease-in-out:     cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* ── Z-index ─────────────────────────────────────────────────── */
+  --z-raised:  10;
+  --z-sticky:  30;
+  --z-fixed:   40;
+  --z-modal:   50;
+}
+
+/* ── Light theme ─────────────────────────────────────────────── */
+:root,
+[data-theme="light"] {
+  color-scheme: light;
+
+  --color-bg:              oklch(97% 0.005 240);
+  --color-bg-subtle:       oklch(94% 0.006 240);
+  --color-bg-elevated:     oklch(100% 0.003 240);
+  --color-bg-inset:        oklch(91% 0.007 240);
+
+  --color-text:            oklch(15% 0.010 245);
+  --color-text-secondary:  oklch(40% 0.010 245);
+  --color-text-tertiary:   oklch(57% 0.008 245);
+  --color-text-inverse:    oklch(97% 0.005 240);
+
+  /* Primary accent — cold indigo (links, CTAs, active states) */
+  --color-accent:          oklch(50% 0.16 255);
+  --color-accent-hover:    oklch(44% 0.16 255);
+  --color-accent-subtle:   oklch(93% 0.05 255);
+  --color-accent-text:     oklch(38% 0.14 255);
+
+  /* Secondary — warm amber (featured badge, dates, warmth balance) */
+  --color-amber:           oklch(68% 0.14 68);
+  --color-amber-hover:     oklch(62% 0.14 68);
+  --color-amber-subtle:    oklch(95% 0.05 80);
+  --color-amber-text:      oklch(44% 0.13 65);
+
+  /* Tertiary — forest green (category labels, read-count) */
+  --color-green:           oklch(55% 0.12 155);
+  --color-green-subtle:    oklch(94% 0.04 155);
+  --color-green-text:      oklch(38% 0.11 155);
+
+  --color-border:          oklch(86% 0.008 245);
+  --color-border-subtle:   oklch(91% 0.006 245);
+  --color-border-strong:   oklch(72% 0.010 245);
+
+  --color-code-bg:         oklch(19% 0.012 250);
+  --color-code-text:       oklch(88% 0.008 240);
+  --color-code-header:     oklch(25% 0.012 250);
+
+  --shadow-sm:  0 1px 3px oklch(15% 0.010 245 / 0.07), 0 1px 2px oklch(15% 0.010 245 / 0.04);
+  --shadow-md:  0 4px 12px oklch(15% 0.010 245 / 0.09), 0 1px 3px oklch(15% 0.010 245 / 0.05);
+  --shadow-lg:  0 8px 24px oklch(15% 0.010 245 / 0.11), 0 2px 6px oklch(15% 0.010 245 / 0.06);
+}
+
+/* ── Dark theme ──────────────────────────────────────────────── */
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  /* Dark bg: near-black with a hair of warmth on the subtle surface
+     to prevent that "dead cold void" feel at night */
+  --color-bg:              oklch(12% 0.008 250);
+  --color-bg-subtle:       oklch(16% 0.009 248);   /* slightly warmer hue */
+  --color-bg-elevated:     oklch(19% 0.010 250);
+  --color-bg-inset:        oklch(9% 0.006 250);
+
+  --color-text:            oklch(88% 0.007 240);
+  --color-text-secondary:  oklch(62% 0.007 240);
+  --color-text-tertiary:   oklch(46% 0.005 240);
+  --color-text-inverse:    oklch(12% 0.008 250);
+
+  /* Primary accent — slightly brighter for dark bg contrast */
+  --color-accent:          oklch(66% 0.13 255);
+  --color-accent-hover:    oklch(73% 0.12 255);
+  --color-accent-subtle:   oklch(20% 0.06 255);
+  --color-accent-text:     oklch(73% 0.12 255);
+
+  /* Amber — warmer in dark mode, more visible */
+  --color-amber:           oklch(74% 0.13 70);
+  --color-amber-hover:     oklch(80% 0.12 70);
+  --color-amber-subtle:    oklch(22% 0.06 75);
+  --color-amber-text:      oklch(78% 0.12 68);
+
+  /* Green — slightly more saturated in dark for pop */
+  --color-green:           oklch(62% 0.13 155);
+  --color-green-subtle:    oklch(20% 0.05 155);
+  --color-green-text:      oklch(66% 0.12 155);
+
+  --color-border:          oklch(26% 0.010 245);
+  --color-border-subtle:   oklch(20% 0.008 245);
+  --color-border-strong:   oklch(38% 0.010 245);
+
+  --color-code-bg:         oklch(9% 0.006 250);
+  --color-code-text:       oklch(86% 0.007 240);
+  --color-code-header:     oklch(15% 0.010 250);
+
+  --shadow-sm:  0 1px 3px oklch(5% 0.006 250 / 0.35);
+  --shadow-md:  0 4px 12px oklch(5% 0.006 250 / 0.45), 0 1px 3px oklch(5% 0.006 250 / 0.20);
+  --shadow-lg:  0 8px 24px oklch(5% 0.006 250 / 0.55), 0 2px 6px oklch(5% 0.006 250 / 0.25);
+}
+
+/* ── System preference fallback ─────────────────────────────── */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --color-bg:              oklch(12% 0.008 250);
+    --color-bg-subtle:       oklch(16% 0.009 248);
+    --color-bg-elevated:     oklch(19% 0.010 250);
+    --color-bg-inset:        oklch(9% 0.006 250);
+    --color-text:            oklch(88% 0.007 240);
+    --color-text-secondary:  oklch(62% 0.007 240);
+    --color-text-tertiary:   oklch(46% 0.005 240);
+    --color-text-inverse:    oklch(12% 0.008 250);
+    --color-accent:          oklch(66% 0.13 255);
+    --color-accent-hover:    oklch(73% 0.12 255);
+    --color-accent-subtle:   oklch(20% 0.06 255);
+    --color-accent-text:     oklch(73% 0.12 255);
+    --color-amber:           oklch(74% 0.13 70);
+    --color-amber-hover:     oklch(80% 0.12 70);
+    --color-amber-subtle:    oklch(22% 0.06 75);
+    --color-amber-text:      oklch(78% 0.12 68);
+    --color-green:           oklch(62% 0.13 155);
+    --color-green-subtle:    oklch(20% 0.05 155);
+    --color-green-text:      oklch(66% 0.12 155);
+    --color-border:          oklch(26% 0.010 245);
+    --color-border-subtle:   oklch(20% 0.008 245);
+    --color-border-strong:   oklch(38% 0.010 245);
+    --color-code-bg:         oklch(9% 0.006 250);
+    --color-code-text:       oklch(86% 0.007 240);
+    --color-code-header:     oklch(15% 0.010 250);
+    --shadow-sm:  0 1px 3px oklch(5% 0.006 250 / 0.35);
+    --shadow-md:  0 4px 12px oklch(5% 0.006 250 / 0.45), 0 1px 3px oklch(5% 0.006 250 / 0.20);
+    --shadow-lg:  0 8px 24px oklch(5% 0.006 250 / 0.55), 0 2px 6px oklch(5% 0.006 250 / 0.25);
+  }
+}
+
+/* ── Reduced motion ──────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

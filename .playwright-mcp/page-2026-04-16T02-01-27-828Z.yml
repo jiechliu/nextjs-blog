@@ -1,0 +1,954 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e4]:
+      - link "BlockCoder" [ref=e5] [cursor=pointer]:
+        - /url: /
+        - generic [ref=e11]: BlockCoder
+      - navigation "主导航" [ref=e12]:
+        - link "首页" [ref=e13] [cursor=pointer]:
+          - /url: /
+        - link "文章" [ref=e14] [cursor=pointer]:
+          - /url: /posts
+        - link "分类" [ref=e15] [cursor=pointer]:
+          - /url: /categories
+        - link "标签" [ref=e16] [cursor=pointer]:
+          - /url: /tags
+        - link "关于" [ref=e17] [cursor=pointer]:
+          - /url: /about
+        - link "AI" [ref=e18] [cursor=pointer]:
+          - /url: /ai-chat
+      - generic [ref=e19]:
+        - 'button "跟随系统 (当前: 浅色)" [ref=e20] [cursor=pointer]':
+          - img [ref=e21]
+        - button "打开菜单" [ref=e27] [cursor=pointer]:
+          - img [ref=e28]
+  - main [ref=e29]:
+    - generic [ref=e31]:
+      - navigation "面包屑" [ref=e32]:
+        - list [ref=e33]:
+          - listitem [ref=e34]:
+            - link "首页" [ref=e35] [cursor=pointer]:
+              - /url: /
+            - generic [ref=e36]: /
+          - listitem [ref=e37]:
+            - link "文章" [ref=e38] [cursor=pointer]:
+              - /url: /posts
+            - generic [ref=e39]: /
+          - listitem [ref=e40]:
+            - generic [ref=e41]: CSS Grid 与 Flexbox：现代布局技术对比指南
+      - generic [ref=e42]:
+        - link "前端开发" [ref=e43] [cursor=pointer]:
+          - /url: /categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91
+        - generic [ref=e44]: ·
+        - time [ref=e45]: 2025年11月8日
+        - generic [ref=e46]: ·
+        - generic [ref=e47]: 约 14 分钟
+      - heading "CSS Grid 与 Flexbox：现代布局技术对比指南" [level=1] [ref=e48]
+      - paragraph [ref=e49]: 深入对比 CSS Grid 和 Flexbox 的特性和使用场景，掌握现代 CSS 布局的核心技术，构建响应式和灵活的网页布局。
+      - generic [ref=e50]:
+        - link "#CSS" [ref=e51] [cursor=pointer]:
+          - /url: /tags/css
+        - link "#Grid" [ref=e52] [cursor=pointer]:
+          - /url: /tags/grid
+        - link "#Flexbox" [ref=e53] [cursor=pointer]:
+          - /url: /tags/flexbox
+        - link "#布局" [ref=e54] [cursor=pointer]:
+          - /url: /tags/%E5%B8%83%E5%B1%80
+        - link "#响应式设计" [ref=e55] [cursor=pointer]:
+          - /url: /tags/%E5%93%8D%E5%BA%94%E5%BC%8F%E8%AE%BE%E8%AE%A1
+    - generic [ref=e58]:
+      - generic [ref=e59]:
+        - article [ref=e60]:
+          - generic [ref=e62]:
+            - paragraph [ref=e63]: CSS Grid 和 Flexbox 是现代 CSS 布局的两大核心技术。理解它们的差异和适用场景，能让你构建更灵活、更强大的网页布局。
+            - heading "🤔 Grid vs Flexbox：何时使用？" [level=2] [ref=e64]
+            - heading "Flexbox - 一维布局" [level=3] [ref=e65]
+            - list [ref=e66]:
+              - listitem [ref=e67]:
+                - generic [ref=e69]:
+                  - strong [ref=e70]: 适用场景
+                  - text: ：导航栏、按钮组、卡片内容对齐
+              - listitem [ref=e71]:
+                - generic [ref=e73]:
+                  - strong [ref=e74]: 特点
+                  - text: ：主轴和交叉轴的一维布局
+              - listitem [ref=e75]:
+                - generic [ref=e77]:
+                  - strong [ref=e78]: 优势
+                  - text: ：内容驱动的布局，自动分配空间
+            - heading "CSS Grid - 二维布局" [level=3] [ref=e79]
+            - list [ref=e80]:
+              - listitem [ref=e81]:
+                - generic [ref=e83]:
+                  - strong [ref=e84]: 适用场景
+                  - text: ：页面整体布局、复杂的网格系统
+              - listitem [ref=e85]:
+                - generic [ref=e87]:
+                  - strong [ref=e88]: 特点
+                  - text: ：行和列的二维网格系统
+              - listitem [ref=e89]:
+                - generic [ref=e91]:
+                  - strong [ref=e92]: 优势
+                  - text: ：精确控制元素位置，复杂布局简单实现
+            - heading "🎯 Flexbox 深入解析" [level=2] [ref=e93]
+            - heading "基础概念" [level=3] [ref=e94]
+            - generic [ref=e96]:
+              - generic [ref=e97]:
+                - generic [ref=e98]: css
+                - button "复制" [ref=e99] [cursor=pointer]:
+                  - img [ref=e100]
+                  - generic [ref=e102]: 复制
+              - code [ref=e105]:
+                - generic [ref=e106]: "1"
+                - text: ".flex-container {"
+                - generic [ref=e107]: "2"
+                - text: "display: flex;"
+                - generic [ref=e108]: "3"
+                - text: /* 主轴方向 */
+                - generic [ref=e109]: "4"
+                - text: "flex-direction: row; /* row | row-reverse | column | column-reverse */"
+                - generic [ref=e110]: "5"
+                - generic [ref=e111]: "6"
+                - text: /* 主轴对齐 */
+                - generic [ref=e112]: "7"
+                - text: "justify-content: flex-start; /* flex-start | flex-end | center | space-between | space-around | space-evenly */"
+                - generic [ref=e113]: "8"
+                - generic [ref=e114]: "9"
+                - text: /* 交叉轴对齐 */
+                - generic [ref=e115]: "10"
+                - text: "align-items: stretch; /* stretch | flex-start | flex-end | center | baseline */"
+                - generic [ref=e116]: "11"
+                - generic [ref=e117]: "12"
+                - text: /* 换行 */
+                - generic [ref=e118]: "13"
+                - text: "flex-wrap: nowrap; /* nowrap | wrap | wrap-reverse */"
+                - generic [ref=e119]: "14"
+                - text: "}"
+            - heading "实用布局示例" [level=3] [ref=e120]
+            - heading "1. 居中布局" [level=4] [ref=e121]
+            - generic [ref=e123]:
+              - generic [ref=e124]:
+                - generic [ref=e125]: css
+                - button "复制" [ref=e126] [cursor=pointer]:
+                  - img [ref=e127]
+                  - generic [ref=e129]: 复制
+              - code [ref=e132]:
+                - generic [ref=e133]: "1"
+                - text: ".center-container {"
+                - generic [ref=e134]: "2"
+                - text: "display: flex;"
+                - generic [ref=e135]: "3"
+                - text: "justify-content: center;"
+                - generic [ref=e136]: "4"
+                - text: "align-items: center;"
+                - generic [ref=e137]: "5"
+                - text: "height: 100vh;"
+                - generic [ref=e138]: "6"
+                - text: "}"
+            - heading "2. 导航栏布局" [level=4] [ref=e139]
+            - generic [ref=e141]:
+              - generic [ref=e142]:
+                - generic [ref=e143]: css
+                - button "复制" [ref=e144] [cursor=pointer]:
+                  - img [ref=e145]
+                  - generic [ref=e147]: 复制
+              - code [ref=e150]:
+                - generic [ref=e151]: "1"
+                - text: ".navbar {"
+                - generic [ref=e152]: "2"
+                - text: "display: flex;"
+                - generic [ref=e153]: "3"
+                - text: "justify-content: space-between;"
+                - generic [ref=e154]: "4"
+                - text: "align-items: center;"
+                - generic [ref=e155]: "5"
+                - text: "padding: 1rem 2rem;"
+                - generic [ref=e156]: "6"
+                - text: "}"
+                - generic [ref=e157]: "7"
+                - generic [ref=e158]: "8"
+                - text: ".nav-logo {"
+                - generic [ref=e159]: "9"
+                - text: "flex-shrink: 0;"
+                - generic [ref=e160]: "10"
+                - text: "}"
+                - generic [ref=e161]: "11"
+                - generic [ref=e162]: "12"
+                - text: ".nav-menu {"
+                - generic [ref=e163]: "13"
+                - text: "display: flex;"
+                - generic [ref=e164]: "14"
+                - text: "gap: 2rem;"
+                - generic [ref=e165]: "15"
+                - text: "list-style: none;"
+                - generic [ref=e166]: "16"
+                - text: "}"
+                - generic [ref=e167]: "17"
+                - generic [ref=e168]: "18"
+                - text: ".nav-actions {"
+                - generic [ref=e169]: "19"
+                - text: "display: flex;"
+                - generic [ref=e170]: "20"
+                - text: "gap: 1rem;"
+                - generic [ref=e171]: "21"
+                - text: "}"
+            - heading "3. 卡片布局" [level=4] [ref=e172]
+            - generic [ref=e174]:
+              - generic [ref=e175]:
+                - generic [ref=e176]: css
+                - button "复制" [ref=e177] [cursor=pointer]:
+                  - img [ref=e178]
+                  - generic [ref=e180]: 复制
+              - code [ref=e183]:
+                - generic [ref=e184]: "1"
+                - text: ".card {"
+                - generic [ref=e185]: "2"
+                - text: "display: flex;"
+                - generic [ref=e186]: "3"
+                - text: "flex-direction: column;"
+                - generic [ref=e187]: "4"
+                - text: "height: 100%;"
+                - generic [ref=e188]: "5"
+                - text: "}"
+                - generic [ref=e189]: "6"
+                - generic [ref=e190]: "7"
+                - text: ".card-content {"
+                - generic [ref=e191]: "8"
+                - text: "flex: 1; /* 占据剩余空间 */"
+                - generic [ref=e192]: "9"
+                - text: "padding: 1rem;"
+                - generic [ref=e193]: "10"
+                - text: "}"
+                - generic [ref=e194]: "11"
+                - generic [ref=e195]: "12"
+                - text: ".card-actions {"
+                - generic [ref=e196]: "13"
+                - text: "padding: 1rem;"
+                - generic [ref=e197]: "14"
+                - text: "border-top: 1px solid #eee;"
+                - generic [ref=e198]: "15"
+                - text: "}"
+            - heading "4. 响应式网格" [level=4] [ref=e199]
+            - generic [ref=e201]:
+              - generic [ref=e202]:
+                - generic [ref=e203]: css
+                - button "复制" [ref=e204] [cursor=pointer]:
+                  - img [ref=e205]
+                  - generic [ref=e207]: 复制
+              - code [ref=e210]:
+                - generic [ref=e211]: "1"
+                - text: ".flex-grid {"
+                - generic [ref=e212]: "2"
+                - text: "display: flex;"
+                - generic [ref=e213]: "3"
+                - text: "flex-wrap: wrap;"
+                - generic [ref=e214]: "4"
+                - text: "gap: 1rem;"
+                - generic [ref=e215]: "5"
+                - text: "}"
+                - generic [ref=e216]: "6"
+                - generic [ref=e217]: "7"
+                - text: ".flex-grid-item {"
+                - generic [ref=e218]: "8"
+                - text: "flex: 1 1 300px; /* grow shrink basis */"
+                - generic [ref=e219]: "9"
+                - text: "min-width: 0; /* 防止内容溢出 */"
+                - generic [ref=e220]: "10"
+                - text: "}"
+            - heading "🏗️ CSS Grid 详解" [level=2] [ref=e221]
+            - heading "基础概念" [level=3] [ref=e222]
+            - generic [ref=e224]:
+              - generic [ref=e225]:
+                - generic [ref=e226]: css
+                - button "复制" [ref=e227] [cursor=pointer]:
+                  - img [ref=e228]
+                  - generic [ref=e230]: 复制
+              - code [ref=e233]:
+                - generic [ref=e234]: "1"
+                - text: ".grid-container {"
+                - generic [ref=e235]: "2"
+                - text: "display: grid;"
+                - generic [ref=e236]: "3"
+                - generic [ref=e237]: "4"
+                - text: /* 定义列 */
+                - generic [ref=e238]: "5"
+                - text: "grid-template-columns: 1fr 2fr 1fr; /* 或 repeat(3, 1fr) */"
+                - generic [ref=e239]: "6"
+                - generic [ref=e240]: "7"
+                - text: /* 定义行 */
+                - generic [ref=e241]: "8"
+                - text: "grid-template-rows: auto 1fr auto;"
+                - generic [ref=e242]: "9"
+                - generic [ref=e243]: "10"
+                - text: /* 间距 */
+                - generic [ref=e244]: "11"
+                - text: "gap: 1rem; /* 或 row-gap, column-gap */"
+                - generic [ref=e245]: "12"
+                - generic [ref=e246]: "13"
+                - text: /* 对齐 */
+                - generic [ref=e247]: "14"
+                - text: "justify-items: stretch; /* start | end | center | stretch */"
+                - generic [ref=e248]: "15"
+                - text: "align-items: stretch; /* start | end | center | stretch */"
+                - generic [ref=e249]: "16"
+                - text: "}"
+            - heading "复杂布局示例" [level=3] [ref=e250]
+            - heading "1. 经典网页布局" [level=4] [ref=e251]
+            - generic [ref=e253]:
+              - generic [ref=e254]:
+                - generic [ref=e255]: css
+                - button "复制" [ref=e256] [cursor=pointer]:
+                  - img [ref=e257]
+                  - generic [ref=e259]: 复制
+              - code [ref=e262]:
+                - generic [ref=e263]: "1"
+                - text: ".page-layout {"
+                - generic [ref=e264]: "2"
+                - text: "display: grid;"
+                - generic [ref=e265]: "3"
+                - text: "grid-template-areas:"
+                - generic [ref=e266]: "4"
+                - text: "\"header header header\""
+                - generic [ref=e267]: "5"
+                - text: "\"sidebar main aside\""
+                - generic [ref=e268]: "6"
+                - text: "\"footer footer footer\";"
+                - generic [ref=e269]: "7"
+                - text: "grid-template-columns: 200px 1fr 200px;"
+                - generic [ref=e270]: "8"
+                - text: "grid-template-rows: auto 1fr auto;"
+                - generic [ref=e271]: "9"
+                - text: "min-height: 100vh;"
+                - generic [ref=e272]: "10"
+                - text: "}"
+                - generic [ref=e273]: "11"
+                - generic [ref=e274]: "12"
+                - text: ".header { grid-area: header; }"
+                - generic [ref=e275]: "13"
+                - text: ".sidebar { grid-area: sidebar; }"
+                - generic [ref=e276]: "14"
+                - text: ".main { grid-area: main; }"
+                - generic [ref=e277]: "15"
+                - text: ".aside { grid-area: aside; }"
+                - generic [ref=e278]: "16"
+                - text: ".footer { grid-area: footer; }"
+            - heading "2. 响应式图片网格" [level=4] [ref=e279]
+            - generic [ref=e281]:
+              - generic [ref=e282]:
+                - generic [ref=e283]: css
+                - button "复制" [ref=e284] [cursor=pointer]:
+                  - img [ref=e285]
+                  - generic [ref=e287]: 复制
+              - code [ref=e290]:
+                - generic [ref=e291]: "1"
+                - text: ".image-grid {"
+                - generic [ref=e292]: "2"
+                - text: "display: grid;"
+                - generic [ref=e293]: "3"
+                - text: "grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));"
+                - generic [ref=e294]: "4"
+                - text: "gap: 1rem;"
+                - generic [ref=e295]: "5"
+                - text: "}"
+                - generic [ref=e296]: "6"
+                - generic [ref=e297]: "7"
+                - text: ".image-item {"
+                - generic [ref=e298]: "8"
+                - text: "aspect-ratio: 1;"
+                - generic [ref=e299]: "9"
+                - text: "overflow: hidden;"
+                - generic [ref=e300]: "10"
+                - text: "border-radius: 8px;"
+                - generic [ref=e301]: "11"
+                - text: "}"
+                - generic [ref=e302]: "12"
+                - generic [ref=e303]: "13"
+                - text: ".image-item img {"
+                - generic [ref=e304]: "14"
+                - text: "width: 100%;"
+                - generic [ref=e305]: "15"
+                - text: "height: 100%;"
+                - generic [ref=e306]: "16"
+                - text: "object-fit: cover;"
+                - generic [ref=e307]: "17"
+                - text: "}"
+            - heading "3. 复杂卡片布局" [level=4] [ref=e308]
+            - generic [ref=e310]:
+              - generic [ref=e311]:
+                - generic [ref=e312]: css
+                - button "复制" [ref=e313] [cursor=pointer]:
+                  - img [ref=e314]
+                  - generic [ref=e316]: 复制
+              - code [ref=e319]:
+                - generic [ref=e320]: "1"
+                - text: ".dashboard {"
+                - generic [ref=e321]: "2"
+                - text: "display: grid;"
+                - generic [ref=e322]: "3"
+                - text: "grid-template-columns: repeat(12, 1fr);"
+                - generic [ref=e323]: "4"
+                - text: "gap: 1rem;"
+                - generic [ref=e324]: "5"
+                - text: "padding: 1rem;"
+                - generic [ref=e325]: "6"
+                - text: "}"
+                - generic [ref=e326]: "7"
+                - generic [ref=e327]: "8"
+                - text: ".widget-large {"
+                - generic [ref=e328]: "9"
+                - text: "grid-column: span 8;"
+                - generic [ref=e329]: "10"
+                - text: "grid-row: span 2;"
+                - generic [ref=e330]: "11"
+                - text: "}"
+                - generic [ref=e331]: "12"
+                - generic [ref=e332]: "13"
+                - text: ".widget-medium {"
+                - generic [ref=e333]: "14"
+                - text: "grid-column: span 4;"
+                - generic [ref=e334]: "15"
+                - text: "}"
+                - generic [ref=e335]: "16"
+                - generic [ref=e336]: "17"
+                - text: ".widget-small {"
+                - generic [ref=e337]: "18"
+                - text: "grid-column: span 3;"
+                - generic [ref=e338]: "19"
+                - text: "}"
+                - generic [ref=e339]: "20"
+                - generic [ref=e340]: "21"
+                - text: /* 响应式调整 */
+                - generic [ref=e341]: "22"
+                - text: "@media (max-width: 768px) {"
+                - generic [ref=e342]: "23"
+                - text: ".dashboard {"
+                - generic [ref=e343]: "24"
+                - text: "grid-template-columns: 1fr;"
+                - generic [ref=e344]: "25"
+                - text: "}"
+                - generic [ref=e345]: "26"
+                - generic [ref=e346]: "27"
+                - text: .widget-large,
+                - generic [ref=e347]: "28"
+                - text: .widget-medium,
+                - generic [ref=e348]: "29"
+                - text: ".widget-small {"
+                - generic [ref=e349]: "30"
+                - text: "grid-column: 1;"
+                - generic [ref=e350]: "31"
+                - text: "}"
+                - generic [ref=e351]: "32"
+                - text: "}"
+            - heading "🎨 实战案例：博客布局" [level=2] [ref=e352]
+            - heading "HTML 结构" [level=3] [ref=e353]
+            - generic [ref=e355]:
+              - generic [ref=e356]:
+                - generic [ref=e357]: html
+                - button "复制" [ref=e358] [cursor=pointer]:
+                  - img [ref=e359]
+                  - generic [ref=e361]: 复制
+              - code [ref=e364]:
+                - generic [ref=e365]: "1"
+                - text: <div class="blog-layout">
+                - generic [ref=e366]: "2"
+                - text: <header class="blog-header">
+                - generic [ref=e367]: "3"
+                - text: <nav class="navbar">
+                - generic [ref=e368]: "4"
+                - text: <div class="nav-brand">JieCheng.Dev</div>
+                - generic [ref=e369]: "5"
+                - text: <ul class="nav-menu">
+                - generic [ref=e370]: "6"
+                - text: <li><a href="/">首页</a></li>
+                - generic [ref=e371]: "7"
+                - text: <li><a href="/posts">文章</a></li>
+                - generic [ref=e372]: "8"
+                - text: <li><a href="/about">关于</a></li>
+                - generic [ref=e373]: "9"
+                - text: </ul>
+                - generic [ref=e374]: "10"
+                - text: </nav>
+                - generic [ref=e375]: "11"
+                - text: </header>
+                - generic [ref=e376]: "12"
+                - generic [ref=e377]: "13"
+                - text: <main class="blog-main">
+                - generic [ref=e378]: "14"
+                - text: <section class="content">
+                - generic [ref=e379]: "15"
+                - text: <article class="post-card">
+                - generic [ref=e380]: "16"
+                - text: <h2>文章标题</h2>
+                - generic [ref=e381]: "17"
+                - text: <p>文章摘要...</p>
+                - generic [ref=e382]: "18"
+                - text: <div class="post-meta">
+                - generic [ref=e383]: "19"
+                - text: <span>作者</span>
+                - generic [ref=e384]: "20"
+                - text: <span>日期</span>
+                - generic [ref=e385]: "21"
+                - text: </div>
+                - generic [ref=e386]: "22"
+                - text: </article>
+                - generic [ref=e387]: "23"
+                - text: </section>
+                - generic [ref=e388]: "24"
+                - generic [ref=e389]: "25"
+                - text: <aside class="sidebar">
+                - generic [ref=e390]: "26"
+                - text: <div class="widget">
+                - generic [ref=e391]: "27"
+                - text: <h3>最新文章</h3>
+                - generic [ref=e392]: "28"
+                - text: <ul>...</ul>
+                - generic [ref=e393]: "29"
+                - text: </div>
+                - generic [ref=e394]: "30"
+                - text: </aside>
+                - generic [ref=e395]: "31"
+                - text: </main>
+                - generic [ref=e396]: "32"
+                - generic [ref=e397]: "33"
+                - text: <footer class="blog-footer">
+                - generic [ref=e398]: "34"
+                - text: <p>&copy; 2024 JieCheng.Dev</p>
+                - generic [ref=e399]: "35"
+                - text: </footer>
+                - generic [ref=e400]: "36"
+                - text: </div>
+            - heading "CSS 实现" [level=3] [ref=e401]
+            - generic [ref=e403]:
+              - generic [ref=e404]:
+                - generic [ref=e405]: css
+                - button "复制" [ref=e406] [cursor=pointer]:
+                  - img [ref=e407]
+                  - generic [ref=e409]: 复制
+              - code [ref=e412]:
+                - generic [ref=e413]: "1"
+                - text: /* Grid 布局 - 整体结构 */
+                - generic [ref=e414]: "2"
+                - text: ".blog-layout {"
+                - generic [ref=e415]: "3"
+                - text: "display: grid;"
+                - generic [ref=e416]: "4"
+                - text: "grid-template-areas:"
+                - generic [ref=e417]: "5"
+                - text: "\"header\""
+                - generic [ref=e418]: "6"
+                - text: "\"main\""
+                - generic [ref=e419]: "7"
+                - text: "\"footer\";"
+                - generic [ref=e420]: "8"
+                - text: "grid-template-rows: auto 1fr auto;"
+                - generic [ref=e421]: "9"
+                - text: "min-height: 100vh;"
+                - generic [ref=e422]: "10"
+                - text: "}"
+                - generic [ref=e423]: "11"
+                - generic [ref=e424]: "12"
+                - text: ".blog-header { grid-area: header; }"
+                - generic [ref=e425]: "13"
+                - text: ".blog-main { grid-area: main; }"
+                - generic [ref=e426]: "14"
+                - text: ".blog-footer { grid-area: footer; }"
+                - generic [ref=e427]: "15"
+                - generic [ref=e428]: "16"
+                - text: /* Flexbox 布局 - 导航栏 */
+                - generic [ref=e429]: "17"
+                - text: ".navbar {"
+                - generic [ref=e430]: "18"
+                - text: "display: flex;"
+                - generic [ref=e431]: "19"
+                - text: "justify-content: space-between;"
+                - generic [ref=e432]: "20"
+                - text: "align-items: center;"
+                - generic [ref=e433]: "21"
+                - text: "padding: 1rem 2rem;"
+                - generic [ref=e434]: "22"
+                - text: "background: white;"
+                - generic [ref=e435]: "23"
+                - text: "border-bottom: 1px solid #eee;"
+                - generic [ref=e436]: "24"
+                - text: "}"
+                - generic [ref=e437]: "25"
+                - generic [ref=e438]: "26"
+                - text: ".nav-menu {"
+                - generic [ref=e439]: "27"
+                - text: "display: flex;"
+                - generic [ref=e440]: "28"
+                - text: "gap: 2rem;"
+                - generic [ref=e441]: "29"
+                - text: "list-style: none;"
+                - generic [ref=e442]: "30"
+                - text: "margin: 0;"
+                - generic [ref=e443]: "31"
+                - text: "padding: 0;"
+                - generic [ref=e444]: "32"
+                - text: "}"
+                - generic [ref=e445]: "33"
+                - generic [ref=e446]: "34"
+                - text: /* Grid 布局 - 主要内容区 */
+                - generic [ref=e447]: "35"
+                - text: ".blog-main {"
+                - generic [ref=e448]: "36"
+                - text: "display: grid;"
+                - generic [ref=e449]: "37"
+                - text: "grid-template-columns: 1fr 300px;"
+                - generic [ref=e450]: "38"
+                - text: "gap: 2rem;"
+                - generic [ref=e451]: "39"
+                - text: "padding: 2rem;"
+                - generic [ref=e452]: "40"
+                - text: "max-width: 1200px;"
+                - generic [ref=e453]: "41"
+                - text: "margin: 0 auto;"
+                - generic [ref=e454]: "42"
+                - text: "}"
+                - generic [ref=e455]: "43"
+                - generic [ref=e456]: "44"
+                - text: /* Flexbox 布局 - 文章卡片 */
+                - generic [ref=e457]: "45"
+                - text: ".post-card {"
+                - generic [ref=e458]: "46"
+                - text: "display: flex;"
+                - generic [ref=e459]: "47"
+                - text: "flex-direction: column;"
+                - generic [ref=e460]: "48"
+                - text: "background: white;"
+                - generic [ref=e461]: "49"
+                - text: "border-radius: 8px;"
+                - generic [ref=e462]: "50"
+                - text: "padding: 1.5rem;"
+                - generic [ref=e463]: "51"
+                - text: "box-shadow: 0 2px 4px rgba(0,0,0,0.1);"
+                - generic [ref=e464]: "52"
+                - text: "margin-bottom: 2rem;"
+                - generic [ref=e465]: "53"
+                - text: "}"
+                - generic [ref=e466]: "54"
+                - generic [ref=e467]: "55"
+                - text: ".post-meta {"
+                - generic [ref=e468]: "56"
+                - text: "display: flex;"
+                - generic [ref=e469]: "57"
+                - text: "gap: 1rem;"
+                - generic [ref=e470]: "58"
+                - text: "margin-top: auto;"
+                - generic [ref=e471]: "59"
+                - text: "padding-top: 1rem;"
+                - generic [ref=e472]: "60"
+                - text: "border-top: 1px solid #eee;"
+                - generic [ref=e473]: "61"
+                - text: "color: #666;"
+                - generic [ref=e474]: "62"
+                - text: "font-size: 0.9rem;"
+                - generic [ref=e475]: "63"
+                - text: "}"
+                - generic [ref=e476]: "64"
+                - generic [ref=e477]: "65"
+                - text: /* 响应式设计 */
+                - generic [ref=e478]: "66"
+                - text: "@media (max-width: 768px) {"
+                - generic [ref=e479]: "67"
+                - text: ".blog-main {"
+                - generic [ref=e480]: "68"
+                - text: "grid-template-columns: 1fr;"
+                - generic [ref=e481]: "69"
+                - text: "}"
+                - generic [ref=e482]: "70"
+                - generic [ref=e483]: "71"
+                - text: ".navbar {"
+                - generic [ref=e484]: "72"
+                - text: "flex-direction: column;"
+                - generic [ref=e485]: "73"
+                - text: "gap: 1rem;"
+                - generic [ref=e486]: "74"
+                - text: "}"
+                - generic [ref=e487]: "75"
+                - generic [ref=e488]: "76"
+                - text: ".nav-menu {"
+                - generic [ref=e489]: "77"
+                - text: "gap: 1rem;"
+                - generic [ref=e490]: "78"
+                - text: "}"
+                - generic [ref=e491]: "79"
+                - text: "}"
+            - heading "🚀 高级技巧" [level=2] [ref=e492]
+            - heading "1. 子网格 (Subgrid)" [level=3] [ref=e493]
+            - generic [ref=e495]:
+              - generic [ref=e496]:
+                - generic [ref=e497]: css
+                - button "复制" [ref=e498] [cursor=pointer]:
+                  - img [ref=e499]
+                  - generic [ref=e501]: 复制
+              - code [ref=e504]:
+                - generic [ref=e505]: "1"
+                - text: ".card-grid {"
+                - generic [ref=e506]: "2"
+                - text: "display: grid;"
+                - generic [ref=e507]: "3"
+                - text: "grid-template-columns: repeat(3, 1fr);"
+                - generic [ref=e508]: "4"
+                - text: "gap: 1rem;"
+                - generic [ref=e509]: "5"
+                - text: "}"
+                - generic [ref=e510]: "6"
+                - generic [ref=e511]: "7"
+                - text: ".card {"
+                - generic [ref=e512]: "8"
+                - text: "display: grid;"
+                - generic [ref=e513]: "9"
+                - text: "grid-template-rows: subgrid;"
+                - generic [ref=e514]: "10"
+                - text: "grid-row: span 3;"
+                - generic [ref=e515]: "11"
+                - text: "}"
+            - heading "2. 容器查询" [level=3] [ref=e516]
+            - generic [ref=e518]:
+              - generic [ref=e519]:
+                - generic [ref=e520]: css
+                - button "复制" [ref=e521] [cursor=pointer]:
+                  - img [ref=e522]
+                  - generic [ref=e524]: 复制
+              - code [ref=e527]:
+                - generic [ref=e528]: "1"
+                - text: ".card-container {"
+                - generic [ref=e529]: "2"
+                - text: "container-type: inline-size;"
+                - generic [ref=e530]: "3"
+                - text: "}"
+                - generic [ref=e531]: "4"
+                - generic [ref=e532]: "5"
+                - text: "@container (min-width: 400px) {"
+                - generic [ref=e533]: "6"
+                - text: ".card {"
+                - generic [ref=e534]: "7"
+                - text: "grid-template-columns: 1fr 2fr;"
+                - generic [ref=e535]: "8"
+                - text: "}"
+                - generic [ref=e536]: "9"
+                - text: "}"
+            - heading "3. Grid + Flexbox 组合" [level=3] [ref=e537]
+            - generic [ref=e539]:
+              - generic [ref=e540]:
+                - generic [ref=e541]: css
+                - button "复制" [ref=e542] [cursor=pointer]:
+                  - img [ref=e543]
+                  - generic [ref=e545]: 复制
+              - code [ref=e548]:
+                - generic [ref=e549]: "1"
+                - text: ".hybrid-layout {"
+                - generic [ref=e550]: "2"
+                - text: "display: grid;"
+                - generic [ref=e551]: "3"
+                - text: "grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));"
+                - generic [ref=e552]: "4"
+                - text: "gap: 1rem;"
+                - generic [ref=e553]: "5"
+                - text: "}"
+                - generic [ref=e554]: "6"
+                - generic [ref=e555]: "7"
+                - text: ".hybrid-item {"
+                - generic [ref=e556]: "8"
+                - text: "display: flex;"
+                - generic [ref=e557]: "9"
+                - text: "flex-direction: column;"
+                - generic [ref=e558]: "10"
+                - text: "}"
+                - generic [ref=e559]: "11"
+                - generic [ref=e560]: "12"
+                - text: ".hybrid-content {"
+                - generic [ref=e561]: "13"
+                - text: "flex: 1;"
+                - generic [ref=e562]: "14"
+                - text: "}"
+            - heading "📊 性能考虑" [level=2] [ref=e563]
+            - heading "1. 避免不必要的重排" [level=3] [ref=e564]
+            - generic [ref=e566]:
+              - generic [ref=e567]:
+                - generic [ref=e568]: css
+                - button "复制" [ref=e569] [cursor=pointer]:
+                  - img [ref=e570]
+                  - generic [ref=e572]: 复制
+              - code [ref=e575]:
+                - generic [ref=e576]: "1"
+                - text: /* ✅ 使用 transform 而不是改变 grid 属性 */
+                - generic [ref=e577]: "2"
+                - text: ".item {"
+                - generic [ref=e578]: "3"
+                - text: "transform: translateX(100px);"
+                - generic [ref=e579]: "4"
+                - text: "}"
+                - generic [ref=e580]: "5"
+                - generic [ref=e581]: "6"
+                - text: /* ❌ 避免频繁改变 grid-column */
+                - generic [ref=e582]: "7"
+                - text: ".item {"
+                - generic [ref=e583]: "8"
+                - text: "grid-column: 2;"
+                - generic [ref=e584]: "9"
+                - text: "}"
+            - heading "2. 合理使用 auto-fit 和 auto-fill" [level=3] [ref=e585]
+            - generic [ref=e587]:
+              - generic [ref=e588]:
+                - generic [ref=e589]: css
+                - button "复制" [ref=e590] [cursor=pointer]:
+                  - img [ref=e591]
+                  - generic [ref=e593]: 复制
+              - code [ref=e596]:
+                - generic [ref=e597]: "1"
+                - text: "/* auto-fit: 列会拉伸填满容器 */"
+                - generic [ref=e598]: "2"
+                - text: "grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));"
+                - generic [ref=e599]: "3"
+                - generic [ref=e600]: "4"
+                - text: "/* auto-fill: 会创建空列 */"
+                - generic [ref=e601]: "5"
+                - text: "grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));"
+            - heading "🎯 总结" [level=2] [ref=e602]
+            - paragraph [ref=e603]:
+              - strong [ref=e604]: 选择指南：
+            - table [ref=e606]:
+              - rowgroup [ref=e607]:
+                - row "场景 推荐技术 原因" [ref=e608]:
+                  - columnheader "场景" [ref=e609]
+                  - columnheader "推荐技术" [ref=e610]
+                  - columnheader "原因" [ref=e611]
+              - rowgroup [ref=e612]:
+                - row "导航栏 Flexbox 一维布局，内容驱动" [ref=e613]:
+                  - cell "导航栏" [ref=e614]
+                  - cell "Flexbox" [ref=e615]
+                  - cell "一维布局，内容驱动" [ref=e616]
+                - row "页面整体布局 Grid 二维布局，精确控制" [ref=e617]:
+                  - cell "页面整体布局" [ref=e618]
+                  - cell "Grid" [ref=e619]
+                  - cell "二维布局，精确控制" [ref=e620]
+                - row "卡片内容对齐 Flexbox 灵活的空间分配" [ref=e621]:
+                  - cell "卡片内容对齐" [ref=e622]
+                  - cell "Flexbox" [ref=e623]
+                  - cell "灵活的空间分配" [ref=e624]
+                - row "图片网格 Grid 整齐的网格结构" [ref=e625]:
+                  - cell "图片网格" [ref=e626]
+                  - cell "Grid" [ref=e627]
+                  - cell "整齐的网格结构" [ref=e628]
+                - row "按钮组 Flexbox 自动间距分配" [ref=e629]:
+                  - cell "按钮组" [ref=e630]
+                  - cell "Flexbox" [ref=e631]
+                  - cell "自动间距分配" [ref=e632]
+            - paragraph [ref=e633]:
+              - strong [ref=e634]: 关键要点：
+            - list [ref=e635]:
+              - listitem [ref=e636]:
+                - generic [ref=e638]: Grid 用于二维布局，Flexbox 用于一维布局
+              - listitem [ref=e639]:
+                - generic [ref=e641]: 可以组合使用，发挥各自优势
+              - listitem [ref=e642]:
+                - generic [ref=e644]: 响应式设计中都有重要作用
+              - listitem [ref=e645]:
+                - generic [ref=e647]: 现代浏览器支持良好
+            - paragraph [ref=e648]: 掌握这两种布局技术，你就能应对绝大多数的网页布局需求！
+          - generic [ref=e649]:
+            - generic [ref=e650]:
+              - generic [ref=e657]:
+                - paragraph [ref=e658]: JieCheng
+                - paragraph [ref=e659]: 方块世界的代码师
+              - link "← 返回文章列表" [ref=e660] [cursor=pointer]:
+                - /url: /posts
+            - generic [ref=e661]:
+              - link "#CSS" [ref=e662] [cursor=pointer]:
+                - /url: /tags/css
+              - link "#Grid" [ref=e663] [cursor=pointer]:
+                - /url: /tags/grid
+              - link "#Flexbox" [ref=e664] [cursor=pointer]:
+                - /url: /tags/flexbox
+              - link "#布局" [ref=e665] [cursor=pointer]:
+                - /url: /tags/%E5%B8%83%E5%B1%80
+              - link "#响应式设计" [ref=e666] [cursor=pointer]:
+                - /url: /tags/%E5%93%8D%E5%BA%94%E5%BC%8F%E8%AE%BE%E8%AE%A1
+        - generic [ref=e669]:
+          - heading "评论讨论" [level=3] [ref=e670]:
+            - img [ref=e671]
+            - text: 评论讨论
+          - generic [ref=e673]: 使用 GitHub 账号登录即可参与讨论
+      - generic [ref=e674]:
+        - navigation "文章目录" [ref=e675]:
+          - generic [ref=e681]: 目录
+          - generic [ref=e682]:
+            - button "🤔 Grid vs Flexbox：何时使用？" [ref=e683] [cursor=pointer]
+            - button "Flexbox - 一维布局" [ref=e684] [cursor=pointer]
+            - button "CSS Grid - 二维布局" [ref=e685] [cursor=pointer]
+            - button "🎯 Flexbox 深入解析" [ref=e686] [cursor=pointer]
+            - button "基础概念" [ref=e687] [cursor=pointer]
+            - button "实用布局示例" [ref=e688] [cursor=pointer]
+            - button "🏗️ CSS Grid 详解" [ref=e689] [cursor=pointer]
+            - button "基础概念" [ref=e690] [cursor=pointer]
+            - button "复杂布局示例" [ref=e691] [cursor=pointer]
+            - button "🎨 实战案例：博客布局" [ref=e692] [cursor=pointer]
+            - button "HTML 结构" [ref=e693] [cursor=pointer]
+            - button "CSS 实现" [ref=e694] [cursor=pointer]
+            - button "🚀 高级技巧" [ref=e695] [cursor=pointer]
+            - button "1. 子网格 (Subgrid)" [ref=e696] [cursor=pointer]
+            - button "2. 容器查询" [ref=e697] [cursor=pointer]
+            - button "3. Grid + Flexbox 组合" [ref=e698] [cursor=pointer]
+            - button "📊 性能考虑" [ref=e699] [cursor=pointer]
+            - button "1. 避免不必要的重排" [ref=e700] [cursor=pointer]
+            - button "2. 合理使用 auto-fit 和 auto-fill" [ref=e701] [cursor=pointer]
+            - button "🎯 总结" [ref=e702] [cursor=pointer]
+        - generic [ref=e703]:
+          - generic [ref=e709]: 相关推荐
+          - generic [ref=e710]:
+            - link "01 React Hooks 封装一个列表触底刷新" [ref=e711] [cursor=pointer]:
+              - /url: /posts/react-hooks-Infinite-scroll
+              - generic [ref=e712]: "01"
+              - generic [ref=e713]: React Hooks 封装一个列表触底刷新
+            - link "02 代码高亮文章" [ref=e714] [cursor=pointer]:
+              - /url: /posts/code-highlight-test
+              - generic [ref=e715]: "02"
+              - generic [ref=e716]: 代码高亮文章
+            - link "03 使用 Next.js 构建现代博客系统完整教程" [ref=e717] [cursor=pointer]:
+              - /url: /posts/nextjs-blog-tutorial
+              - generic [ref=e718]: "03"
+              - generic [ref=e719]: 使用 Next.js 构建现代博客系统完整教程
+            - link "04 React Hooks 完全指南：从入门到精通" [ref=e720] [cursor=pointer]:
+              - /url: /posts/react-hooks-guide
+              - generic [ref=e721]: "04"
+              - generic [ref=e722]: React Hooks 完全指南：从入门到精通
+            - link "05 NVM 安装教程 - Node.js 版本管理神器" [ref=e723] [cursor=pointer]:
+              - /url: /posts/nvm-installation-guide
+              - generic [ref=e724]: "05"
+              - generic [ref=e725]: NVM 安装教程 - Node.js 版本管理神器
+          - link "查看全部文章 →" [ref=e726] [cursor=pointer]:
+            - /url: /posts
+  - contentinfo [ref=e727]:
+    - generic [ref=e728]:
+      - generic [ref=e729]:
+        - generic [ref=e730]:
+          - link "BlockCoder" [ref=e731] [cursor=pointer]:
+            - /url: /
+            - generic [ref=e737]: BlockCoder
+          - paragraph [ref=e738]: 方块世界的代码师。记录与分享前端开发、全栈技术和编程实践的个人博客。
+        - generic [ref=e739]:
+          - paragraph [ref=e740]: 导航
+          - list [ref=e741]:
+            - listitem [ref=e742]:
+              - link "所有文章" [ref=e743] [cursor=pointer]:
+                - /url: /posts
+            - listitem [ref=e744]:
+              - link "文章分类" [ref=e745] [cursor=pointer]:
+                - /url: /categories
+            - listitem [ref=e746]:
+              - link "标签云" [ref=e747] [cursor=pointer]:
+                - /url: /tags
+            - listitem [ref=e748]:
+              - link "关于" [ref=e749] [cursor=pointer]:
+                - /url: /about
+        - generic [ref=e750]:
+          - paragraph [ref=e751]: 联系
+          - list [ref=e752]:
+            - listitem [ref=e753]:
+              - link "1801256646ljc@gmail.com" [ref=e754] [cursor=pointer]:
+                - /url: mailto:1801256646ljc@gmail.com
+      - generic [ref=e755]:
+        - paragraph [ref=e756]: © 2026 BlockCoder. All rights reserved.
+        - paragraph [ref=e757]: Built with Next.js & TypeScript

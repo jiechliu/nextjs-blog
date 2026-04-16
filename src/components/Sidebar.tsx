@@ -1,49 +1,128 @@
 import Link from 'next/link';
 import { getAllCategories, getAllTags, getRecentPosts } from '@/lib/blog';
 
+const SectionLabel = ({ children }: { children: React.ReactNode }) => (
+  <p className="sidebar-section-label">{children}</p>
+);
+
 const Sidebar = () => {
   const categories = getAllCategories();
   const tags = getAllTags();
   const recentPosts = getRecentPosts(5);
 
   return (
-    <aside className="space-y-8">
-      {/* Author Info */}
-      <div className="card p-6 text-center">
-        <div className="relative mb-6">
-          <div className="w-24 h-24 mx-auto relative">
-            <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-400 to-purple-500 animate-spin"></div>
-            <div className="absolute inset-2 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center">
-              <span className="text-white text-2xl font-bold">BC</span>
-            </div>
+    <aside style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-12)' }}>
+
+      {/* Author */}
+      <div>
+        <div
+          style={{
+            marginBottom: 'var(--space-4)',
+            display: 'flex',
+            alignItems: 'center',
+            gap: 'var(--space-3)',
+          }}
+        >
+          <span
+            aria-hidden="true"
+            style={{
+              display: 'grid',
+              gridTemplateColumns: '1fr 1fr',
+              gap: 3,
+              width: 36,
+              height: 36,
+              flexShrink: 0,
+            }}
+          >
+            {[0,1,2,3].map(i => (
+              <span
+                key={i}
+                style={{
+                  backgroundColor: i === 0
+                    ? 'var(--color-accent)'
+                    : i === 1
+                    ? 'var(--color-amber)'
+                    : 'var(--color-bg-subtle)',
+                  border: '1px solid var(--color-border)',
+                  borderRadius: 3,
+                }}
+              />
+            ))}
+          </span>
+          <div>
+            <p
+              style={{
+                fontFamily: 'var(--font-display)',
+                fontWeight: 700,
+                fontSize: 'var(--text-sm)',
+                color: 'var(--color-text)',
+                letterSpacing: '-0.01em',
+              }}
+            >
+              JieCheng
+            </p>
+            <p
+              style={{
+                fontFamily: 'var(--font-display)',
+                fontSize: 'var(--text-xs)',
+                color: 'var(--color-text-tertiary)',
+              }}
+            >
+              方块世界的代码师
+            </p>
           </div>
         </div>
-        <h3 className="text-xl font-bold mb-3 text-gray-800">JieCheng.Dev</h3>
-        <p className="text-gray-600 text-sm mb-6 leading-relaxed">
-          专注于分享前端开发、全栈技术和编程实践的技术博客
+        <p
+          style={{
+            fontFamily: 'var(--font-body)',
+            fontSize: 'var(--text-sm)',
+            lineHeight: 'var(--leading-relaxed)',
+            color: 'var(--color-text-secondary)',
+          }}
+        >
+          专注于分享前端开发、全栈技术和编程实践。
         </p>
       </div>
 
       {/* Recent Posts */}
       {recentPosts.length > 0 && (
-        <div className="card p-6">
-          <h3 className="text-lg font-semibold mb-6 text-gray-800 flex items-center">
-            <span className="mr-2">📰</span>
-            最新文章
-          </h3>
-          <div className="space-y-4">
-            {recentPosts.map((post, index) => (
-              <div key={post.slug} className="group">
-                <Link 
+        <div>
+          <SectionLabel>最新文章</SectionLabel>
+          <div style={{ display: 'flex', flexDirection: 'column' }}>
+            {recentPosts.map((post, i) => (
+              <div
+                key={post.slug}
+                style={{
+                  padding: 'var(--space-3) 0',
+                  borderBottom:
+                    i < recentPosts.length - 1
+                      ? '1px solid var(--color-border-subtle)'
+                      : 'none',
+                }}
+              >
+                <Link
                   href={`/posts/${post.slug}`}
-                  className="block text-sm font-medium text-gray-700 hover:text-gray-900 transition-all duration-300 line-clamp-2 group-hover:title-gradient"
+                  className="sidebar-post-link line-clamp-2"
                 >
                   {post.title}
                 </Link>
-                <p className="text-xs text-gray-500 mt-2 flex items-center">
-                  <span className="mr-1">📅</span>
-                  {new Date(post.date).toLocaleDateString('zh-CN')}
-                </p>
+                <time
+                  dateTime={post.date}
+                  style={{
+                    fontFamily: 'var(--font-display)',
+                    fontSize: 'var(--text-xs)',
+                    color: 'var(--color-text-tertiary)',
+                    fontVariantNumeric: 'tabular-nums',
+                    display: 'block',
+                    marginTop: 'var(--space-1)',
+                  }}
+                >
+                  {new Date(post.date).toLocaleDateString('zh-CN', {
+                    year: 'numeric',
+                    month: 'short',
+                    day: 'numeric',
+                  })}
+                </time>
               </div>
             ))}
           </div>
@@ -52,22 +131,17 @@ const Sidebar = () => {
 
       {/* Categories */}
       {categories.length > 0 && (
-        <div className="card p-6">
-          <h3 className="text-lg font-semibold mb-6 text-gray-800 flex items-center">
-            <span className="mr-2">📁</span>
-            文章分类
-          </h3>
-          <div className="space-y-2">
-            {categories.map((category) => (
+        <div>
+          <SectionLabel>分类</SectionLabel>
+          <div style={{ display: 'flex', flexDirection: 'column' }}>
+            {categories.map(category => (
               <Link
                 key={category.slug}
                 href={`/categories/${category.slug}`}
-                className="flex justify-between items-center py-3 px-4 rounded-lg hover:bg-white/30 transition-all duration-300 group"
+                className="sidebar-category-link"
               >
-                <span className="text-gray-700 group-hover:text-gray-900">{category.name}</span>
-                <span className="text-sm text-gray-500 bg-gray-200/50 px-2 py-1 rounded-full group-hover:bg-gray-300/50 transition-all duration-300">
-                  {category.count}
-                </span>
+                <span>{category.name}</span>
+                <span className="sidebar-category-count">{category.count}</span>
               </Link>
             ))}
           </div>
@@ -76,17 +150,14 @@ const Sidebar = () => {
 
       {/* Tags */}
       {tags.length > 0 && (
-        <div className="card p-6">
-          <h3 className="text-lg font-semibold mb-6 text-gray-800 flex items-center">
-            <span className="mr-2">🏷️</span>
-            热门标签
-          </h3>
-          <div className="flex flex-wrap gap-2">
-            {tags.slice(0, 15).map((tag) => (
+        <div>
+          <SectionLabel>标签</SectionLabel>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: 'var(--space-2)' }}>
+            {tags.slice(0, 20).map((tag, i) => (
               <Link
                 key={tag.slug}
                 href={`/tags/${tag.slug}`}
-                className="tag"
+                className={`tag${i % 2 === 1 ? ' tag-alt' : ''}`}
               >
                 #{tag.name}
               </Link>
@@ -94,30 +165,6 @@ const Sidebar = () => {
           </div>
         </div>
       )}
-
-      {/* Newsletter */}
-      <div className="card p-6 gradient-border">
-        <h3 className="text-lg font-semibold mb-3 text-gray-800 flex items-center">
-          <span className="mr-2">💌</span>
-          订阅更新
-        </h3>
-        <p className="text-sm text-gray-600 mb-6 leading-relaxed">
-          订阅我们的邮件列表，获取最新的技术文章和教程
-        </p>
-        <form className="space-y-4">
-          <input
-            type="email"
-            placeholder="输入您的邮箱"
-            className="w-full px-4 py-3 rounded-lg bg-white/50 border border-gray-300/50 text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent backdrop-blur-sm transition-all duration-300"
-          />
-          <button
-            type="submit"
-            className="w-full btn-primary"
-          >
-            🚀 订阅
-          </button>
-        </form>
-      </div>
     </aside>
   );
 };

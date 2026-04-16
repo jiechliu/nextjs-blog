@@ -1,0 +1,824 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e4]:
+      - link "BlockCoder" [ref=e5] [cursor=pointer]:
+        - /url: /
+        - generic [ref=e11]: BlockCoder
+      - navigation "主导航" [ref=e12]:
+        - link "首页" [ref=e13] [cursor=pointer]:
+          - /url: /
+        - link "文章" [ref=e14] [cursor=pointer]:
+          - /url: /posts
+        - link "分类" [ref=e15] [cursor=pointer]:
+          - /url: /categories
+        - link "标签" [ref=e16] [cursor=pointer]:
+          - /url: /tags
+        - link "关于" [ref=e17] [cursor=pointer]:
+          - /url: /about
+        - link "AI" [ref=e18] [cursor=pointer]:
+          - /url: /ai-chat
+      - generic [ref=e19]:
+        - 'button "跟随系统 (当前: 浅色)" [ref=e20] [cursor=pointer]':
+          - img [ref=e21]
+        - button "打开菜单" [ref=e27] [cursor=pointer]:
+          - img [ref=e28]
+  - main [ref=e29]:
+    - generic [ref=e31]:
+      - navigation "面包屑" [ref=e32]:
+        - list [ref=e33]:
+          - listitem [ref=e34]:
+            - link "首页" [ref=e35] [cursor=pointer]:
+              - /url: /
+            - generic [ref=e36]: /
+          - listitem [ref=e37]:
+            - link "文章" [ref=e38] [cursor=pointer]:
+              - /url: /posts
+            - generic [ref=e39]: /
+          - listitem [ref=e40]:
+            - generic [ref=e41]: Impeccable：让 AI 告别「通用模板」设计的神器
+      - generic [ref=e42]:
+        - link "folder开发工具" [ref=e43] [cursor=pointer]:
+          - /url: /categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7
+          - img "folder" [ref=e44]:
+            - img [ref=e45]
+          - text: 开发工具
+        - generic [ref=e47]: ·
+        - time [ref=e48]:
+          - img "calendar" [ref=e49]:
+            - img [ref=e50]
+          - text: 2026年4月16日
+        - generic [ref=e52]: ·
+        - generic [ref=e53]:
+          - img "clock-circle" [ref=e54]:
+            - img [ref=e55]
+          - text: 约 8 分钟
+      - heading "Impeccable：让 AI 告别「通用模板」设计的神器" [level=1] [ref=e58]
+      - paragraph [ref=e59]: 19k Star 的开源项目 Impeccable 能让 Claude Code、Cursor 等 AI 工具生成更高质量的前端 UI。本文介绍它的核心理念、安装配置方法以及 18 个核心指令的实战用法。
+      - generic [ref=e60]:
+        - link "#AI" [ref=e61] [cursor=pointer]:
+          - /url: /tags/ai
+        - link "#前端开发" [ref=e62] [cursor=pointer]:
+          - /url: /tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91
+        - link "#Claude Code" [ref=e63] [cursor=pointer]:
+          - /url: /tags/claude-code
+        - link "#Cursor" [ref=e64] [cursor=pointer]:
+          - /url: /tags/cursor
+        - link "#设计系统" [ref=e65] [cursor=pointer]:
+          - /url: /tags/%E8%AE%BE%E8%AE%A1%E7%B3%BB%E7%BB%9F
+        - link "#工具推荐" [ref=e66] [cursor=pointer]:
+          - /url: /tags/%E5%B7%A5%E5%85%B7%E6%8E%A8%E8%8D%90
+    - generic [ref=e69]:
+      - generic [ref=e70]:
+        - article [ref=e71]:
+          - generic [ref=e73]:
+            - heading "为什么 AI 生成的 UI 看起来都一样？" [level=2] [ref=e74]
+            - paragraph [ref=e75]: 用过 Claude、Cursor 或任何 AI 工具写前端的人，大概都有过这种体验——你让它「做一个现代风格的卡片组件」，出来的东西是：
+            - list [ref=e76]:
+              - listitem [ref=e77]:
+                - generic [ref=e79]: 字体：Inter（永远是 Inter）
+              - listitem [ref=e80]:
+                - generic [ref=e82]: 颜色：蓝紫渐变，背景带半透明模糊（glassmorphism）
+              - listitem [ref=e83]:
+                - generic [ref=e85]:
+                  - text: 圆角：
+                  - generic [ref=e86]:
+                    - generic [ref=e87]:
+                      - generic [ref=e88]: text
+                      - button "复制" [ref=e89] [cursor=pointer]:
+                        - img [ref=e90]
+                        - generic [ref=e92]: 复制
+                    - code [ref=e95]:
+                      - generic [ref=e96]: "1"
+                      - text: rounded-xl
+                  - text: 加一圈
+                  - generic [ref=e97]:
+                    - generic [ref=e98]:
+                      - generic [ref=e99]: text
+                      - button "复制" [ref=e100] [cursor=pointer]:
+                        - img [ref=e101]
+                        - generic [ref=e103]: 复制
+                    - code [ref=e106]:
+                      - generic [ref=e107]: "1"
+                      - text: drop-shadow
+              - listitem [ref=e108]:
+                - generic [ref=e110]:
+                  - text: 强调文字：渐变文字（
+                  - generic [ref=e111]:
+                    - generic [ref=e112]:
+                      - generic [ref=e113]: text
+                      - button "复制" [ref=e114] [cursor=pointer]:
+                        - img [ref=e115]
+                        - generic [ref=e117]: 复制
+                    - code [ref=e120]:
+                      - generic [ref=e121]: "1"
+                      - text: "background-clip: text"
+                  - text: ）
+            - paragraph [ref=e122]: 一眼就能看出是 AI 生成的。
+            - paragraph [ref=e123]:
+              - strong [ref=e124]: 这不是 AI 不够聪明，而是训练数据的问题
+              - text: 。所有大语言模型都从相同的通用模板学习，在没有额外指导的情况下，它们会回归到「最安全」的设计选择——也就是出现频率最高的那些。
+            - paragraph [ref=e125]:
+              - strong [ref=e126]:
+                - link "Impeccable" [ref=e127] [cursor=pointer]:
+                  - /url: https://github.com/pbakaus/impeccable
+              - text: 就是为了解决这个问题而生的。
+            - separator [ref=e128]
+            - heading "Impeccable 是什么？" [level=2] [ref=e129]
+            - paragraph [ref=e130]:
+              - text: Impeccable 是一套专门针对 AI 辅助前端设计的「设计语言工具」，由
+              - link "Paul Bakaus" [ref=e131] [cursor=pointer]:
+                - /url: https://github.com/pbakaus
+              - text: 创建，目前在 GitHub 上拥有超过
+              - strong [ref=e132]: 19.6k Star
+              - text: 。
+            - paragraph [ref=e133]: 它的本质是一组结构化的 Skill 文件，安装到你的 AI 工具后，能显著提升 AI 生成 UI 的质量：
+            - list [ref=e134]:
+              - listitem [ref=e135]:
+                - generic [ref=e137]:
+                  - strong [ref=e138]: 7 个设计参考文档
+                  - text: ：排版、色彩、空间设计、动效、交互、响应式、UX 文案
+              - listitem [ref=e139]:
+                - generic [ref=e141]:
+                  - strong [ref=e142]: 18 个操作指令
+                  - text: ：审计、评审、润色、提炼、动画等场景覆盖
+              - listitem [ref=e143]:
+                - generic [ref=e145]:
+                  - strong [ref=e146]: 精选反模式清单
+                  - text: ：明确告诉 AI 不该做什么（比如禁用渐变文字、禁用侧栏色条）
+              - listitem [ref=e147]:
+                - generic [ref=e149]:
+                  - strong [ref=e150]: 独立 CLI 工具
+                  - text: ：不依赖 AI 环境，直接扫描代码中的设计反模式
+            - separator [ref=e151]
+            - heading "安装" [level=2] [ref=e152]
+            - heading "支持的工具" [level=3] [ref=e153]
+            - paragraph [ref=e154]: Impeccable 支持目前主流的 AI 编程工具：
+            - table [ref=e156]:
+              - rowgroup [ref=e157]:
+                - row "工具 安装方式" [ref=e158]:
+                  - columnheader "工具" [ref=e159]
+                  - columnheader "安装方式" [ref=e160]
+              - rowgroup [ref=e161]:
+                - row "Claude Code 复制到 text 复制 1 .claude/ 目录" [ref=e162]:
+                  - cell "Claude Code" [ref=e163]
+                  - cell "复制到 text 复制 1 .claude/ 目录" [ref=e164]:
+                    - text: 复制到
+                    - generic [ref=e165]:
+                      - generic [ref=e166]:
+                        - generic [ref=e167]: text
+                        - button "复制" [ref=e168] [cursor=pointer]:
+                          - img [ref=e169]
+                          - generic [ref=e171]: 复制
+                      - code [ref=e174]:
+                        - generic [ref=e175]: "1"
+                        - text: .claude/
+                    - text: 目录
+                - row "Cursor 复制到 text 复制 1 .cursor/ 目录" [ref=e176]:
+                  - cell "Cursor" [ref=e177]
+                  - cell "复制到 text 复制 1 .cursor/ 目录" [ref=e178]:
+                    - text: 复制到
+                    - generic [ref=e179]:
+                      - generic [ref=e180]:
+                        - generic [ref=e181]: text
+                        - button "复制" [ref=e182] [cursor=pointer]:
+                          - img [ref=e183]
+                          - generic [ref=e185]: 复制
+                      - code [ref=e188]:
+                        - generic [ref=e189]: "1"
+                        - text: .cursor/
+                    - text: 目录
+                - row "Gemini CLI 复制到 text 复制 1 .gemini/ 目录" [ref=e190]:
+                  - cell "Gemini CLI" [ref=e191]
+                  - cell "复制到 text 复制 1 .gemini/ 目录" [ref=e192]:
+                    - text: 复制到
+                    - generic [ref=e193]:
+                      - generic [ref=e194]:
+                        - generic [ref=e195]: text
+                        - button "复制" [ref=e196] [cursor=pointer]:
+                          - img [ref=e197]
+                          - generic [ref=e199]: 复制
+                      - code [ref=e202]:
+                        - generic [ref=e203]: "1"
+                        - text: .gemini/
+                    - text: 目录
+                - row "OpenCode 复制到 text 复制 1 .opencode/ 目录" [ref=e204]:
+                  - cell "OpenCode" [ref=e205]
+                  - cell "复制到 text 复制 1 .opencode/ 目录" [ref=e206]:
+                    - text: 复制到
+                    - generic [ref=e207]:
+                      - generic [ref=e208]:
+                        - generic [ref=e209]: text
+                        - button "复制" [ref=e210] [cursor=pointer]:
+                          - img [ref=e211]
+                          - generic [ref=e213]: 复制
+                      - code [ref=e216]:
+                        - generic [ref=e217]: "1"
+                        - text: .opencode/
+                    - text: 目录
+                - row "Codex CLI 复制到 text 复制 1 ~/.codex/ 目录" [ref=e218]:
+                  - cell "Codex CLI" [ref=e219]
+                  - cell "复制到 text 复制 1 ~/.codex/ 目录" [ref=e220]:
+                    - text: 复制到
+                    - generic [ref=e221]:
+                      - generic [ref=e222]:
+                        - generic [ref=e223]: text
+                        - button "复制" [ref=e224] [cursor=pointer]:
+                          - img [ref=e225]
+                          - generic [ref=e227]: 复制
+                      - code [ref=e230]:
+                        - generic [ref=e231]: "1"
+                        - text: ~/.codex/
+                    - text: 目录
+                - row "Trae 复制到对应 skills 目录" [ref=e232]:
+                  - cell "Trae" [ref=e233]
+                  - cell "复制到对应 skills 目录" [ref=e234]
+            - heading "安装步骤（以 Claude Code 为例）" [level=3] [ref=e235]
+            - paragraph [ref=e236]:
+              - strong [ref=e237]: 方法一：官网下载（推荐）
+            - paragraph [ref=e238]:
+              - text: 访问
+              - link "impeccable.style" [ref=e239] [cursor=pointer]:
+                - /url: https://impeccable.style
+              - text: ，选择你使用的工具，下载对应的 ZIP 包并解压到项目目录。
+            - paragraph [ref=e240]:
+              - strong [ref=e241]: 方法二：从 GitHub 仓库复制
+            - generic [ref=e243]:
+              - generic [ref=e244]:
+                - generic [ref=e245]: bash
+                - button "复制" [ref=e246] [cursor=pointer]:
+                  - img [ref=e247]
+                  - generic [ref=e249]: 复制
+              - code [ref=e252]:
+                - generic [ref=e253]: "1"
+                - text: "# 克隆仓库"
+                - generic [ref=e254]: "2"
+                - text: git clone https://github.com/pbakaus/impeccable.git
+                - generic [ref=e255]: "3"
+                - generic [ref=e256]: "4"
+                - text: "# 安装到当前项目（项目级）"
+                - generic [ref=e257]: "5"
+                - text: cp -r impeccable/dist/claude-code/.claude your-project/
+                - generic [ref=e258]: "6"
+                - generic [ref=e259]: "7"
+                - text: "# 或安装到全局（所有项目生效）"
+                - generic [ref=e260]: "8"
+                - text: cp -r impeccable/dist/claude-code/.claude/* ~/.claude/
+            - paragraph [ref=e261]:
+              - text: 对于
+              - strong [ref=e262]: Cursor
+              - text: ，还需要在设置中手动开启：
+            - list [ref=e263]:
+              - listitem [ref=e264]:
+                - generic [ref=e266]:
+                  - text: 切换到 Nightly 频道（
+                  - generic [ref=e267]:
+                    - generic [ref=e268]:
+                      - generic [ref=e269]: text
+                      - button "复制" [ref=e270] [cursor=pointer]:
+                        - img [ref=e271]
+                        - generic [ref=e273]: 复制
+                    - code [ref=e276]:
+                      - generic [ref=e277]: "1"
+                      - text: Cursor Settings → General → Channel
+                  - text: ）
+              - listitem [ref=e278]:
+                - generic [ref=e280]:
+                  - text: 启用 Agent Skills（
+                  - generic [ref=e281]:
+                    - generic [ref=e282]:
+                      - generic [ref=e283]: text
+                      - button "复制" [ref=e284] [cursor=pointer]:
+                        - img [ref=e285]
+                        - generic [ref=e287]: 复制
+                    - code [ref=e290]:
+                      - generic [ref=e291]: "1"
+                      - text: Cursor Settings → Features → Agent Skills
+                  - text: ）
+            - paragraph [ref=e292]:
+              - text: 对于
+              - strong [ref=e293]: Gemini CLI
+              - text: ，需要安装预览版并在设置中启用 Skills 功能。
+            - separator [ref=e294]
+            - heading "核心理念：teach → craft → audit" [level=2] [ref=e295]
+            - paragraph [ref=e296]: Impeccable 的工作流围绕三个核心步骤展开：
+            - heading "1. Teach — 建立项目设计上下文" [level=3] [ref=e297]
+            - generic [ref=e299]:
+              - generic [ref=e300]:
+                - generic [ref=e301]: text
+                - button "复制" [ref=e302] [cursor=pointer]:
+                  - img [ref=e303]
+                  - generic [ref=e305]: 复制
+              - code [ref=e308]:
+                - generic [ref=e309]: "1"
+                - text: /impeccable teach
+            - paragraph [ref=e310]: 这是一次性的初始化步骤。运行后，AI 会通过一系列问题了解你的项目：
+            - list [ref=e311]:
+              - listitem [ref=e312]:
+                - generic [ref=e314]: 目标用户是谁？使用场景是什么？
+              - listitem [ref=e315]:
+                - generic [ref=e317]: 品牌个性如何用 3 个词描述？
+              - listitem [ref=e318]:
+                - generic [ref=e320]: 参考网站是哪些？反面参考是什么？
+              - listitem [ref=e321]:
+                - generic [ref=e323]: 偏好深色还是浅色主题？
+            - paragraph [ref=e324]: 收集完毕后，上下文会保存到项目根目录的
+            - generic [ref=e325]:
+              - generic [ref=e326]:
+                - generic [ref=e327]: text
+                - button "复制" [ref=e328] [cursor=pointer]:
+                  - img [ref=e329]
+                  - generic [ref=e331]: 复制
+              - code [ref=e334]:
+                - generic [ref=e335]: "1"
+                - text: .impeccable.md
+            - text: 文件中。之后每次调用设计相关指令，AI 都会自动读取这份上下文，确保风格一致。
+            - paragraph
+            - heading "2. Craft — 构建功能界面" [level=3] [ref=e336]
+            - generic [ref=e338]:
+              - generic [ref=e339]:
+                - generic [ref=e340]: text
+                - button "复制" [ref=e341] [cursor=pointer]:
+                  - img [ref=e342]
+                  - generic [ref=e344]: 复制
+              - code [ref=e347]:
+                - generic [ref=e348]: "1"
+                - text: /impeccable craft [功能描述]
+            - paragraph [ref=e349]: 例如：
+            - generic [ref=e351]:
+              - generic [ref=e352]:
+                - generic [ref=e353]: text
+                - button "复制" [ref=e354] [cursor=pointer]:
+                  - img [ref=e355]
+                  - generic [ref=e357]: 复制
+              - code [ref=e360]:
+                - generic [ref=e361]: "1"
+                - text: /impeccable craft 文章详情页
+                - generic [ref=e362]: "2"
+                - text: /impeccable craft 用户登录表单
+                - generic [ref=e363]: "3"
+                - text: /impeccable craft 数据仪表盘卡片
+            - paragraph [ref=e364]: Craft 模式会先进行设计规划（shaping），再加载相关参考文档，最后按照「结构 → 布局 → 排版色彩 → 交互状态 → 边缘状态 → 动效 → 响应式」的顺序完整构建，并在浏览器中进行可视化验证和迭代。
+            - heading "3. Audit — 扫描设计反模式" [level=3] [ref=e365]
+            - generic [ref=e367]:
+              - generic [ref=e368]:
+                - generic [ref=e369]: text
+                - button "复制" [ref=e370] [cursor=pointer]:
+                  - img [ref=e371]
+                  - generic [ref=e373]: 复制
+              - code [ref=e376]:
+                - generic [ref=e377]: "1"
+                - text: /audit
+                - generic [ref=e378]: "2"
+                - text: /audit header
+                - generic [ref=e379]: "3"
+                - text: /audit checkout-form
+            - paragraph [ref=e380]: 运行后会生成一份按 P0～P3 严重等级分类的质量报告，指出布局、无障碍、性能和反模式等方面的具体问题。
+            - separator [ref=e381]
+            - heading "18 个核心指令速查" [level=2] [ref=e382]
+            - table [ref=e384]:
+              - rowgroup [ref=e385]:
+                - row "指令 说明" [ref=e386]:
+                  - columnheader "指令" [ref=e387]
+                  - columnheader "说明" [ref=e388]
+              - rowgroup [ref=e389]:
+                - row "text 复制 1 /impeccable teach 收集项目设计上下文，保存到 text 复制 1 .impeccable.md" [ref=e390]:
+                  - cell "text 复制 1 /impeccable teach" [ref=e391]:
+                    - generic [ref=e392]:
+                      - generic [ref=e393]:
+                        - generic [ref=e394]: text
+                        - button "复制" [ref=e395] [cursor=pointer]:
+                          - img [ref=e396]
+                          - generic [ref=e398]: 复制
+                      - code [ref=e401]:
+                        - generic [ref=e402]: "1"
+                        - text: /impeccable teach
+                  - cell "收集项目设计上下文，保存到 text 复制 1 .impeccable.md" [ref=e403]:
+                    - text: 收集项目设计上下文，保存到
+                    - generic [ref=e404]:
+                      - generic [ref=e405]:
+                        - generic [ref=e406]: text
+                        - button "复制" [ref=e407] [cursor=pointer]:
+                          - img [ref=e408]
+                          - generic [ref=e410]: 复制
+                      - code [ref=e413]:
+                        - generic [ref=e414]: "1"
+                        - text: .impeccable.md
+                - row "text 复制 1 /impeccable craft [描述] 完整的构思与构建流程" [ref=e415]:
+                  - cell "text 复制 1 /impeccable craft [描述]" [ref=e416]:
+                    - generic [ref=e417]:
+                      - generic [ref=e418]:
+                        - generic [ref=e419]: text
+                        - button "复制" [ref=e420] [cursor=pointer]:
+                          - img [ref=e421]
+                          - generic [ref=e423]: 复制
+                      - code [ref=e426]:
+                        - generic [ref=e427]: "1"
+                        - text: /impeccable craft [描述]
+                  - cell "完整的构思与构建流程" [ref=e428]
+                - row "text 复制 1 /impeccable extract [目标] 从现有代码提取可复用组件和设计 token" [ref=e429]:
+                  - cell "text 复制 1 /impeccable extract [目标]" [ref=e430]:
+                    - generic [ref=e431]:
+                      - generic [ref=e432]:
+                        - generic [ref=e433]: text
+                        - button "复制" [ref=e434] [cursor=pointer]:
+                          - img [ref=e435]
+                          - generic [ref=e437]: 复制
+                      - code [ref=e440]:
+                        - generic [ref=e441]: "1"
+                        - text: /impeccable extract [目标]
+                  - cell "从现有代码提取可复用组件和设计 token" [ref=e442]
+                - row "text 复制 1 /audit 无障碍、性能、响应式质量检查" [ref=e443]:
+                  - cell "text 复制 1 /audit" [ref=e444]:
+                    - generic [ref=e445]:
+                      - generic [ref=e446]:
+                        - generic [ref=e447]: text
+                        - button "复制" [ref=e448] [cursor=pointer]:
+                          - img [ref=e449]
+                          - generic [ref=e451]: 复制
+                      - code [ref=e454]:
+                        - generic [ref=e455]: "1"
+                        - text: /audit
+                  - cell "无障碍、性能、响应式质量检查" [ref=e456]
+                - row "text 复制 1 /critique UX 评审：层级、清晰度、情感共鸣" [ref=e457]:
+                  - cell "text 复制 1 /critique" [ref=e458]:
+                    - generic [ref=e459]:
+                      - generic [ref=e460]:
+                        - generic [ref=e461]: text
+                        - button "复制" [ref=e462] [cursor=pointer]:
+                          - img [ref=e463]
+                          - generic [ref=e465]: 复制
+                      - code [ref=e468]:
+                        - generic [ref=e469]: "1"
+                        - text: /critique
+                  - cell "UX 评审：层级、清晰度、情感共鸣" [ref=e470]
+                - row "text 复制 1 /polish 最终润色，修复细节对齐" [ref=e471]:
+                  - cell "text 复制 1 /polish" [ref=e472]:
+                    - generic [ref=e473]:
+                      - generic [ref=e474]:
+                        - generic [ref=e475]: text
+                        - button "复制" [ref=e476] [cursor=pointer]:
+                          - img [ref=e477]
+                          - generic [ref=e479]: 复制
+                      - code [ref=e482]:
+                        - generic [ref=e483]: "1"
+                        - text: /polish
+                  - cell "最终润色，修复细节对齐" [ref=e484]
+                - row "text 复制 1 /distill 去除繁杂，提取本质" [ref=e485]:
+                  - cell "text 复制 1 /distill" [ref=e486]:
+                    - generic [ref=e487]:
+                      - generic [ref=e488]:
+                        - generic [ref=e489]: text
+                        - button "复制" [ref=e490] [cursor=pointer]:
+                          - img [ref=e491]
+                          - generic [ref=e493]: 复制
+                      - code [ref=e496]:
+                        - generic [ref=e497]: "1"
+                        - text: /distill
+                  - cell "去除繁杂，提取本质" [ref=e498]
+                - row "text 复制 1 /typeset 修复字体选择、层级和字号" [ref=e499]:
+                  - cell "text 复制 1 /typeset" [ref=e500]:
+                    - generic [ref=e501]:
+                      - generic [ref=e502]:
+                        - generic [ref=e503]: text
+                        - button "复制" [ref=e504] [cursor=pointer]:
+                          - img [ref=e505]
+                          - generic [ref=e507]: 复制
+                      - code [ref=e510]:
+                        - generic [ref=e511]: "1"
+                        - text: /typeset
+                  - cell "修复字体选择、层级和字号" [ref=e512]
+                - row "text 复制 1 /colorize 为单调的界面添加战略性色彩" [ref=e513]:
+                  - cell "text 复制 1 /colorize" [ref=e514]:
+                    - generic [ref=e515]:
+                      - generic [ref=e516]:
+                        - generic [ref=e517]: text
+                        - button "复制" [ref=e518] [cursor=pointer]:
+                          - img [ref=e519]
+                          - generic [ref=e521]: 复制
+                      - code [ref=e524]:
+                        - generic [ref=e525]: "1"
+                        - text: /colorize
+                  - cell "为单调的界面添加战略性色彩" [ref=e526]
+                - row "text 复制 1 /bolder 放大视觉冲击力，让设计更有个性" [ref=e527]:
+                  - cell "text 复制 1 /bolder" [ref=e528]:
+                    - generic [ref=e529]:
+                      - generic [ref=e530]:
+                        - generic [ref=e531]: text
+                        - button "复制" [ref=e532] [cursor=pointer]:
+                          - img [ref=e533]
+                          - generic [ref=e535]: 复制
+                      - code [ref=e538]:
+                        - generic [ref=e539]: "1"
+                        - text: /bolder
+                  - cell "放大视觉冲击力，让设计更有个性" [ref=e540]
+                - row "text 复制 1 /quieter 降低视觉强度，使设计更克制" [ref=e541]:
+                  - cell "text 复制 1 /quieter" [ref=e542]:
+                    - generic [ref=e543]:
+                      - generic [ref=e544]:
+                        - generic [ref=e545]: text
+                        - button "复制" [ref=e546] [cursor=pointer]:
+                          - img [ref=e547]
+                          - generic [ref=e549]: 复制
+                      - code [ref=e552]:
+                        - generic [ref=e553]: "1"
+                        - text: /quieter
+                  - cell "降低视觉强度，使设计更克制" [ref=e554]
+                - row "text 复制 1 /adapt 跨设备响应式适配" [ref=e555]:
+                  - cell "text 复制 1 /adapt" [ref=e556]:
+                    - generic [ref=e557]:
+                      - generic [ref=e558]:
+                        - generic [ref=e559]: text
+                        - button "复制" [ref=e560] [cursor=pointer]:
+                          - img [ref=e561]
+                          - generic [ref=e563]: 复制
+                      - code [ref=e566]:
+                        - generic [ref=e567]: "1"
+                        - text: /adapt
+                  - cell "跨设备响应式适配" [ref=e568]
+                - row "text 复制 1 /clarify 改善模糊的 UX 文案和错误提示" [ref=e569]:
+                  - cell "text 复制 1 /clarify" [ref=e570]:
+                    - generic [ref=e571]:
+                      - generic [ref=e572]:
+                        - generic [ref=e573]: text
+                        - button "复制" [ref=e574] [cursor=pointer]:
+                          - img [ref=e575]
+                          - generic [ref=e577]: 复制
+                      - code [ref=e580]:
+                        - generic [ref=e581]: "1"
+                        - text: /clarify
+                  - cell "改善模糊的 UX 文案和错误提示" [ref=e582]
+                - row "text 复制 1 /animate 添加有意义的动效" [ref=e583]:
+                  - cell "text 复制 1 /animate" [ref=e584]:
+                    - generic [ref=e585]:
+                      - generic [ref=e586]:
+                        - generic [ref=e587]: text
+                        - button "复制" [ref=e588] [cursor=pointer]:
+                          - img [ref=e589]
+                          - generic [ref=e591]: 复制
+                      - code [ref=e594]:
+                        - generic [ref=e595]: "1"
+                        - text: /animate
+                  - cell "添加有意义的动效" [ref=e596]
+                - row "text 复制 1 /optimize 诊断和修复性能问题" [ref=e597]:
+                  - cell "text 复制 1 /optimize" [ref=e598]:
+                    - generic [ref=e599]:
+                      - generic [ref=e600]:
+                        - generic [ref=e601]: text
+                        - button "复制" [ref=e602] [cursor=pointer]:
+                          - img [ref=e603]
+                          - generic [ref=e605]: 复制
+                      - code [ref=e608]:
+                        - generic [ref=e609]: "1"
+                        - text: /optimize
+                  - cell "诊断和修复性能问题" [ref=e610]
+                - row "text 复制 1 /overdrive 实现技术上雄心勃勃的特效" [ref=e611]:
+                  - cell "text 复制 1 /overdrive" [ref=e612]:
+                    - generic [ref=e613]:
+                      - generic [ref=e614]:
+                        - generic [ref=e615]: text
+                        - button "复制" [ref=e616] [cursor=pointer]:
+                          - img [ref=e617]
+                          - generic [ref=e619]: 复制
+                      - code [ref=e622]:
+                        - generic [ref=e623]: "1"
+                        - text: /overdrive
+                  - cell "实现技术上雄心勃勃的特效" [ref=e624]
+                - row "text 复制 1 /shape 在写代码前先规划 UX 和 UI 方向" [ref=e625]:
+                  - cell "text 复制 1 /shape" [ref=e626]:
+                    - generic [ref=e627]:
+                      - generic [ref=e628]:
+                        - generic [ref=e629]: text
+                        - button "复制" [ref=e630] [cursor=pointer]:
+                          - img [ref=e631]
+                          - generic [ref=e633]: 复制
+                      - code [ref=e636]:
+                        - generic [ref=e637]: "1"
+                        - text: /shape
+                  - cell "在写代码前先规划 UX 和 UI 方向" [ref=e638]
+                - row "text 复制 1 /find-skills 发现并安装新技能" [ref=e639]:
+                  - cell "text 复制 1 /find-skills" [ref=e640]:
+                    - generic [ref=e641]:
+                      - generic [ref=e642]:
+                        - generic [ref=e643]: text
+                        - button "复制" [ref=e644] [cursor=pointer]:
+                          - img [ref=e645]
+                          - generic [ref=e647]: 复制
+                      - code [ref=e650]:
+                        - generic [ref=e651]: "1"
+                        - text: /find-skills
+                  - cell "发现并安装新技能" [ref=e652]
+            - separator [ref=e653]
+            - heading "CLI 独立工具" [level=2] [ref=e654]
+            - paragraph [ref=e655]: 不想依赖 AI 环境？Impeccable 还提供了一个独立的 CLI 工具，直接扫描代码中的设计反模式：
+            - generic [ref=e657]:
+              - generic [ref=e658]:
+                - generic [ref=e659]: bash
+                - button "复制" [ref=e660] [cursor=pointer]:
+                  - img [ref=e661]
+                  - generic [ref=e663]: 复制
+              - code [ref=e666]:
+                - generic [ref=e667]: "1"
+                - text: "# 扫描目录"
+                - generic [ref=e668]: "2"
+                - text: npx impeccable detect src/
+                - generic [ref=e669]: "3"
+                - generic [ref=e670]: "4"
+                - text: "# 扫描单个 HTML 文件"
+                - generic [ref=e671]: "5"
+                - text: npx impeccable detect index.html
+                - generic [ref=e672]: "6"
+                - generic [ref=e673]: "7"
+                - text: "# 扫描线上 URL"
+                - generic [ref=e674]: "8"
+                - text: npx impeccable detect https://example.com
+            - paragraph [ref=e675]: CLI 能检测的反模式包括：
+            - list [ref=e676]:
+              - listitem [ref=e677]:
+                - generic [ref=e679]:
+                  - text: 侧边栏色条（
+                  - generic [ref=e680]:
+                    - generic [ref=e681]:
+                      - generic [ref=e682]: text
+                      - button "复制" [ref=e683] [cursor=pointer]:
+                        - img [ref=e684]
+                        - generic [ref=e686]: 复制
+                    - code [ref=e689]:
+                      - generic [ref=e690]: "1"
+                      - text: "border-left: 3px solid ..."
+                  - text: ）
+              - listitem [ref=e691]:
+                - generic [ref=e693]:
+                  - text: 渐变文字（
+                  - generic [ref=e694]:
+                    - generic [ref=e695]:
+                      - generic [ref=e696]: text
+                      - button "复制" [ref=e697] [cursor=pointer]:
+                        - img [ref=e698]
+                        - generic [ref=e700]: 复制
+                    - code [ref=e703]:
+                      - generic [ref=e704]: "1"
+                      - text: "background-clip: text"
+                  - text: ）
+              - listitem [ref=e705]:
+                - generic [ref=e707]: 弹性/弹跳缓动曲线
+              - listitem [ref=e708]:
+                - generic [ref=e710]:
+                  - text: 纯
+                  - generic [ref=e711]:
+                    - generic [ref=e712]:
+                      - generic [ref=e713]: text
+                      - button "复制" [ref=e714] [cursor=pointer]:
+                        - img [ref=e715]
+                        - generic [ref=e717]: 复制
+                    - code [ref=e720]:
+                      - generic [ref=e721]: "1"
+                      - text: "#000"
+                  - text: /
+                  - generic [ref=e722]:
+                    - generic [ref=e723]:
+                      - generic [ref=e724]: text
+                      - button "复制" [ref=e725] [cursor=pointer]:
+                        - img [ref=e726]
+                        - generic [ref=e728]: 复制
+                    - code [ref=e731]:
+                      - generic [ref=e732]: "1"
+                      - text: "#fff"
+                  - text: 色值
+              - listitem [ref=e733]:
+                - generic [ref=e735]: 以及更多 AI 生成 UI 的「指纹」特征
+            - separator [ref=e736]
+            - heading "哪些情况最值得用？" [level=2] [ref=e737]
+            - paragraph [ref=e738]:
+              - strong [ref=e739]: 最有价值的场景：
+            - list [ref=e740]:
+              - listitem [ref=e741]:
+                - generic [ref=e743]: 从零开始构建新项目，需要建立设计语言
+              - listitem [ref=e744]:
+                - generic [ref=e746]: 重构一个「AI 味」很重的旧界面
+              - listitem [ref=e747]:
+                - generic [ref=e749]: 快速原型但不想输出通用模板
+              - listitem [ref=e750]:
+                - generic [ref=e752]: 有设计稿但交给 AI 实现时经常跑偏
+            - paragraph [ref=e753]:
+              - strong [ref=e754]: 不太必要的场景：
+            - list [ref=e755]:
+              - listitem [ref=e756]:
+                - generic [ref=e758]: 纯逻辑代码（与 UI 无关的功能）
+              - listitem [ref=e759]:
+                - generic [ref=e761]: 已经有成熟设计系统的大型项目（直接用现有 token 即可）
+            - separator [ref=e762]
+            - heading "总结" [level=2] [ref=e763]
+            - paragraph [ref=e764]:
+              - text: Impeccable 并不神奇，它本质上是一套
+              - strong [ref=e765]: 结构化的提示词工程
+              - text: ——通过给 AI 提供清晰的上下文、参考和反模式，让它做出更有意识的设计选择，而不是回归训练数据的均值。
+            - paragraph [ref=e766]: 如果你经常用 AI 写前端，这个工具值得花 10 分钟配置一次。之后每次生成 UI，至少能少踩掉大半的「AI 设计陷阱」。
+            - paragraph [ref=e767]:
+              - text: 仓库地址：
+              - link "https://github.com/pbakaus/impeccable" [ref=e768] [cursor=pointer]:
+                - /url: https://github.com/pbakaus/impeccable
+          - generic [ref=e769]:
+            - generic [ref=e770]:
+              - generic [ref=e777]:
+                - paragraph [ref=e778]: JieCheng
+                - paragraph [ref=e779]: 方块世界的代码师
+              - link "← 返回文章列表" [ref=e780] [cursor=pointer]:
+                - /url: /posts
+            - generic [ref=e781]:
+              - link "#AI" [ref=e782] [cursor=pointer]:
+                - /url: /tags/ai
+              - link "#前端开发" [ref=e783] [cursor=pointer]:
+                - /url: /tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91
+              - link "#Claude Code" [ref=e784] [cursor=pointer]:
+                - /url: /tags/claude-code
+              - link "#Cursor" [ref=e785] [cursor=pointer]:
+                - /url: /tags/cursor
+              - link "#设计系统" [ref=e786] [cursor=pointer]:
+                - /url: /tags/%E8%AE%BE%E8%AE%A1%E7%B3%BB%E7%BB%9F
+              - link "#工具推荐" [ref=e787] [cursor=pointer]:
+                - /url: /tags/%E5%B7%A5%E5%85%B7%E6%8E%A8%E8%8D%90
+        - generic [ref=e790]:
+          - heading "评论讨论" [level=3] [ref=e791]:
+            - img [ref=e792]
+            - text: 评论讨论
+          - generic [ref=e794]: 使用 GitHub 账号登录即可参与讨论
+      - complementary [ref=e795]:
+        - navigation "文章目录" [ref=e796]:
+          - generic [ref=e802]: 目录
+          - generic [ref=e803]:
+            - button "为什么 AI 生成的 UI 看起来都一样？" [ref=e804] [cursor=pointer]
+            - button "Impeccable 是什么？" [ref=e805] [cursor=pointer]
+            - button "安装" [ref=e806] [cursor=pointer]
+            - button "支持的工具" [ref=e807] [cursor=pointer]
+            - button "安装步骤（以 Claude Code 为例）" [ref=e808] [cursor=pointer]
+            - button "克隆仓库" [ref=e809] [cursor=pointer]
+            - button "安装到当前项目（项目级）" [ref=e810] [cursor=pointer]
+            - button "或安装到全局（所有项目生效）" [ref=e811] [cursor=pointer]
+            - button "核心理念：teach → craft → audit" [ref=e812] [cursor=pointer]
+            - button "1. Teach — 建立项目设计上下文" [ref=e813] [cursor=pointer]
+            - button "2. Craft — 构建功能界面" [ref=e814] [cursor=pointer]
+            - button "3. Audit — 扫描设计反模式" [ref=e815] [cursor=pointer]
+            - button "18 个核心指令速查" [ref=e816] [cursor=pointer]
+            - button "CLI 独立工具" [ref=e817] [cursor=pointer]
+            - button "扫描目录" [ref=e818] [cursor=pointer]
+            - button "扫描单个 HTML 文件" [ref=e819] [cursor=pointer]
+            - button "扫描线上 URL" [ref=e820] [cursor=pointer]
+            - button "哪些情况最值得用？" [ref=e821] [cursor=pointer]
+            - button "总结" [ref=e822] [cursor=pointer]
+        - generic [ref=e823]:
+          - generic [ref=e829]: 相关推荐
+          - generic [ref=e830]:
+            - link "01 NVM 安装教程 - Node.js 版本管理神器" [ref=e831] [cursor=pointer]:
+              - /url: /posts/nvm-installation-guide
+              - generic [ref=e832]: "01"
+              - generic [ref=e833]: NVM 安装教程 - Node.js 版本管理神器
+            - link "02 Vercel部署完整指南：从零到上线" [ref=e834] [cursor=pointer]:
+              - /url: /posts/vercel-deployment-guide
+              - generic [ref=e835]: "02"
+              - generic [ref=e836]: Vercel部署完整指南：从零到上线
+            - link "03 React Hooks 封装一个列表触底刷新" [ref=e837] [cursor=pointer]:
+              - /url: /posts/react-hooks-Infinite-scroll
+              - generic [ref=e838]: "03"
+              - generic [ref=e839]: React Hooks 封装一个列表触底刷新
+            - link "04 代码高亮文章" [ref=e840] [cursor=pointer]:
+              - /url: /posts/code-highlight-test
+              - generic [ref=e841]: "04"
+              - generic [ref=e842]: 代码高亮文章
+            - link "05 CSS Grid 与 Flexbox：现代布局技术对比指南" [ref=e843] [cursor=pointer]:
+              - /url: /posts/css-grid-flexbox
+              - generic [ref=e844]: "05"
+              - generic [ref=e845]: CSS Grid 与 Flexbox：现代布局技术对比指南
+          - link "查看全部文章 →" [ref=e846] [cursor=pointer]:
+            - /url: /posts
+  - contentinfo [ref=e847]:
+    - generic [ref=e848]:
+      - generic [ref=e849]:
+        - generic [ref=e850]:
+          - link "BlockCoder" [ref=e851] [cursor=pointer]:
+            - /url: /
+            - generic [ref=e857]: BlockCoder
+          - paragraph [ref=e858]: 方块世界的代码师。记录与分享前端开发、全栈技术和编程实践的个人博客。
+        - generic [ref=e859]:
+          - paragraph [ref=e860]: 导航
+          - list [ref=e861]:
+            - listitem [ref=e862]:
+              - link "所有文章" [ref=e863] [cursor=pointer]:
+                - /url: /posts
+            - listitem [ref=e864]:
+              - link "文章分类" [ref=e865] [cursor=pointer]:
+                - /url: /categories
+            - listitem [ref=e866]:
+              - link "标签云" [ref=e867] [cursor=pointer]:
+                - /url: /tags
+            - listitem [ref=e868]:
+              - link "关于" [ref=e869] [cursor=pointer]:
+                - /url: /about
+        - generic [ref=e870]:
+          - paragraph [ref=e871]: 联系
+          - list [ref=e872]:
+            - listitem [ref=e873]:
+              - link "1801256646ljc@gmail.com" [ref=e874] [cursor=pointer]:
+                - /url: mailto:1801256646ljc@gmail.com
+      - generic [ref=e875]:
+        - paragraph [ref=e876]: © 2026 BlockCoder. All rights reserved.
+        - paragraph [ref=e877]: Built with Next.js & TypeScript

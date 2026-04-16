@@ -1,80 +1,92 @@
 import Link from 'next/link';
 import { getAllTags } from '@/lib/blog';
-import Sidebar from '@/components/Sidebar';
 
 export const metadata = {
-  title: '标签云 - JieCheng.Dev',
+  title: '标签 — BlockCoder',
   description: '按标签浏览技术文章',
 };
 
 export default function TagsPage() {
-  const tags = getAllTags();
+  const tags = getAllTags().sort((a, b) => b.count - a.count);
+  const maxCount = tags[0]?.count ?? 1;
 
   return (
-    <div className="container-custom py-8">
-      <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
-        {/* Main Content */}
-        <div className="lg:col-span-3">
-          <div className="mb-8">
-            <h1 className="text-4xl font-bold text-gray-900 mb-4">标签云</h1>
-            <p className="text-gray-600">
-              通过标签快速找到感兴趣的技术文章
-            </p>
-          </div>
-
-          {tags.length > 0 ? (
-            <div className="card p-8">
-              <div className="flex flex-wrap gap-3">
-                {tags.map((tag) => {
-                  // 根据文章数量设置不同的字体大小
-                  const getFontSize = (count: number) => {
-                    if (count >= 10) return 'text-2xl';
-                    if (count >= 5) return 'text-xl';
-                    if (count >= 3) return 'text-lg';
-                    return 'text-base';
-                  };
-
-                  const getOpacity = (count: number) => {
-                    if (count >= 10) return 'opacity-100';
-                    if (count >= 5) return 'opacity-90';
-                    if (count >= 3) return 'opacity-80';
-                    return 'opacity-70';
-                  };
-
-                  return (
-                    <Link
-                      key={tag.slug}
-                      href={`/tags/${tag.slug}`}
-                      className={`inline-block bg-blue-100 text-blue-800 px-4 py-2 rounded-full hover:bg-blue-200 transition-colors font-medium ${getFontSize(tag.count)} ${getOpacity(tag.count)}`}
-                      title={`${tag.count} 篇文章`}
-                    >
-                      {tag.name}
-                      <span className="ml-2 text-sm opacity-75">
-                        ({tag.count})
-                      </span>
-                    </Link>
-                  );
-                })}
-              </div>
-            </div>
-          ) : (
-            <div className="text-center py-12">
-              <div className="text-6xl mb-4">🏷️</div>
-              <h3 className="text-xl font-semibold text-gray-700 mb-2">
-                还没有标签
-              </h3>
-              <p className="text-gray-500">
-                发布文章时会自动创建标签
-              </p>
-            </div>
-          )}
-        </div>
-
-        {/* Sidebar */}
-        <div className="lg:col-span-1">
-          <Sidebar />
-        </div>
+    <div className="container-custom" style={{ paddingBlock: 'var(--space-12)' }}>
+      {/* Page header */}
+      <div style={{
+        paddingBottom: 'var(--space-12)',
+        marginBottom: 'var(--space-12)',
+        borderBottom: '2px solid var(--color-accent)',
+      }}>
+        <p className="section-eyebrow" style={{ marginBottom: 'var(--space-4)' }}>内容导航</p>
+        <h1 style={{
+          fontFamily: 'var(--font-display)',
+          fontSize: 'clamp(2rem, 6vw, 3.5rem)',
+          fontWeight: 800,
+          letterSpacing: '-0.04em',
+          lineHeight: 1.0,
+          color: 'var(--color-text)',
+          marginBottom: 'var(--space-4)',
+        }}>
+          标签
+        </h1>
+        <p style={{
+          fontFamily: 'var(--font-body)',
+          fontSize: 'var(--text-base)',
+          color: 'var(--color-text-secondary)',
+        }}>
+          {tags.length} 个标签，通过标签快速找到感兴趣的技术文章
+        </p>
       </div>
+
+      {tags.length > 0 ? (
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 'var(--space-3)', alignItems: 'baseline' }}>
+          {tags.map((tag, i) => {
+            // Scale font size by count — larger count = more prominent
+            const ratio = tag.count / maxCount;
+            const fontSize = ratio >= 0.7 ? 'var(--text-xl)'
+              : ratio >= 0.4 ? 'var(--text-lg)'
+              : ratio >= 0.2 ? 'var(--text-base)'
+              : 'var(--text-sm)';
+            const weight = ratio >= 0.7 ? 700 : ratio >= 0.4 ? 600 : 500;
+
+            return (
+              <Link
+                key={tag.slug}
+                href={`/tags/${tag.slug}`}
+                className={i % 3 === 1 ? 'tag-alt tag-cloud-item' : 'tag tag-cloud-item'}
+                style={{
+                  fontSize,
+                  fontWeight: weight,
+                  padding: ratio >= 0.5 ? '6px 14px' : '4px 10px',
+                }}
+                title={`${tag.count} 篇文章`}
+              >
+                #{tag.name}
+                <span style={{
+                  fontFamily: 'var(--font-display)',
+                  fontSize: 'var(--text-xs)',
+                  opacity: 0.65,
+                  marginLeft: 4,
+                  fontVariantNumeric: 'tabular-nums',
+                }}>
+                  {tag.count}
+                </span>
+              </Link>
+            );
+          })}
+        </div>
+      ) : (
+        <div style={{ paddingBlock: 'var(--space-16)', textAlign: 'center' }}>
+          <p style={{
+            fontFamily: 'var(--font-display)',
+            fontSize: 'var(--text-sm)',
+            color: 'var(--color-text-tertiary)',
+          }}>
+            还没有标签，发布文章时会自动创建。
+          </p>
+        </div>
+      )}
     </div>
   );
 }
