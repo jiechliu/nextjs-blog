@@ -23,8 +23,8 @@ function parseToc(content: string): TocItem[] {
     const text = raw
       .replace(/\*\*/g, '')
       .replace(/`/g, '')
-      // Remove emoji (Unicode ranges for common emoji blocks)
-      .replace(/[\u{1F300}-\u{1FFFF}\u{2600}-\u{27BF}]/gu, '')
+      // Remove emoji via surrogate pairs and common symbol ranges (no /u flag needed)
+      .replace(/[\uD800-\uDFFF]|[\u2600-\u27BF]/g, '')
       .trim();
     const id = raw
       .toLowerCase()
