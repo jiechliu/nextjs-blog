@@ -10,3 +10,5 @@
 [  736965ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://giscus.app/api/discussions?repo=jiechliu%2Fnextjs-blog&term=posts%2Fimpeccable-ai-design-tool&category=General&number=0&strict=false&last=15:0
 [  736968ms] [WARNING] [giscus] Discussion not found. A new discussion will be created if a comment/reaction is submitted. @ https://giscus.app/client.js:6
 [  736968ms] [WARNING] [giscus] Discussion not found. A new discussion will be created if a comment/reaction is submitted. @ https://giscus.app/client.js:6
+[  795704ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/hot-reloader-client.js:161
+[  827220ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/hot-reloader-client.js:161

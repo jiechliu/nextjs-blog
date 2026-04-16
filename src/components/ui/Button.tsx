@@ -7,18 +7,19 @@ type Size = 'sm' | 'md';
 interface BaseProps {
   variant?: Variant;
   size?: Size;
-  children: ReactNode;
   className?: string;
 }
 
-interface ButtonAsButton extends BaseProps, ButtonHTMLAttributes<HTMLButtonElement> {
+interface ButtonAsButton extends BaseProps, Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'children'> {
   href?: undefined;
   external?: undefined;
+  children: ReactNode;
 }
 
 interface ButtonAsLink extends BaseProps {
   href: string;
   external?: boolean;
+  children: ReactNode;
   onClick?: never;
   type?: never;
   disabled?: never;
@@ -31,25 +32,20 @@ const sizeClasses: Record<Size, string> = {
   md: 'text-sm px-6 py-3',
 };
 
-/**
- * Polymorphic Button component.
- * Renders as <button> or <Link> / <a> depending on whether `href` is provided.
- * Consumes .btn-primary / .btn-secondary from base.css.
- */
-const Button: React.FC<ButtonProps> = ({
+const Button = ({
   variant = 'primary',
   size = 'md',
   children,
   className = '',
   ...rest
-}) => {
+}: ButtonProps) => {
   const variantClass = variant === 'primary' ? 'btn-primary' : 'btn-secondary';
   const combined = [variantClass, sizeClasses[size], className]
     .filter(Boolean)
     .join(' ');
 
   if ('href' in rest && rest.href !== undefined) {
-    const { href, external, ...linkRest } = rest;
+    const { href, external, ...linkRest } = rest as ButtonAsLink;
 
     if (external) {
       return (
@@ -72,7 +68,9 @@ const Button: React.FC<ButtonProps> = ({
     );
   }
 
-  const { href: _href, external: _ext, ...buttonRest } = rest as ButtonAsLink;
+  // At this point rest is ButtonAsButton (no href)
+  const { href: _href, external: _ext, children: _c, ...buttonRest } =
+    rest as unknown as ButtonAsLink & { children?: ReactNode };
 
   return (
     <button
