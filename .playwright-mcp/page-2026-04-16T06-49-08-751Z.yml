@@ -1,0 +1,529 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e4]:
+      - link "BlockCoder" [ref=e5] [cursor=pointer]:
+        - /url: /
+        - generic [ref=e11]: BlockCoder
+      - navigation "主导航" [ref=e12]:
+        - link "首页" [ref=e13] [cursor=pointer]:
+          - /url: /
+        - link "文章" [ref=e14] [cursor=pointer]:
+          - /url: /posts
+        - link "分类" [ref=e15] [cursor=pointer]:
+          - /url: /categories
+        - link "标签" [ref=e16] [cursor=pointer]:
+          - /url: /tags
+        - link "关于" [ref=e17] [cursor=pointer]:
+          - /url: /about
+        - link "AI" [ref=e18] [cursor=pointer]:
+          - /url: /ai-chat
+      - generic [ref=e19]:
+        - 'button "跟随系统 (当前: 浅色)" [ref=e20] [cursor=pointer]':
+          - img [ref=e21]
+        - button "打开菜单" [ref=e27] [cursor=pointer]:
+          - img [ref=e28]
+  - main [ref=e29]:
+    - generic [ref=e31]:
+      - navigation "面包屑" [ref=e32]:
+        - list [ref=e33]:
+          - listitem [ref=e34]:
+            - link "首页" [ref=e35] [cursor=pointer]:
+              - /url: /
+            - generic [ref=e36]: /
+          - listitem [ref=e37]:
+            - link "文章" [ref=e38] [cursor=pointer]:
+              - /url: /posts
+            - generic [ref=e39]: /
+          - listitem [ref=e40]:
+            - generic [ref=e41]: Superpowers：把 Claude Code 从代码生成器升级为工程搭档
+      - generic [ref=e42]:
+        - link "开发工具" [ref=e43] [cursor=pointer]:
+          - /url: /categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7
+        - generic [ref=e44]: ·
+        - time [ref=e45]:
+          - img "calendar" [ref=e46]:
+            - img [ref=e47]
+          - text: 2026年4月16日
+        - generic [ref=e49]: ·
+        - generic [ref=e50]:
+          - img "clock-circle" [ref=e51]:
+            - img [ref=e52]
+          - text: 约 9 分钟
+      - heading "Superpowers：把 Claude Code 从代码生成器升级为工程搭档" [level=1] [ref=e55]
+      - paragraph [ref=e56]: 155k Star 的开源框架 Superpowers 通过 14 个可组合技能模块，强制 AI 遵循 TDD、代码审查、任务拆分等软件工程最佳实践。本文介绍安装配置、核心工作流和实战技巧。
+      - generic [ref=e57]:
+        - link "#AI" [ref=e58] [cursor=pointer]:
+          - /url: /tags/ai
+        - link "#Claude Code" [ref=e59] [cursor=pointer]:
+          - /url: /tags/claude-code
+        - link "#工程化" [ref=e60] [cursor=pointer]:
+          - /url: /tags/%E5%B7%A5%E7%A8%8B%E5%8C%96
+        - link "#TDD" [ref=e61] [cursor=pointer]:
+          - /url: /tags/tdd
+        - link "#工具推荐" [ref=e62] [cursor=pointer]:
+          - /url: /tags/%E5%B7%A5%E5%85%B7%E6%8E%A8%E8%8D%90
+        - link "#工作流" [ref=e63] [cursor=pointer]:
+          - /url: /tags/%E5%B7%A5%E4%BD%9C%E6%B5%81
+    - generic [ref=e66]:
+      - generic [ref=e67]:
+        - article [ref=e68]:
+          - generic [ref=e70]:
+            - heading "问题：AI 写的代码为什么总要返工？" [level=2] [ref=e71]
+            - paragraph [ref=e72]: 用 Claude Code 或类似 AI 工具写代码，很多人都遇过这个场景：需求描述完，AI 噼里啪啦写了一堆代码，跑起来却发现方向完全不对——边界条件没考虑、技术选型冒进、测试一个没有。
+            - paragraph [ref=e73]: 回头重来，又是一轮。
+            - paragraph [ref=e74]:
+              - strong [ref=e75]: 这不是 AI 不够聪明，而是缺流程
+              - text: 。专业开发团队之所以靠谱，不是因为每个人都比 AI 聪明，而是因为有规范：需求评审、技术方案、代码审查、TDD……这些护栏让工作变得可预测。
+            - paragraph [ref=e76]:
+              - strong [ref=e77]:
+                - link "Superpowers" [ref=e78] [cursor=pointer]:
+                  - /url: https://github.com/obra/superpowers
+              - text: 就是给 AI 套上这套护栏的框架。
+            - paragraph [ref=e79]:
+              - text: 目前 GitHub 上
+              - strong [ref=e80]: 155k Star
+              - text: ，最新版本 v5.0.7（2026年3月发布）。
+            - separator [ref=e81]
+            - heading "Superpowers 是什么？" [level=2] [ref=e82]
+            - paragraph [ref=e83]:
+              - text: Superpowers 是一套基于 Agent Skills 的工作流框架，由
+              - link "Jesse Vincent" [ref=e84] [cursor=pointer]:
+                - /url: https://blog.fsck.com
+              - text: 和
+              - link "Prime Radiant" [ref=e85] [cursor=pointer]:
+                - /url: https://primeradiant.com
+              - text: 团队构建，MIT 协议开源。
+            - paragraph [ref=e86]:
+              - text: 核心理念只有一句话：
+              - strong [ref=e87]: 流程大于提示词
+              - text: 。
+            - paragraph [ref=e88]: 它不会让 AI 更聪明，但会让 AI 更自律——通过在关键决策点自动触发结构化技能，强制执行经过验证的软件工程方法论：
+            - list [ref=e89]:
+              - listitem [ref=e90]:
+                - generic [ref=e92]: 写代码前先搞清需求（Brainstorm）
+              - listitem [ref=e93]:
+                - generic [ref=e95]: 动手前先制定计划（Write Plan）
+              - listitem [ref=e96]:
+                - generic [ref=e98]: 任务分解，子代理并行（Subagent-Driven Development）
+              - listitem [ref=e99]:
+                - generic [ref=e101]: 先写测试，再写实现（TDD）
+              - listitem [ref=e102]:
+                - generic [ref=e104]: 完成后自动代码审查（Code Review）
+            - separator [ref=e105]
+            - heading "安装" [level=2] [ref=e106]
+            - paragraph [ref=e107]: Superpowers 支持 Claude Code、Cursor、Codex、OpenCode、Gemini CLI 等主流 AI 工具。
+            - heading "Claude Code（推荐）" [level=3] [ref=e108]
+            - paragraph [ref=e109]:
+              - strong [ref=e110]: 方式一：Anthropic 官方市场（2026年1月起支持）
+            - generic [ref=e112]:
+              - generic [ref=e113]:
+                - generic [ref=e114]: bash
+                - button "复制" [ref=e115] [cursor=pointer]:
+                  - img [ref=e116]
+                  - generic [ref=e118]: 复制
+              - code [ref=e121]:
+                - generic [ref=e122]: "1"
+                - text: /plugin install superpowers@claude-plugins-official
+            - paragraph [ref=e123]:
+              - strong [ref=e124]: 方式二：作者维护的市场源
+            - generic [ref=e126]:
+              - generic [ref=e127]:
+                - generic [ref=e128]: bash
+                - button "复制" [ref=e129] [cursor=pointer]:
+                  - img [ref=e130]
+                  - generic [ref=e132]: 复制
+              - code [ref=e135]:
+                - generic [ref=e136]: "1"
+                - text: /plugin marketplace add obra/superpowers-marketplace
+                - generic [ref=e137]: "2"
+                - text: /plugin install superpowers@superpowers-marketplace
+            - heading "Cursor" [level=3] [ref=e138]
+            - paragraph [ref=e139]:
+              - text: 在聊天窗口输入
+              - code [ref=e140]: "`/add-plugin superpowers`"
+              - text: ，或在插件市场搜索"superpowers"。
+            - heading "Codex" [level=3] [ref=e141]
+            - paragraph [ref=e142]: 直接告诉 Codex：
+            - code [ref=e144]: Fetch and follow instructions from https://raw.githubusercontent.com/obra/superpowers/refs/heads/main/.codex/INSTALL.md
+            - heading "Gemini CLI" [level=3] [ref=e145]
+            - generic [ref=e147]:
+              - generic [ref=e148]:
+                - generic [ref=e149]: bash
+                - button "复制" [ref=e150] [cursor=pointer]:
+                  - img [ref=e151]
+                  - generic [ref=e153]: 复制
+              - code [ref=e156]:
+                - generic [ref=e157]: "1"
+                - text: gemini extensions install https://github.com/obra/superpowers
+                - generic [ref=e158]: "2"
+                - text: "# 更新"
+                - generic [ref=e159]: "3"
+                - text: gemini extensions update superpowers
+            - heading "验证安装" [level=3] [ref=e160]
+            - paragraph [ref=e161]:
+              - text: 重启会话后输入
+              - code [ref=e162]: "`/`"
+              - text: ，如果看到以下命令，说明安装成功：
+            - generic [ref=e164]:
+              - generic [ref=e165]:
+                - generic [ref=e166]: text
+                - button "复制" [ref=e167] [cursor=pointer]:
+                  - img [ref=e168]
+                  - generic [ref=e170]: 复制
+              - code [ref=e173]:
+                - generic [ref=e174]: "1"
+                - text: /superpowers:brainstorm
+                - generic [ref=e175]: "2"
+                - text: /superpowers:write-plan
+                - generic [ref=e176]: "3"
+                - text: /superpowers:execute-plan
+            - separator [ref=e177]
+            - heading "14 个技能模块" [level=2] [ref=e178]
+            - paragraph [ref=e179]: Superpowers 将软件工程最佳实践封装为 14 个可自动触发的技能：
+            - heading "测试" [level=3] [ref=e180]
+            - table [ref=e182]:
+              - rowgroup [ref=e183]:
+                - row "技能 说明" [ref=e184]:
+                  - columnheader "技能" [ref=e185]
+                  - columnheader "说明" [ref=e186]
+              - rowgroup [ref=e187]:
+                - 'row "`test-driven-development` 强制 RED-GREEN-REFACTOR 循环：先写失败测试 → 看它失败 → 写最少代码 → 看它通过 → 提交" [ref=e188]':
+                  - 'cell "`test-driven-development`" [ref=e189]':
+                    - code [ref=e190]: "`test-driven-development`"
+                  - cell "强制 RED-GREEN-REFACTOR 循环：先写失败测试 → 看它失败 → 写最少代码 → 看它通过 → 提交" [ref=e191]
+                - 'row "`verification-before-completion` 确保问题真正解决，而非表面通过" [ref=e192]':
+                  - 'cell "`verification-before-completion`" [ref=e193]':
+                    - code [ref=e194]: "`verification-before-completion`"
+                  - cell "确保问题真正解决，而非表面通过" [ref=e195]
+            - heading "调试" [level=3] [ref=e196]
+            - table [ref=e198]:
+              - rowgroup [ref=e199]:
+                - row "技能 说明" [ref=e200]:
+                  - columnheader "技能" [ref=e201]
+                  - columnheader "说明" [ref=e202]
+              - rowgroup [ref=e203]:
+                - 'row "`systematic-debugging` 4 阶段根本原因分析：复现 → 定位 → 修复 → 验证" [ref=e204]':
+                  - 'cell "`systematic-debugging`" [ref=e205]':
+                    - code [ref=e206]: "`systematic-debugging`"
+                  - cell "4 阶段根本原因分析：复现 → 定位 → 修复 → 验证" [ref=e207]
+            - heading "协作与流程" [level=3] [ref=e208]
+            - table [ref=e210]:
+              - rowgroup [ref=e211]:
+                - row "技能 说明" [ref=e212]:
+                  - columnheader "技能" [ref=e213]
+                  - columnheader "说明" [ref=e214]
+              - rowgroup [ref=e215]:
+                - 'row "`brainstorming` 苏格拉底式需求澄清，在写代码前通过提问完善想法" [ref=e216]':
+                  - 'cell "`brainstorming`" [ref=e217]':
+                    - code [ref=e218]: "`brainstorming`"
+                  - cell "苏格拉底式需求澄清，在写代码前通过提问完善想法" [ref=e219]
+                - 'row "`writing-plans` 将工作分解为 2-5 分钟的微任务，含文件路径、代码片段和验证步骤" [ref=e220]':
+                  - 'cell "`writing-plans`" [ref=e221]':
+                    - code [ref=e222]: "`writing-plans`"
+                  - cell "将工作分解为 2-5 分钟的微任务，含文件路径、代码片段和验证步骤" [ref=e223]
+                - 'row "`executing-plans` 批量执行计划，在关键节点暂停等待人工确认" [ref=e224]':
+                  - 'cell "`executing-plans`" [ref=e225]':
+                    - code [ref=e226]: "`executing-plans`"
+                  - cell "批量执行计划，在关键节点暂停等待人工确认" [ref=e227]
+                - 'row "`dispatching-parallel-agents` 并发子代理工作流，互不依赖的任务并行处理" [ref=e228]':
+                  - 'cell "`dispatching-parallel-agents`" [ref=e229]':
+                    - code [ref=e230]: "`dispatching-parallel-agents`"
+                  - cell "并发子代理工作流，互不依赖的任务并行处理" [ref=e231]
+                - 'row "`requesting-code-review` 预审查清单，按严重程度报告问题，关键问题阻止进度" [ref=e232]':
+                  - 'cell "`requesting-code-review`" [ref=e233]':
+                    - code [ref=e234]: "`requesting-code-review`"
+                  - cell "预审查清单，按严重程度报告问题，关键问题阻止进度" [ref=e235]
+                - 'row "`receiving-code-review` 如何响应代码审查反馈" [ref=e236]':
+                  - 'cell "`receiving-code-review`" [ref=e237]':
+                    - code [ref=e238]: "`receiving-code-review`"
+                  - cell "如何响应代码审查反馈" [ref=e239]
+                - 'row "`using-git-worktrees` 为每个分支创建隔离工作空间，避免文件冲突" [ref=e240]':
+                  - 'cell "`using-git-worktrees`" [ref=e241]':
+                    - code [ref=e242]: "`using-git-worktrees`"
+                  - cell "为每个分支创建隔离工作空间，避免文件冲突" [ref=e243]
+                - 'row "`finishing-a-development-branch` 合并/PR 决策工作流，自动清理工作树" [ref=e244]':
+                  - 'cell "`finishing-a-development-branch`" [ref=e245]':
+                    - code [ref=e246]: "`finishing-a-development-branch`"
+                  - cell "合并/PR 决策工作流，自动清理工作树" [ref=e247]
+                - 'row "`subagent-driven-development` 双阶段审查：规格合规性 → 代码质量" [ref=e248]':
+                  - 'cell "`subagent-driven-development`" [ref=e249]':
+                    - code [ref=e250]: "`subagent-driven-development`"
+                  - cell "双阶段审查：规格合规性 → 代码质量" [ref=e251]
+            - heading "元技能" [level=3] [ref=e252]
+            - table [ref=e254]:
+              - rowgroup [ref=e255]:
+                - row "技能 说明" [ref=e256]:
+                  - columnheader "技能" [ref=e257]
+                  - columnheader "说明" [ref=e258]
+              - rowgroup [ref=e259]:
+                - 'row "`writing-skills` 按最佳实践创建新技能" [ref=e260]':
+                  - 'cell "`writing-skills`" [ref=e261]':
+                    - code [ref=e262]: "`writing-skills`"
+                  - cell "按最佳实践创建新技能" [ref=e263]
+                - 'row "`using-superpowers` 技能系统入门介绍" [ref=e264]':
+                  - 'cell "`using-superpowers`" [ref=e265]':
+                    - code [ref=e266]: "`using-superpowers`"
+                  - cell "技能系统入门介绍" [ref=e267]
+            - separator [ref=e268]
+            - heading "标准工作流：从需求到上线" [level=2] [ref=e269]
+            - paragraph [ref=e270]: 适用于超过 50 行代码的功能开发，完整流程分为 4 个阶段：
+            - heading "阶段一：Brainstorm — 先想清楚，再动手" [level=3] [ref=e271]
+            - paragraph [ref=e272]:
+              - text: 触发方式：描述需求，或直接输入
+              - code [ref=e273]: "`/superpowers:brainstorm`"
+              - text: 。
+            - paragraph [ref=e274]:
+              - text: AI 会
+              - strong [ref=e275]: 主动停止编码冲动
+              - text: ，转而通过苏格拉底式提问澄清：
+            - list [ref=e276]:
+              - listitem [ref=e277]:
+                - generic [ref=e279]: 这个功能的业务目标是什么？
+              - listitem [ref=e280]:
+                - generic [ref=e282]: 有哪些技术约束？
+              - listitem [ref=e283]:
+                - generic [ref=e285]: 你偏好哪种实现方案？
+              - listitem [ref=e286]:
+                - generic [ref=e288]: 有哪些边界情况需要考虑？
+            - paragraph [ref=e289]: 问题澄清完毕后，AI 会输出设计文档供你确认，再进入下一步。
+            - heading "阶段二：Write Plan — 生成详细计划" [level=3] [ref=e290]
+            - paragraph [ref=e291]:
+              - text: 触发方式：
+              - code [ref=e292]: "`/superpowers:write-plan`"
+            - paragraph [ref=e293]: 输出一份精细到文件级别的实施计划：
+            - generic [ref=e295]:
+              - generic [ref=e296]:
+                - generic [ref=e297]: text
+                - button "复制" [ref=e298] [cursor=pointer]:
+                  - img [ref=e299]
+                  - generic [ref=e301]: 复制
+              - code [ref=e304]:
+                - generic [ref=e305]: "1"
+                - text: "Task 1: 创建 UserService 类 (预计 3 分钟)"
+                - generic [ref=e306]: "2"
+                - text: "- 文件: src/services/UserService.ts"
+                - generic [ref=e307]: "3"
+                - text: "- 依赖: src/types/User.ts"
+                - generic [ref=e308]: "4"
+                - text: "- 验证: UserService 单元测试通过"
+                - generic [ref=e309]: "5"
+                - generic [ref=e310]: "6"
+                - text: "Task 2: 实现 getUserById 方法 (预计 2 分钟)"
+                - generic [ref=e311]: "7"
+                - text: "- 依赖: Task 1"
+                - generic [ref=e312]: "8"
+                - text: "- 验证: 返回正确的用户数据，处理 404 情况"
+                - generic [ref=e313]: "9"
+                - text: ...
+            - paragraph [ref=e314]:
+              - strong [ref=e315]: 计划需要你审阅确认
+              - text: ，才能进入执行阶段。
+            - heading "阶段三：Execute Plan — 子代理并行执行" [level=3] [ref=e316]
+            - paragraph [ref=e317]:
+              - text: 触发方式：
+              - code [ref=e318]: "`/superpowers:execute-plan`"
+            - paragraph [ref=e319]: 执行机制：
+            - list [ref=e320]:
+              - listitem [ref=e321]:
+                - generic [ref=e323]:
+                  - text: 互不依赖的任务交给
+                  - strong [ref=e324]: 多个子代理并行处理
+                  - text: ，显著提速
+              - listitem [ref=e325]:
+                - generic [ref=e327]:
+                  - text: 每个子代理严格遵循
+                  - strong [ref=e328]: TDD
+                  - text: ：先写测试 → 看到红 → 写实现 → 看到绿 → 提交
+              - listitem [ref=e329]:
+                - generic [ref=e331]:
+                  - text: 任务之间自动触发
+                  - strong [ref=e332]: 代码审查
+                  - text: ，关键问题阻断进度
+            - heading "阶段四：Finish Branch — 收尾与合并" [level=3] [ref=e333]
+            - paragraph [ref=e334]: 任务完成后，AI 会：
+            - list [ref=e335]:
+              - listitem [ref=e336]:
+                - generic [ref=e338]: 验证所有测试通过
+              - listitem [ref=e339]:
+                - generic [ref=e341]: 展示选项：直接合并 / 创建 PR / 保留分支 / 丢弃
+              - listitem [ref=e342]:
+                - generic [ref=e344]: 清理 Git Worktree
+            - separator [ref=e345]
+            - heading "实战技巧" [level=2] [ref=e346]
+            - heading "不是所有任务都需要完整流程" [level=3] [ref=e347]
+            - paragraph [ref=e348]: 改个 CSS 变量、修个 typo，直接让 Claude 做就好。完整流程适合：
+            - list [ref=e349]:
+              - listitem [ref=e350]:
+                - generic [ref=e352]: 新功能开发（超过 50 行代码）
+              - listitem [ref=e353]:
+                - generic [ref=e355]: 重构现有模块
+              - listitem [ref=e356]:
+                - generic [ref=e358]: 修复复杂 Bug
+            - heading "强制高质量输出" [level=3] [ref=e359]
+            - paragraph [ref=e360]: 在描述需求时加上明确的流程前缀，效果更稳定：
+            - generic [ref=e362]:
+              - generic [ref=e363]:
+                - generic [ref=e364]: text
+                - button "复制" [ref=e365] [cursor=pointer]:
+                  - img [ref=e366]
+                  - generic [ref=e368]: 复制
+              - code [ref=e371]:
+                - generic [ref=e372]: "1"
+                - text: 按 Superpowers 完整流程：先 brainstorm 澄清需求，再 write-plan 制定计划，
+                - generic [ref=e373]: "2"
+                - text: 最后 execute-plan 执行，全程强制 TDD 和 code review。
+                - generic [ref=e374]: "3"
+                - generic [ref=e375]: "4"
+                - text: 需求：实现一个用户认证模块，支持 JWT 和 refresh token。
+            - heading "长会话管理" [level=3] [ref=e376]
+            - paragraph [ref=e377]:
+              - text: 当会话变长时，用
+              - code [ref=e378]: "`/compact`"
+              - text: 压缩历史，并在 Plan 阶段同步输出
+              - code [ref=e379]: "`ARCHITECTURE.md`"
+              - text: ，让每次新会话都能快速恢复上下文。
+            - heading "Git Worktrees 隔离开发" [level=3] [ref=e380]
+            - paragraph [ref=e381]: 对于并行开发的任务，明确要求使用 git worktrees：
+            - generic [ref=e383]:
+              - generic [ref=e384]:
+                - generic [ref=e385]: text
+                - button "复制" [ref=e386] [cursor=pointer]:
+                  - img [ref=e387]
+                  - generic [ref=e389]: 复制
+              - code [ref=e392]:
+                - generic [ref=e393]: "1"
+                - text: 使用 git worktrees 为这个功能创建隔离的工作空间，
+                - generic [ref=e394]: "2"
+                - text: 确保不影响主分支的其他进行中工作。
+            - separator [ref=e395]
+            - heading "常见误区" [level=2] [ref=e396]
+            - paragraph [ref=e397]:
+              - strong [ref=e398]: 误区：Superpowers 会消耗更多 Token
+            - paragraph [ref=e399]: 事实：短期略有增加，但通过减少返工（方向错误重来一遍 = 消耗数倍 Token），总体消耗反而降低。
+            - paragraph [ref=e400]:
+              - strong [ref=e401]: 误区：TDD 太慢，影响效率
+            - paragraph [ref=e402]: 事实：原型验证阶段可以跳过，但正式开发强烈建议开启——上线后发现的 Bug 修复成本远高于写测试的成本。
+            - paragraph [ref=e403]:
+              - strong [ref=e404]: 误区：需要记住所有命令
+            - paragraph [ref=e405]: 事实：Superpowers 技能会自动触发，不需要手动调用。直接描述任务，框架会匹配合适的技能。只有想强制触发某个阶段时才需要手动输入命令。
+            - separator [ref=e406]
+            - heading "总结" [level=2] [ref=e407]
+            - paragraph [ref=e408]: Superpowers 解决的不是 AI 能力问题，而是 AI 纪律问题。
+            - paragraph [ref=e409]: 单靠提示词让 AI 遵循工程规范，稳定性很差——今天有效，明天不一定。Superpowers 把这些规范固化成自动触发的技能，让 AI 在每次关键决策点都能遵循一致的流程。
+            - paragraph [ref=e410]: 如果你已经在用 Claude Code 做正式项目，这个框架值得花 5 分钟安装试试。差别会在第一次它主动停下来问你"这个功能的业务目标是什么"时就感受到。
+            - paragraph [ref=e411]:
+              - text: 仓库地址：
+              - link "https://github.com/obra/superpowers" [ref=e412] [cursor=pointer]:
+                - /url: https://github.com/obra/superpowers
+          - generic [ref=e413]:
+            - generic [ref=e414]:
+              - generic [ref=e421]:
+                - paragraph [ref=e422]: JieCheng
+                - paragraph [ref=e423]: 方块世界的代码师
+              - link "← 返回文章列表" [ref=e424] [cursor=pointer]:
+                - /url: /posts
+            - generic [ref=e425]:
+              - link "#AI" [ref=e426] [cursor=pointer]:
+                - /url: /tags/ai
+              - link "#Claude Code" [ref=e427] [cursor=pointer]:
+                - /url: /tags/claude-code
+              - link "#工程化" [ref=e428] [cursor=pointer]:
+                - /url: /tags/%E5%B7%A5%E7%A8%8B%E5%8C%96
+              - link "#TDD" [ref=e429] [cursor=pointer]:
+                - /url: /tags/tdd
+              - link "#工具推荐" [ref=e430] [cursor=pointer]:
+                - /url: /tags/%E5%B7%A5%E5%85%B7%E6%8E%A8%E8%8D%90
+              - link "#工作流" [ref=e431] [cursor=pointer]:
+                - /url: /tags/%E5%B7%A5%E4%BD%9C%E6%B5%81
+        - generic [ref=e434]:
+          - heading "评论讨论" [level=3] [ref=e435]:
+            - img [ref=e436]
+            - text: 评论讨论
+          - generic [ref=e438]: 使用 GitHub 账号登录即可参与讨论
+      - complementary [ref=e439]:
+        - navigation "文章目录" [ref=e440]:
+          - generic [ref=e446]: 目录
+          - generic [ref=e447]:
+            - button "问题：AI 写的代码为什么总要返工？" [ref=e448] [cursor=pointer]
+            - button "Superpowers 是什么？" [ref=e449] [cursor=pointer]
+            - button "安装" [ref=e450] [cursor=pointer]
+            - button "Claude Code（推荐）" [ref=e451] [cursor=pointer]
+            - button "Cursor" [ref=e452] [cursor=pointer]
+            - button "Codex" [ref=e453] [cursor=pointer]
+            - button "Gemini CLI" [ref=e454] [cursor=pointer]
+            - button "更新" [ref=e455] [cursor=pointer]
+            - button "验证安装" [ref=e456] [cursor=pointer]
+            - button "14 个技能模块" [ref=e457] [cursor=pointer]
+            - button "测试" [ref=e458] [cursor=pointer]
+            - button "调试" [ref=e459] [cursor=pointer]
+            - button "协作与流程" [ref=e460] [cursor=pointer]
+            - button "元技能" [ref=e461] [cursor=pointer]
+            - button "标准工作流：从需求到上线" [ref=e462] [cursor=pointer]
+            - button "阶段一：Brainstorm — 先想清楚，再动手" [ref=e463] [cursor=pointer]
+            - button "阶段二：Write Plan — 生成详细计划" [ref=e464] [cursor=pointer]
+            - button "阶段三：Execute Plan — 子代理并行执行" [ref=e465] [cursor=pointer]
+            - button "阶段四：Finish Branch — 收尾与合并" [ref=e466] [cursor=pointer]
+            - button "实战技巧" [ref=e467] [cursor=pointer]
+            - button "不是所有任务都需要完整流程" [ref=e468] [cursor=pointer]
+            - button "强制高质量输出" [ref=e469] [cursor=pointer]
+            - button "长会话管理" [ref=e470] [cursor=pointer]
+            - button "Git Worktrees 隔离开发" [ref=e471] [cursor=pointer]
+            - button "常见误区" [ref=e472] [cursor=pointer]
+            - button "总结" [ref=e473] [cursor=pointer]
+        - generic [ref=e474]:
+          - generic [ref=e480]: 相关推荐
+          - generic [ref=e481]:
+            - link "01 Impeccable：让 AI 告别「通用模板」设计的神器" [ref=e482] [cursor=pointer]:
+              - /url: /posts/impeccable-ai-design-tool
+              - generic [ref=e483]: "01"
+              - generic [ref=e484]: Impeccable：让 AI 告别「通用模板」设计的神器
+            - link "02 NVM 安装教程 - Node.js 版本管理神器" [ref=e485] [cursor=pointer]:
+              - /url: /posts/nvm-installation-guide
+              - generic [ref=e486]: "02"
+              - generic [ref=e487]: NVM 安装教程 - Node.js 版本管理神器
+            - link "03 Vercel部署完整指南：从零到上线" [ref=e488] [cursor=pointer]:
+              - /url: /posts/vercel-deployment-guide
+              - generic [ref=e489]: "03"
+              - generic [ref=e490]: Vercel部署完整指南：从零到上线
+            - link "04 React Hooks 封装一个列表触底刷新" [ref=e491] [cursor=pointer]:
+              - /url: /posts/react-hooks-Infinite-scroll
+              - generic [ref=e492]: "04"
+              - generic [ref=e493]: React Hooks 封装一个列表触底刷新
+            - link "05 代码高亮文章" [ref=e494] [cursor=pointer]:
+              - /url: /posts/code-highlight-test
+              - generic [ref=e495]: "05"
+              - generic [ref=e496]: 代码高亮文章
+          - link "查看全部文章 →" [ref=e497] [cursor=pointer]:
+            - /url: /posts
+  - contentinfo [ref=e498]:
+    - generic [ref=e499]:
+      - generic [ref=e500]:
+        - generic [ref=e501]:
+          - link "BlockCoder" [ref=e502] [cursor=pointer]:
+            - /url: /
+            - generic [ref=e508]: BlockCoder
+          - paragraph [ref=e509]: 方块世界的代码师。记录与分享前端开发、全栈技术和编程实践的个人博客。
+        - generic [ref=e510]:
+          - paragraph [ref=e511]: 导航
+          - list [ref=e512]:
+            - listitem [ref=e513]:
+              - link "所有文章" [ref=e514] [cursor=pointer]:
+                - /url: /posts
+            - listitem [ref=e515]:
+              - link "文章分类" [ref=e516] [cursor=pointer]:
+                - /url: /categories
+            - listitem [ref=e517]:
+              - link "标签云" [ref=e518] [cursor=pointer]:
+                - /url: /tags
+            - listitem [ref=e519]:
+              - link "关于" [ref=e520] [cursor=pointer]:
+                - /url: /about
+        - generic [ref=e521]:
+          - paragraph [ref=e522]: 联系
+          - list [ref=e523]:
+            - listitem [ref=e524]:
+              - link "1801256646ljc@gmail.com" [ref=e525] [cursor=pointer]:
+                - /url: mailto:1801256646ljc@gmail.com
+      - generic [ref=e526]:
+        - paragraph [ref=e527]: © 2026 BlockCoder. All rights reserved.
+        - paragraph [ref=e528]: Built with Next.js & TypeScript

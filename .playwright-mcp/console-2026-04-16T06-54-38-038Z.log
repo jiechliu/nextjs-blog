@@ -1,0 +1,7 @@
+[     487ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom.development.js:38246
+[    2106ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://giscus.app/api/discussions?repo=jiechliu%2Fnextjs-blog&term=posts%2Fopenspace-self-evolving-agent&category=General&number=0&strict=false&last=15:0
+[    2171ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://giscus.app/api/discussions?repo=jiechliu%2Fnextjs-blog&term=posts%2Fopenspace-self-evolving-agent&category=General&number=0&strict=false&first=15:0
+[    2175ms] [WARNING] [giscus] Discussion not found. A new discussion will be created if a comment/reaction is submitted. @ https://giscus.app/client.js:6
+[    2175ms] [WARNING] [giscus] Discussion not found. A new discussion will be created if a comment/reaction is submitted. @ https://giscus.app/client.js:6
+[    2223ms] [WARNING] [giscus] Discussion not found. A new discussion will be created if a comment/reaction is submitted. @ https://giscus.app/client.js:6
+[    2223ms] [WARNING] [giscus] Discussion not found. A new discussion will be created if a comment/reaction is submitted. @ https://giscus.app/client.js:6

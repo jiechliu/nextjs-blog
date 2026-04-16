@@ -1,0 +1,575 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e4]:
+      - link "BlockCoder" [ref=e5] [cursor=pointer]:
+        - /url: /
+        - generic [ref=e11]: BlockCoder
+      - navigation "主导航" [ref=e12]:
+        - link "首页" [ref=e13] [cursor=pointer]:
+          - /url: /
+        - link "文章" [ref=e14] [cursor=pointer]:
+          - /url: /posts
+        - link "分类" [ref=e15] [cursor=pointer]:
+          - /url: /categories
+        - link "标签" [ref=e16] [cursor=pointer]:
+          - /url: /tags
+        - link "关于" [ref=e17] [cursor=pointer]:
+          - /url: /about
+        - link "AI" [ref=e18] [cursor=pointer]:
+          - /url: /ai-chat
+      - generic [ref=e19]:
+        - 'button "跟随系统 (当前: 浅色)" [ref=e20] [cursor=pointer]':
+          - img [ref=e21]
+        - button "打开菜单" [ref=e27] [cursor=pointer]:
+          - img [ref=e28]
+  - main [ref=e29]:
+    - generic [ref=e31]:
+      - navigation "面包屑" [ref=e32]:
+        - list [ref=e33]:
+          - listitem [ref=e34]:
+            - link "首页" [ref=e35] [cursor=pointer]:
+              - /url: /
+            - generic [ref=e36]: /
+          - listitem [ref=e37]:
+            - link "文章" [ref=e38] [cursor=pointer]:
+              - /url: /posts
+            - generic [ref=e39]: /
+          - listitem [ref=e40]:
+            - generic [ref=e41]: OpenSpace：给你的 AI Agent 装上自进化引擎，Token 消耗直降 46%
+      - generic [ref=e42]:
+        - link "开发工具" [ref=e43] [cursor=pointer]:
+          - /url: /categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7
+        - generic [ref=e44]: ·
+        - time [ref=e45]:
+          - img "calendar" [ref=e46]:
+            - img [ref=e47]
+          - text: 2026年4月16日
+        - generic [ref=e49]: ·
+        - generic [ref=e50]:
+          - img "clock-circle" [ref=e51]:
+            - img [ref=e52]
+          - text: 约 10 分钟
+      - heading "OpenSpace：给你的 AI Agent 装上自进化引擎，Token 消耗直降 46%" [level=1] [ref=e55]
+      - paragraph [ref=e56]: 港大 HKUDS 实验室开源的 OpenSpace 通过 MCP 协议接入 Claude Code、Cursor 等工具，让 AI Agent 像人一样从经验中学习——成功路径自动封装为 Skill，下次同类任务直接复用，无需重复推理。
+      - generic [ref=e57]:
+        - link "#AI" [ref=e58] [cursor=pointer]:
+          - /url: /tags/ai
+        - link "#Claude Code" [ref=e59] [cursor=pointer]:
+          - /url: /tags/claude-code
+        - link "#MCP" [ref=e60] [cursor=pointer]:
+          - /url: /tags/mcp
+        - link "#Agent" [ref=e61] [cursor=pointer]:
+          - /url: /tags/agent
+        - link "#工具推荐" [ref=e62] [cursor=pointer]:
+          - /url: /tags/%E5%B7%A5%E5%85%B7%E6%8E%A8%E8%8D%90
+        - link "#工程化" [ref=e63] [cursor=pointer]:
+          - /url: /tags/%E5%B7%A5%E7%A8%8B%E5%8C%96
+    - generic [ref=e66]:
+      - generic [ref=e67]:
+        - article [ref=e68]:
+          - generic [ref=e70]:
+            - heading "AI Agent 最大的浪费：重复犯同一个错" [level=2] [ref=e71]
+            - paragraph [ref=e72]: 你有没有遇到过这种情况：同一个任务，上周让 Claude 做了一遍，今天重新开一个会话，它从头推理，走了一样的弯路，甚至犯了一样的错误。
+            - paragraph [ref=e73]:
+              - text: 这不是 AI 变笨了——而是它
+              - strong [ref=e74]: 根本没有记忆
+              - text: 。
+            - paragraph [ref=e75]: 每次新会话，Agent 都从零开始。昨天花了 2000 个 Token 才摸索出的正确路径，今天继续花 2000 个 Token 重走一遍。团队里有多个 Agent 在同时工作？每个人各自重复摸索，互不共享。
+            - paragraph [ref=e76]:
+              - strong [ref=e77]:
+                - link "OpenSpace" [ref=e78] [cursor=pointer]:
+                  - /url: https://github.com/HKUDS/OpenSpace
+              - text: 就是为了解决这个问题。
+            - paragraph [ref=e79]:
+              - text: 由香港大学数据智能实验室（HKUDS）开源，MIT 协议，2026 年 3 月发布。在 GDPVal 基准测试（44 种职业、220 个真实专业任务）中，实测
+              - strong [ref=e80]: Token 消耗减少 46%
+              - text: ，任务质量提升 30 个百分点。
+            - separator [ref=e81]
+            - heading "核心理念：让 Agent 像人一样积累经验" [level=2] [ref=e82]
+            - paragraph [ref=e83]:
+              - text: OpenSpace 的核心是一个
+              - strong [ref=e84]: 自进化 Skill 引擎
+              - text: 。
+            - paragraph [ref=e85]: 它的工作方式很直觉：
+            - list [ref=e86]:
+              - listitem [ref=e87]:
+                - generic [ref=e89]:
+                  - strong [ref=e90]: 冷启动
+                  - text: ：第一次执行某类任务，Agent 从头完整推理，消耗正常数量的 Token
+              - listitem [ref=e91]:
+                - generic [ref=e93]:
+                  - strong [ref=e94]: 经验提取
+                  - text: ：任务完成后，OpenSpace 自动分析执行过程，将成功路径提炼为可复用的 Skill
+              - listitem [ref=e95]:
+                - generic [ref=e97]:
+                  - strong [ref=e98]: 热复用
+                  - text: ：下次遇到同类任务，直接检索并注入已验证的 Skill，跳过重复推理
+            - paragraph [ref=e99]: 这不是简单的缓存——Skill 本身也在持续进化：
+            - table [ref=e101]:
+              - rowgroup [ref=e102]:
+                - row "进化模式 触发条件 结果" [ref=e103]:
+                  - columnheader "进化模式" [ref=e104]
+                  - columnheader "触发条件" [ref=e105]
+                  - columnheader "结果" [ref=e106]
+              - rowgroup [ref=e107]:
+                - row "FIX Skill 执行失败 自动分析报错，生成修复版本" [ref=e108]:
+                  - cell "FIX" [ref=e109]:
+                    - strong [ref=e110]: FIX
+                  - cell "Skill 执行失败" [ref=e111]
+                  - cell "自动分析报错，生成修复版本" [ref=e112]
+                - row "DERIVED 任务成功但有改进空间 提取更优路径，生成改进版 Skill" [ref=e113]:
+                  - cell "DERIVED" [ref=e114]:
+                    - strong [ref=e115]: DERIVED
+                  - cell "任务成功但有改进空间" [ref=e116]
+                  - cell "提取更优路径，生成改进版 Skill" [ref=e117]
+                - row "CAPTURED 首次从头推理成功的全新任务 抽象为全新 Skill 存入库中" [ref=e118]:
+                  - cell "CAPTURED" [ref=e119]:
+                    - strong [ref=e120]: CAPTURED
+                  - cell "首次从头推理成功的全新任务" [ref=e121]
+                  - cell "抽象为全新 Skill 存入库中" [ref=e122]
+            - separator [ref=e123]
+            - heading "Token 节省：各类任务实测数据" [level=2] [ref=e124]
+            - paragraph [ref=e125]: 在 GDPVal 基准测试中，Phase 2（复用 Skill）相比 Phase 1（首次推理）的节省幅度：
+            - table [ref=e127]:
+              - rowgroup [ref=e128]:
+                - row "任务类型 Token 节省 原因" [ref=e129]:
+                  - columnheader "任务类型" [ref=e130]
+                  - columnheader "Token 节省" [ref=e131]
+                  - columnheader "原因" [ref=e132]
+              - rowgroup [ref=e133]:
+                - row "文件与文书处理 56% 文档结构、错误恢复路径已固化" [ref=e134]:
+                  - cell "文件与文书处理" [ref=e135]
+                  - cell "56%" [ref=e136]:
+                    - strong [ref=e137]: 56%
+                  - cell "文档结构、错误恢复路径已固化" [ref=e138]
+                - row "合规与表单填写 51% PDF 生成管道整体复用" [ref=e139]:
+                  - cell "合规与表单填写" [ref=e140]
+                  - cell "51%" [ref=e141]:
+                    - strong [ref=e142]: 51%
+                  - cell "PDF 生成管道整体复用" [ref=e143]
+                - row "媒体制作 46% ffmpeg 参数和回退路径已记录" [ref=e144]:
+                  - cell "媒体制作" [ref=e145]
+                  - cell "46%" [ref=e146]:
+                    - strong [ref=e147]: 46%
+                  - cell "ffmpeg 参数和回退路径已记录" [ref=e148]
+                - row "工程项目 43% 跨项目协调 Skill 通用化" [ref=e149]:
+                  - cell "工程项目" [ref=e150]
+                  - cell "43%" [ref=e151]:
+                    - strong [ref=e152]: 43%
+                  - cell "跨项目协调 Skill 通用化" [ref=e153]
+                - row "总体平均 45.9% —" [ref=e154]:
+                  - cell "总体平均" [ref=e155]:
+                    - strong [ref=e156]: 总体平均
+                  - cell "45.9%" [ref=e157]:
+                    - strong [ref=e158]: 45.9%
+                  - cell "—" [ref=e159]
+            - separator [ref=e160]
+            - heading "安装" [level=2] [ref=e161]
+            - heading "前置条件" [level=3] [ref=e162]
+            - list [ref=e163]:
+              - listitem [ref=e164]:
+                - generic [ref=e166]: Python 环境
+              - listitem [ref=e167]:
+                - generic [ref=e169]: Node.js ≥ 20（可选，仅在需要本地 Dashboard 时需要）
+            - heading "安装 OpenSpace" [level=3] [ref=e170]
+            - paragraph [ref=e171]:
+              - strong [ref=e172]: 推荐：稀疏克隆
+              - text: （仓库中的
+              - code [ref=e173]: "`assets/`"
+              - text: 目录约 50MB，国内网络建议跳过）
+            - generic [ref=e175]:
+              - generic [ref=e176]:
+                - generic [ref=e177]: bash
+                - button "复制" [ref=e178] [cursor=pointer]:
+                  - img [ref=e179]
+                  - generic [ref=e181]: 复制
+              - code [ref=e184]:
+                - generic [ref=e185]: "1"
+                - text: git clone --filter=blob:none --sparse https://github.com/HKUDS/OpenSpace.git
+                - generic [ref=e186]: "2"
+                - text: cd OpenSpace
+                - generic [ref=e187]: "3"
+                - text: git sparse-checkout set '/*' '!assets/'
+                - generic [ref=e188]: "4"
+                - text: pip install -e .
+                - generic [ref=e189]: "5"
+                - generic [ref=e190]: "6"
+                - text: "# 验证安装"
+                - generic [ref=e191]: "7"
+                - text: openspace-mcp --help
+            - paragraph [ref=e192]:
+              - strong [ref=e193]: 标准克隆
+              - text: （网络良好时）：
+            - generic [ref=e195]:
+              - generic [ref=e196]:
+                - generic [ref=e197]: bash
+                - button "复制" [ref=e198] [cursor=pointer]:
+                  - img [ref=e199]
+                  - generic [ref=e201]: 复制
+              - code [ref=e204]:
+                - generic [ref=e205]: "1"
+                - text: git clone https://github.com/HKUDS/OpenSpace.git
+                - generic [ref=e206]: "2"
+                - text: cd OpenSpace
+                - generic [ref=e207]: "3"
+                - text: pip install -e .
+            - separator [ref=e208]
+            - heading "接入 Agent（以 Claude Code 为例）" [level=2] [ref=e209]
+            - paragraph [ref=e210]:
+              - text: OpenSpace 通过
+              - strong [ref=e211]: MCP（Model Context Protocol）
+              - text: 协议接入 Agent，支持任何兼容 MCP 的工具，包括 Claude Code、Cursor、OpenClaw 等。
+            - heading "Step 1：配置 MCP 服务器" [level=3] [ref=e212]
+            - paragraph [ref=e213]:
+              - text: 修改 Claude Code 的 MCP 配置文件（通常为
+              - code [ref=e214]: "`~/.claude/claude.json`"
+              - text: 或项目级的
+              - code [ref=e215]: "`.mcp.json`"
+              - text: ），添加 openspace 配置：
+            - generic [ref=e217]:
+              - generic [ref=e218]:
+                - generic [ref=e219]: json
+                - button "复制" [ref=e220] [cursor=pointer]:
+                  - img [ref=e221]
+                  - generic [ref=e223]: 复制
+              - code [ref=e226]:
+                - generic [ref=e227]: "1"
+                - text: "{"
+                - generic [ref=e228]: "2"
+                - text: "\"mcpServers\": {"
+                - generic [ref=e229]: "3"
+                - text: "\"openspace\": {"
+                - generic [ref=e230]: "4"
+                - text: "\"command\": \"openspace-mcp\","
+                - generic [ref=e231]: "5"
+                - text: "\"toolTimeout\": 600,"
+                - generic [ref=e232]: "6"
+                - text: "\"env\": {"
+                - generic [ref=e233]: "7"
+                - text: "\"OPENSPACE_HOST_SKILL_DIRS\": \"/path/to/your/agent/skills\","
+                - generic [ref=e234]: "8"
+                - text: "\"OPENSPACE_WORKSPACE\": \"/path/to/OpenSpace\","
+                - generic [ref=e235]: "9"
+                - text: "\"OPENSPACE_API_KEY\": \"sk-xxx（可选，不填则仅使用本地功能）\""
+                - generic [ref=e236]: "10"
+                - text: "}"
+                - generic [ref=e237]: "11"
+                - text: "}"
+                - generic [ref=e238]: "12"
+                - text: "}"
+                - generic [ref=e239]: "13"
+                - text: "}"
+            - blockquote [ref=e240]:
+              - generic [ref=e241]:
+                - img [ref=e242]
+                - paragraph [ref=e245]:
+                  - strong [ref=e246]: 注意
+                  - text: ：
+                  - code [ref=e247]: "`toolTimeout`"
+                  - text: 务必设置为 600，否则长任务会被超时中断。
+            - heading "Step 2：复制核心 Skill" [level=3] [ref=e248]
+            - paragraph [ref=e249]:
+              - text: 将两个关键 Skill 复制到 Agent 的 skills 目录（
+              - strong [ref=e250]: 缺一不可
+              - text: ）：
+            - generic [ref=e252]:
+              - generic [ref=e253]:
+                - generic [ref=e254]: bash
+                - button "复制" [ref=e255] [cursor=pointer]:
+                  - img [ref=e256]
+                  - generic [ref=e258]: 复制
+              - code [ref=e261]:
+                - generic [ref=e262]: "1"
+                - text: "# Claude Code 的 skills 目录示例（根据实际路径调整）"
+                - generic [ref=e263]: "2"
+                - text: cp -r OpenSpace/openspace/host_skills/delegate-task/ ~/.claude/skills/
+                - generic [ref=e264]: "3"
+                - text: cp -r OpenSpace/openspace/host_skills/skill-discovery/ ~/.claude/skills/
+            - list [ref=e265]:
+              - listitem [ref=e266]:
+                - generic [ref=e268]:
+                  - code [ref=e269]: "`delegate-task`"
+                  - text: ：判断是否将任务委托给 OpenSpace 执行
+              - listitem [ref=e270]:
+                - generic [ref=e272]:
+                  - code [ref=e273]: "`skill-discovery`"
+                  - text: ：在 Skill 库中检索相关 Skill
+            - heading "Step 3：重启并验证" [level=3] [ref=e274]
+            - paragraph [ref=e275]: 重启 Agent 后，询问"当前有哪些可用的 MCP 工具"，确认 openspace 相关工具出现在列表中。
+            - separator [ref=e276]
+            - heading "直接使用（不接入 Agent）" [level=2] [ref=e277]
+            - paragraph [ref=e278]: 除了作为插件，OpenSpace 也可以作为独立的 AI 工作助手直接使用：
+            - paragraph [ref=e279]:
+              - strong [ref=e280]: 交互模式
+              - text: ：
+            - generic [ref=e282]:
+              - generic [ref=e283]:
+                - generic [ref=e284]: bash
+                - button "复制" [ref=e285] [cursor=pointer]:
+                  - img [ref=e286]
+                  - generic [ref=e288]: 复制
+              - code [ref=e291]:
+                - generic [ref=e292]: "1"
+                - text: openspace
+            - paragraph [ref=e293]:
+              - strong [ref=e294]: 单次任务执行
+              - text: ：
+            - generic [ref=e296]:
+              - generic [ref=e297]:
+                - generic [ref=e298]: bash
+                - button "复制" [ref=e299] [cursor=pointer]:
+                  - img [ref=e300]
+                  - generic [ref=e302]: 复制
+              - code [ref=e305]:
+                - generic [ref=e306]: "1"
+                - text: openspace --model "anthropic/claude-sonnet-4-5" --query "分析 GitHub 仓库的代码质量并生成报告"
+            - paragraph [ref=e307]:
+              - strong [ref=e308]: Python API
+              - text: ：
+            - generic [ref=e310]:
+              - generic [ref=e311]:
+                - generic [ref=e312]: python
+                - button "复制" [ref=e313] [cursor=pointer]:
+                  - img [ref=e314]
+                  - generic [ref=e316]: 复制
+              - code [ref=e319]:
+                - generic [ref=e320]: "1"
+                - text: import asyncio
+                - generic [ref=e321]: "2"
+                - text: from openspace import OpenSpace
+                - generic [ref=e322]: "3"
+                - generic [ref=e323]: "4"
+                - text: "async def main():"
+                - generic [ref=e324]: "5"
+                - text: "async with OpenSpace() as cs:"
+                - generic [ref=e325]: "6"
+                - text: result = await cs.execute("创建一个 Docker 容器监控仪表盘")
+                - generic [ref=e326]: "7"
+                - text: print(result["response"])
+                - generic [ref=e327]: "8"
+                - generic [ref=e328]: "9"
+                - text: asyncio.run(main())
+            - separator [ref=e329]
+            - heading "传输模式选择" [level=2] [ref=e330]
+            - paragraph [ref=e331]: OpenSpace 支持三种 MCP 传输模式，根据部署场景选择：
+            - table [ref=e333]:
+              - rowgroup [ref=e334]:
+                - row "模式 适用场景 配置" [ref=e335]:
+                  - columnheader "模式" [ref=e336]
+                  - columnheader "适用场景" [ref=e337]
+                  - columnheader "配置" [ref=e338]
+              - rowgroup [ref=e339]:
+                - 'row "stdio（默认） 本地使用，配置最简单 `\"command\": \"openspace-mcp\"`" [ref=e340]':
+                  - cell "stdio（默认）" [ref=e341]:
+                    - strong [ref=e342]: stdio
+                    - text: （默认）
+                  - cell "本地使用，配置最简单" [ref=e343]
+                  - 'cell "`\"command\": \"openspace-mcp\"`" [ref=e344]':
+                    - code [ref=e345]: "`\"command\": \"openspace-mcp\"`"
+                - 'row "SSE VPS 部署、需要持久连接 `openspace-mcp --transport sse --host 127.0.0.1 --port 8080`" [ref=e346]':
+                  - cell "SSE" [ref=e347]:
+                    - strong [ref=e348]: SSE
+                  - cell "VPS 部署、需要持久连接" [ref=e349]
+                  - 'cell "`openspace-mcp --transport sse --host 127.0.0.1 --port 8080`" [ref=e350]':
+                    - code [ref=e351]: "`openspace-mcp --transport sse --host 127.0.0.1 --port 8080`"
+                - 'row "Streamable HTTP 远程主机，绕开 stdio 超时 `openspace-mcp --transport streamable-http --host 127.0.0.1 --port 8081`" [ref=e352]':
+                  - cell "Streamable HTTP" [ref=e353]:
+                    - strong [ref=e354]: Streamable HTTP
+                  - cell "远程主机，绕开 stdio 超时" [ref=e355]
+                  - 'cell "`openspace-mcp --transport streamable-http --host 127.0.0.1 --port 8081`" [ref=e356]':
+                    - code [ref=e357]: "`openspace-mcp --transport streamable-http --host 127.0.0.1 --port 8081`"
+            - separator [ref=e358]
+            - heading "本地 Dashboard" [level=2] [ref=e359]
+            - paragraph [ref=e360]: OpenSpace 提供可视化面板，展示 Skill 的进化谱系、版本对比和执行统计：
+            - generic [ref=e362]:
+              - generic [ref=e363]:
+                - generic [ref=e364]: bash
+                - button "复制" [ref=e365] [cursor=pointer]:
+                  - img [ref=e366]
+                  - generic [ref=e368]: 复制
+              - code [ref=e371]:
+                - generic [ref=e372]: "1"
+                - text: "# 启动后端"
+                - generic [ref=e373]: "2"
+                - text: openspace-dashboard --port 7788
+                - generic [ref=e374]: "3"
+                - generic [ref=e375]: "4"
+                - text: "# 启动前端（需要 Node.js ≥ 20）"
+                - generic [ref=e376]: "5"
+                - text: cd frontend && npm run dev
+            - paragraph [ref=e377]:
+              - text: 访问
+              - code [ref=e378]: "`http://localhost:5173`"
+              - text: 即可看到完整的 Skill 管理界面。
+            - separator [ref=e379]
+            - heading "云端社区" [level=2] [ref=e380]
+            - paragraph [ref=e381]:
+              - text: OpenSpace 有一个公开的 Skill 共享社区
+              - link "open-space.cloud" [ref=e382] [cursor=pointer]:
+                - /url: https://open-space.cloud
+              - text: ，用户可以上传/下载其他人进化出的 Skill：
+            - generic [ref=e384]:
+              - generic [ref=e385]:
+                - generic [ref=e386]: bash
+                - button "复制" [ref=e387] [cursor=pointer]:
+                  - img [ref=e388]
+                  - generic [ref=e390]: 复制
+              - code [ref=e393]:
+                - generic [ref=e394]: "1"
+                - text: "# 从社区下载 Skill"
+                - generic [ref=e395]: "2"
+                - text: openspace-download-skill <skill_id>
+                - generic [ref=e396]: "3"
+                - generic [ref=e397]: "4"
+                - text: "# 上传自己的 Skill 到社区"
+                - generic [ref=e398]: "5"
+                - text: openspace-upload-skill /path/to/skill/dir
+            - paragraph [ref=e399]: 越多人使用，Skill 库越丰富——这是 OpenSpace 的核心网络效应。
+            - separator [ref=e400]
+            - heading "常见问题" [level=2] [ref=e401]
+            - paragraph [ref=e402]:
+              - strong [ref=e403]: Q：接入后 Agent 没有自动使用 OpenSpace？
+            - paragraph [ref=e404]:
+              - text: 检查
+              - code [ref=e405]: "`delegate-task`"
+              - text: 和
+              - code [ref=e406]: "`skill-discovery`"
+              - text: 是否都已复制到 skills 目录，缺少任何一个都会导致闭环失效。
+            - paragraph [ref=e407]:
+              - strong [ref=e408]: Q：任务执行到一半中断了？
+            - paragraph [ref=e409]:
+              - text: MCP 配置中的
+              - code [ref=e410]: "`toolTimeout`"
+              - text: 是否设置为 600？默认值通常太短，长任务会被超时截断。
+            - paragraph [ref=e411]:
+              - strong [ref=e412]:
+                - text: Q：
+                - code [ref=e413]: "`OPENSPACE_HOST_SKILL_DIRS`"
+                - text: 配置后不生效？
+            - paragraph [ref=e414]:
+              - text: 必须使用绝对路径，不支持
+              - code [ref=e415]: "`~`"
+              - text: 或相对路径。
+            - paragraph [ref=e416]:
+              - strong [ref=e417]: Q：不想用云端功能，只用本地？
+            - paragraph [ref=e418]:
+              - text: 不配置
+              - code [ref=e419]: "`OPENSPACE_API_KEY`"
+              - text: 即可，所有进化的 Skill 仅存储在本地。
+            - separator [ref=e420]
+            - heading "总结" [level=2] [ref=e421]
+            - paragraph [ref=e422]: OpenSpace 解决的是 AI Agent 的"健忘"问题。
+            - paragraph [ref=e423]: 目前市面上大多数 Agent 工具专注于"这次任务做得更好"，而 OpenSpace 专注于"每次任务之后变得更好"。这个区别在长期、高频使用场景下会产生显著差异——越用越快，越用越省。
+            - paragraph [ref=e424]: 对于每天都在用 Claude Code 跑大量任务的开发者，或者需要多个 Agent 协同工作的团队，这个工具值得认真试一下。
+            - paragraph [ref=e425]:
+              - text: 仓库地址：
+              - link "https://github.com/HKUDS/OpenSpace" [ref=e426] [cursor=pointer]:
+                - /url: https://github.com/HKUDS/OpenSpace
+          - generic [ref=e427]:
+            - generic [ref=e428]:
+              - generic [ref=e435]:
+                - paragraph [ref=e436]: JieCheng
+                - paragraph [ref=e437]: 方块世界的代码师
+              - link "← 返回文章列表" [ref=e438] [cursor=pointer]:
+                - /url: /posts
+            - generic [ref=e439]:
+              - link "#AI" [ref=e440] [cursor=pointer]:
+                - /url: /tags/ai
+              - link "#Claude Code" [ref=e441] [cursor=pointer]:
+                - /url: /tags/claude-code
+              - link "#MCP" [ref=e442] [cursor=pointer]:
+                - /url: /tags/mcp
+              - link "#Agent" [ref=e443] [cursor=pointer]:
+                - /url: /tags/agent
+              - link "#工具推荐" [ref=e444] [cursor=pointer]:
+                - /url: /tags/%E5%B7%A5%E5%85%B7%E6%8E%A8%E8%8D%90
+              - link "#工程化" [ref=e445] [cursor=pointer]:
+                - /url: /tags/%E5%B7%A5%E7%A8%8B%E5%8C%96
+        - generic [ref=e448]:
+          - heading "评论讨论" [level=3] [ref=e449]:
+            - img [ref=e450]
+            - text: 评论讨论
+          - generic [ref=e452]: 使用 GitHub 账号登录即可参与讨论
+      - complementary [ref=e453]:
+        - navigation "文章目录" [ref=e454]:
+          - generic [ref=e460]: 目录
+          - generic [ref=e461]:
+            - button "AI Agent 最大的浪费：重复犯同一个错" [ref=e462] [cursor=pointer]
+            - button "核心理念：让 Agent 像人一样积累经验" [ref=e463] [cursor=pointer]
+            - button "Token 节省：各类任务实测数据" [ref=e464] [cursor=pointer]
+            - button "安装" [ref=e465] [cursor=pointer]
+            - button "前置条件" [ref=e466] [cursor=pointer]
+            - button "安装 OpenSpace" [ref=e467] [cursor=pointer]
+            - button "验证安装" [ref=e468] [cursor=pointer]
+            - button "接入 Agent（以 Claude Code 为例）" [ref=e469] [cursor=pointer]
+            - button "Step 1：配置 MCP 服务器" [ref=e470] [cursor=pointer]
+            - button "Step 2：复制核心 Skill" [ref=e471] [cursor=pointer]
+            - button "Claude Code 的 skills 目录示例（根据实际路径调整）" [ref=e472] [cursor=pointer]
+            - button "Step 3：重启并验证" [ref=e473] [cursor=pointer]
+            - button "直接使用（不接入 Agent）" [ref=e474] [cursor=pointer]
+            - button "传输模式选择" [ref=e475] [cursor=pointer]
+            - button "本地 Dashboard" [ref=e476] [cursor=pointer]
+            - button "启动后端" [ref=e477] [cursor=pointer]
+            - button "启动前端（需要 Node.js ≥ 20）" [ref=e478] [cursor=pointer]
+            - button "云端社区" [ref=e479] [cursor=pointer]
+            - button "从社区下载 Skill" [ref=e480] [cursor=pointer]
+            - button "上传自己的 Skill 到社区" [ref=e481] [cursor=pointer]
+            - button "常见问题" [ref=e482] [cursor=pointer]
+            - button "总结" [ref=e483] [cursor=pointer]
+        - generic [ref=e484]:
+          - generic [ref=e490]: 相关推荐
+          - generic [ref=e491]:
+            - link "01 Impeccable：让 AI 告别「通用模板」设计的神器" [ref=e492] [cursor=pointer]:
+              - /url: /posts/impeccable-ai-design-tool
+              - generic [ref=e493]: "01"
+              - generic [ref=e494]: Impeccable：让 AI 告别「通用模板」设计的神器
+            - link "02 Superpowers：把 Claude Code 从代码生成器升级为工程搭档" [ref=e495] [cursor=pointer]:
+              - /url: /posts/superpowers-ai-workflow
+              - generic [ref=e496]: "02"
+              - generic [ref=e497]: Superpowers：把 Claude Code 从代码生成器升级为工程搭档
+            - link "03 NVM 安装教程 - Node.js 版本管理神器" [ref=e498] [cursor=pointer]:
+              - /url: /posts/nvm-installation-guide
+              - generic [ref=e499]: "03"
+              - generic [ref=e500]: NVM 安装教程 - Node.js 版本管理神器
+            - link "04 Vercel部署完整指南：从零到上线" [ref=e501] [cursor=pointer]:
+              - /url: /posts/vercel-deployment-guide
+              - generic [ref=e502]: "04"
+              - generic [ref=e503]: Vercel部署完整指南：从零到上线
+            - link "05 React Hooks 封装一个列表触底刷新" [ref=e504] [cursor=pointer]:
+              - /url: /posts/react-hooks-Infinite-scroll
+              - generic [ref=e505]: "05"
+              - generic [ref=e506]: React Hooks 封装一个列表触底刷新
+          - link "查看全部文章 →" [ref=e507] [cursor=pointer]:
+            - /url: /posts
+  - contentinfo [ref=e508]:
+    - generic [ref=e509]:
+      - generic [ref=e510]:
+        - generic [ref=e511]:
+          - link "BlockCoder" [ref=e512] [cursor=pointer]:
+            - /url: /
+            - generic [ref=e518]: BlockCoder
+          - paragraph [ref=e519]: 方块世界的代码师。记录与分享前端开发、全栈技术和编程实践的个人博客。
+        - generic [ref=e520]:
+          - paragraph [ref=e521]: 导航
+          - list [ref=e522]:
+            - listitem [ref=e523]:
+              - link "所有文章" [ref=e524] [cursor=pointer]:
+                - /url: /posts
+            - listitem [ref=e525]:
+              - link "文章分类" [ref=e526] [cursor=pointer]:
+                - /url: /categories
+            - listitem [ref=e527]:
+              - link "标签云" [ref=e528] [cursor=pointer]:
+                - /url: /tags
+            - listitem [ref=e529]:
+              - link "关于" [ref=e530] [cursor=pointer]:
+                - /url: /about
+        - generic [ref=e531]:
+          - paragraph [ref=e532]: 联系
+          - list [ref=e533]:
+            - listitem [ref=e534]:
+              - link "1801256646ljc@gmail.com" [ref=e535] [cursor=pointer]:
+                - /url: mailto:1801256646ljc@gmail.com
+      - generic [ref=e536]:
+        - paragraph [ref=e537]: © 2026 BlockCoder. All rights reserved.
+        - paragraph [ref=e538]: Built with Next.js & TypeScript
